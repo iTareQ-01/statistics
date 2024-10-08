@@ -4,7 +4,7 @@ This meant to be the page having all home-works for statistics 2024/2025 Cyberse
 # Student ID
 TAREK ELGENDY ID : 1888679
 
-# Homework
+# Homeworks
 All the homeworks links below:
 
 Homework 1: 
