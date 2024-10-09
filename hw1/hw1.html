@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Homework1</title>
-		<script type="module" crossorigin="" src="/src/JavaSimulation.js"></script>
-		<link rel="stylesheet" crossorigin="" href="/src/Style.css">
+		<script src="src/JavaSimulation.js" type="module"></script>
+		<link href="src/Style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -67,23 +67,7 @@
 				<p>The simulation is run using the following code snippet:</p>
 					
 				<pre>        
-					<code>
-          			runSimulation() { const timesteps = [Array.from({ length: this.m }, () =&gt; 0)]  
-					<div class="comment">// Initialize the timesteps array with zeros for each attacker</div>
-				
-					for (let i = 1; i &lt; this.n + 1; i++) {
-					timesteps.push(
-					timesteps[i - 1].map((value) =&gt; (Math.random() &lt; this.p ? value + 1 : value)) <div class="comment">// Increment the value if the attacker succeeds based on probability p</div>
-					)
-					}
-					this.timesteps = timesteps 
-					<div class="comment">// Store the generated timesteps in the component's data</div>
-					this.plotTimesteps() 
-					<div class="comment">// Plot the results of the timesteps</div>
-					this.plotHistogram() 
-					<div class="comment">// Ensure this method is called after the simulation to plot the histogram</div>
-					}
-        			</code>
+					<p>To put Photo Here</p>
       			</pre>
 	  
 				<p> This function initializes the simulation by creating an array of timesteps, where 
@@ -101,26 +85,7 @@
 					low-order bits, which helps to minimize floating-point arithmetic errors.</p>
 					
 				<pre>      
-					<code>
-        			computeMean(values) { let sum = 0; 
-					<div class="comment">// Initialize the sum of values</div>
-          			let c = 0; 
-					<div class="comment">// A running compensation for lost low-order bits to improve numerical stability</div>
-          
-          			values.forEach((value) =&gt; {
-            		const y = value - c; 
-					<div class="comment">// Adjust the current value by subtracting the compensation</div>
-            		const t = sum + y; 
-					<div class="comment">// Add the adjusted value to the running total</div>
-            		c = t - sum - y; 
-					<div class="comment"> // Update the compensation for lost low-order bits</div>
-            		sum = t; 
-					<div class="comment">// Update the sum with the new total</div>
-          			});
-          
-          			return sum / values.length;
-        			}
-      				</code>
+					<p>To put Photo Here</p>
     			</pre>
 
 				<p> The standard deviation is computed using compensation for both the mean 
@@ -128,33 +93,7 @@
 					calculation, which becomes important for large datasets. </p>
 					
 				<pre>        
-					<code>
-          			computeStandardDeviation(values) {
-            		const n = values.length;
-            		if (n &lt;= 1) return 0; // 
-					<div class="comment">If there's one or no value, standard deviation is 0</div>
-            		let mean = 0; // 
-					<div class="comment">Initialize mean</div>
-            		let M2 = 0;   // 
-					<div class="comment">Initialize sum of squares of differences from the mean</div>
-
-            		values.forEach((value, i) =&gt; {
-					const delta = value - mean; // 
-					<div class="comment">Difference from the current mean</div>
-					mean += delta / (i + 1);    // 
-					<div class="comment">Update the mean incrementally</div>
-					const delta2 = value - mean; // 
-					<div class="comment">Difference from the new mean</div>
-					M2 += delta * delta2;        // 
-					<div class="comment">Update the sum of squares</div>
-					});
-
-            		const variance = M2 / (n - 1); // 
-					<div class="comment">Calculate sample variance</div>
-            		return Math.sqrt(variance);    // 
-					<div class="comment">Return the standard deviation</div>
-          			}
-        			</code>
+					<p>To put Photo Here</p>
       			</pre>
 	  
 	  			<p> The mode is determined by counting the frequency of each success value 
