@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Homework1</title>
-		<script src="src/JavaSimulation.js" type="module"></script>
-		<link href="src/Style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Homework1</title>
+	<link href="src/Style.css" rel="stylesheet">
+
+	<!-- FlavioCanofari Header -->
+
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- start theme color meta headers -->
+    <!-- <meta name="theme-color" content="#151515">
+    <meta name="msapplication-navbutton-color" content="#151515">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
 </head>
 
 <body>
@@ -14,120 +25,421 @@
 			<div class="hw">
 				<h1>Homework 1</h1>
 				<h2>Theory</h2>
-				<h3>Basic Notions in Statistics</h3>
-				<p> In statistics, a <em>population</em> refers to the entire set of 
-					individuals or items that we are interested in studying. <br> A <em>statistical unit</em> is a 
-					single member of this population. The <em>distribution</em> of a dataset describes 
-					how the values are spread or distributed. <br><em>Frequency</em> refers to how often 
-					a particular value appears in a dataset. It can be expressed in different forms: <em>absolute frequency</em> is 
-					the count of occurrences, <em>relative frequency</em> is the proportion of occurrences
-					relative to the total number of observations, and <em>percentage frequency</em> is the
-					relative frequency expressed as a percentage. </p>
+				<h3>Basic Notions in Statistics:</h3>
+				<p>
+				1. <b><em>Population</em></b> refers to the entire set of individuals or items that we are interested in studying.<br><br> 
+				2. <b><em>Statistical unit</em></b> is a single member of this population.<br><br>
+				3. <b><em>Distribution</em></b> of a dataset describes how the values are spread or distributed.<br><br>
+				4. <b><em>Frequency</em></b> refers to how often a particular value appears in a dataset. It can be expressed in different forms: <br>
+				- Absolute frequency is the count of occurrences.<br>
+				- Relative frequency is the proportion of occurrences relative to the total number of observations.<br>
+				- Percentage frequency is the relative frequency expressed as a percentage.<br>
+				</p>
 
 				<h3>Notion of Arithmetic Average:</h3>
-				<p> The arithmetic average, or mean, is a measure of central tendency that is calculated
-					by summing all the values in a dataset and dividing by the number of values. However,
-					when dealing with floating-point numbers, computational problems such as <em>floating
-					-point representation errors</em> and <em>catastrophic cancellation</em> can occur.
-					These issues arise due to the limited precision with which computers represent 
-					real numbers, leading to inaccuracies in calculations. </p>
+				<p> 
+				The arithmetic average, or mean, is a measure of central tendency that is calculated
+				by summing all the values in a dataset and dividing by the number of values. However,
+				when dealing with floating-point numbers, computational problems such as <em>floating
+				-point representation errors</em> and <em>catastrophic cancellation</em> can occur. <br>
+				These issues arise due to the limited precision with which computers represent 
+				real numbers, leading to inaccuracies in calculations. 
+				</p>
 
 				<h3>Numerical Solution (Knuth's Algorithm):</h3>
-				<p> To address these computational problems, Knuth's compensated summation algorithm can
+				<p> 
+				To address these computational problems, Knuth's compensated summation algorithm can
 				be used. This algorithm improves the accuracy of the sum by keeping a running 
 				compensation for lost low-order bits, thereby minimizing the errors that occur 
-				during floating-point arithmetic operations. </p>
+				during floating-point arithmetic operations. 
+				</p>
 
-				<h2>Practice</h2>
-				<p> We have n servers with m attackers. The hacker has probability p to penetrate each 
-					server. Make a graphical representation (line flat if hacker doesn't penetrate and 
-					a jump to 1 if he penetrates), try different n,m,p. At time n we want to count how 
-					many reached each level. </p>
-
-				<p> To solve this problem, I simulated the penetration attempts over a series of n 
-					timesteps. The approach involves initializing a matrix where each row represents a 
-					timestep (or server) and each column represents an attacker. </p>
+				<h3>Servers-Hackers Model:</h3>
+				<p> 
+				We have n servers with m attackers. The hacker has probability p to penetrate each 
+				server. Make a graphical representation (line flat if hacker doesn't penetrate and 
+				a jump to 1 if he penetrates), try different n,m,p. At time n we want to count how 
+				many reached each level. 
+				</p>
+					 
+				<p>
+				We are simulating a scenario with n servers and m attackers, where each hacker has a probability p of
+				successfully penetrating any given server. The goal is to visually represent this process: if a hacker
+				fails to penetrate a server, the line remains flat, while a successful breach will cause a jump to 1 on
+				the graph. By experimenting with different values of n, m and p we can observe how often the hacker
+				reaches different levels of penetration over time. 
+				</p>
+	
+				<h3>Please fill the forms below to generate the chart:</h3>
+	
+				<!-- ------------- class (mb-4, mb-3, form-control) to control the chart ------------- -->
+				<form id="valuesForm">
+					<div class="input-group">
+						<label for="integer1" >Number of servers</label>
+						<input value=50 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
+							required>
+					</div>
+	
+					<div class="input-group">
+						<label for="integer2" >Number of attackers</label>
+						<input value=100 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
+							required>
+					</div>
+	
+					<div class="input-group">
+						<label for="decimal" >Probability to penetrate the servers  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+						<input value=0.5 type="number" class="form-control" id="decimal" step="0.1" min="0" max="1"
+							placeholder="Please insert a decimal number between 0 and 1" required>
+					</div>
 					
-				<p> At each timestep, the attackers try to penetrate the server. If an attacker succeeds,
-					the value at the current timestep for that attacker is incremented by 1. This is 
-					repeated for each attacker and each timestep up to n. </p>
+					<!-- Here we changed the button class -->
+					<div class="run-button-container">
+						<button type="submit" class="run-button" style="margin-top: 10px;">Generate</button>
+					</div>
+				</form>
 					
-				<p> This is visualized using a line chart where each line represents an attacker's 
-					progress over time. Hovering over a point on the line shows the number of successful 
-					attempts for that attacker at that timestep. On each timestep, the total number of 
-					breaches is calculated by summing the values of all attackers at that timestep. 
-					This is shown on the x-axis. </p>
-					
-				<p> Additionally, a histogram is created to represent the distribution of successes 
-					among the attackers at the final timestep. The histogram shows how many attackers 
-					achieved each possible number of successes, from 0 to n. The length of each bar in 
-					the histogram is proportional to the number of attackers who achieved that number 
-					of successes. </p>
-
-				<p>The simulation is run using the following code snippet:</p>
-					
-				<pre>        
-					<p>To put Photo Here</p>
-      			</pre>
-	  
-				<p> This function initializes the simulation by creating an array of timesteps, where 
-				each timestep is an array representing the state of each attacker. For each timestep,
-		 		it iterates over the attackers and randomly decides if an attacker successfully 
-		 		penetrates the server based on the probability p. If successful, the attacker's 
-		 		count is incremented. </p>
-		 
-				<p> The mean, standard deviation, and mode are calculated 
-				based on the final timestep's success values. To ensure numerical stability, 
-				Knuth's compensated summation algorithm is used for the mean and standard 
-				deviation calculations. </p>
-				
-				<p> The mean is calculated using a running sum with compensation for lost 
-					low-order bits, which helps to minimize floating-point arithmetic errors.</p>
-					
-				<pre>      
-					<p>To put Photo Here</p>
-    			</pre>
-
-				<p> The standard deviation is computed using compensation for both the mean 
-					and the sum of squares. This way we have a more accurate variance 
-					calculation, which becomes important for large datasets. </p>
-					
-				<pre>        
-					<p>To put Photo Here</p>
-      			</pre>
-	  
-	  			<p> The mode is determined by counting the frequency of each success value 
-					and identifying the value(s) with the highest frequency. </p>
-					
-				<div class="input-group">
-					<label for="n">Number of servers (n):</label>
-					<input type="number" id="n" min="1" step="1">
-				</div>
-				
-				<div class="input-group">
-					<label for="m">Number of attackers (m):</label>
-					<input type="number" id="m" min="1" step="1">
-				</div>
-				
-				<div class="input-group">
-					<label for="p">Probability of penetration (p):</label>
-					<input type="number" id="p" min="0" max="1" step="0.01">
-				</div>
-					
-				<div class="run-button-container">
-					<button class="run-button"> Run Simulation </button> 
-					Attention: the button is disabled for 3 seconds after clicking to prevent the canvas 
-					crashing. 
+				<!-- ------------- ID to control the chart ------------- -->
+				<div id="chartContainer">
+					<div class="singleChartOne">
+						<canvas id="myChart"></canvas>
+					</div>
+					<div class="singleChartTwo">
+						<canvas id="mySecondChart"></canvas>
+					</div>
 				</div>
 
-				<div class="charts-container">
-					<canvas id="timestepsChart" style="box-sizing: border-box; 
-					display: block; height: 550px; width: 379px;" width="474" height="687"></canvas>
-					<canvas id="histogramChart" style="box-sizing: border-box; 
-					display: block; height: 550px; width: 379px;" width="474" height="687"></canvas>
-				</div>
+				<h2>How code implemented</h2>
+				<h3>Creating Charts:</h3>
+				<p> 
+				The createChart() function is responsible for creating the first chart. This chart shows, for each
+				attacker, how many servers he managed to penetrate as he tried! The chart axes are as follow:<br />
+				1. The x-axis represents the number of servers.<br />
+				2. The y-axis represents the number of successful penetrations.<br />
+				3. Each line corresponds to an attacker and shows how the number of servers penetrated varies as it
+				progresses.<br />
+				The createSecondChart() function creates the second chart, which shows how many attackers have succeeded
+				in penetrating a certain number of servers. The chart axes are as follow:<br />
+				1. The x-axis represents the number of successful penetrations (how many servers an attacker managed to
+				penetrate).<br />
+				2. The y-axis represents the number of attackers who reached that number of servers.<br />
+				</p>
+				<img src="./src/1_Creating_Charts.png">
+
+				<h3>Data Generation:</h3>
+				<p> 
+				This function simulates the attack process.<br />
+				1. For each attacker, an attack against a list of servers is simulated and a calculation is made of how many
+				servers it manages to penetrate.<br />
+				2. For each server, a random value between 0 and 1 is generated using Math.random(). If this value is less than
+				the probability of success (indicated by the user), the attacker succeeds in penetrating that server.<br />
+				3. The results are stored in a 'dataset', where each attacker has a line tracking how many servers he has
+				penetrated as the attack progresses.<br />
+				</p>
+				<img src="./src/2_Generating_Data.png">
+
+				<h3>Average calculation:</h3>
+				<p>
+				This function calculates the average number of servers penetrated by all attackers using recursion.<br />
+				The idea is to gradually add up the values of servers penetrated by each attacker and update the average
+				step by step.<br />
+				</p>
+				<img src="./src/3_Computing_Average.png">
+
+				<h3>HTML form managing data from user:</h3>
+				<p>
+				When the user submits the form, the values entered for the number of servers (integer1), the number of
+				attackers (integer2) and the probability of success (p) are collected.
+				These values are used to generate the attack data and then update the graphs.
+				After the graphs have been created, the value of the average number of servers penetrated by attackers is
+				shown.<br />
+				</p>
+				<img src="./src/4_HTML_Form_toGetData_FromUser.png">
+
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function adjustMargin() {
+			var element = document.querySelector('.home');
+			var screenWidth = window.innerWidth;
+
+			if (screenWidth > 1400) {
+				element.style.marginLeft = "-20%";
+			} else if (screenWidth < 1000) {
+				element.style.marginLeft = "0px";
+			} else if (screenWidth > 1000 & screenWidth < 1080) {
+				element.style.marginLeft = "-40px";
+			} else {
+				newMargin = -((screenWidth - 1000) / 2);
+				element.style.marginLeft = newMargin + "px";
+			}
+		}
+		adjustMargin();
+		window.addEventListener('resize', adjustMargin);
+	</script>
+	<script>
+		let myChart = null;
+		let mySecondChart = null;
+
+		function createChart(servers, attackers, attackerDatatsets) {
+
+			if (myChart !== null) {
+				myChart.destroy();
+			}
+
+			const ctx = document.getElementById('myChart').getContext('2d');
+			myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: servers,
+					datasets: attackerDatatsets
+				},
+				options: {
+					maintainAspectRatio: false,
+					responsive: true,
+					plugins: {
+						legend: {
+							display: false,
+							labels: {
+								color: 'black'
+							}
+						}
+					},
+					scales: {
+						x: {
+							display: true,
+							title: {
+								display: true,
+								text: 'servers',
+								color: "black",
+								font: {
+									size: 18,
+								},
+							},
+							position: 'bottom',
+							grid: {
+								color: 'black'
+							},
+							ticks: {
+								color: 'black'
+							}
+						},
+						y: {
+							display: true,
+							title: {
+								display: true,
+								text: 'successful breach',
+								color: "black",
+								font: {
+									size: 18,
+								},
+							},
+							position: 'right',
+							min: 0,
+							max: servers.length,
+							grid: {
+								color: 'black'
+							},
+							ticks: {
+								stepSize: 1,
+								color: 'black'
+							}
+						}
+					}
+				}
+			});
+		}
+
+		function createSecondChart(servers, penetrationCounts) {
+			if (mySecondChart !== null) {
+				mySecondChart.destroy();
+			}
+
+			const secondCtx = document.getElementById('mySecondChart').getContext('2d');
+
+			mySecondChart = new Chart(secondCtx, {
+
+				type: 'bar',
+				data: {
+					labels: servers,
+					datasets: [{
+						label: "Number of attackers for each level",
+						borderColor: 'rgba(75, 192, 192, 1)',
+						borderWidth: 2,
+						radius: 4,
+						pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+						backgroundColor: "rgba(75, 192, 192, 1)",
+						fill: true,
+						data: penetrationCounts,
+					}]
+
+				},
+				options: {
+					maintainAspectRatio: false,
+					responsive: true,
+					indexAxis: 'y',
+					plugins: {
+						legend: {
+							display: false,
+							labels: {
+								color: 'black'
+							}
+						}
+					},
+					scales: {
+						x: {
+							display: true,
+							title: {
+								display: true,
+								text: 'Number of attackers for each breach level',
+								color: "black",
+								font: {
+									size: 18,
+								},
+							},
+							position: 'bottom',
+							grid: {
+								color: 'black'
+							},
+							ticks: {
+								color: 'black',
+								stepSize: 1
+							}
+						},
+						y: {
+							display: true,
+							beginAtZero: true,
+							reverse: true,
+							title: {
+								display: false,
+								text: 'successful breach',
+								color: "black",
+								font: {
+									size: 18,
+								},
+							},
+
+							position: 'left',
+							grid: {
+								color: 'black'
+							},
+							min: 0,
+							max: servers.length,
+							ticks: {
+								callback: function (value, index, values) {
+									return '';
+								},
+								color: 'black',
+							}
+						}
+					}
+
+				},
+				maintainAspectRatio: false, // Keep this false to make the chart responsive
+			});
+		}
+
+		function computeAverage(penCount, index, currentMean) {
+
+			if (index >= penCount.length) {
+				return currentMean;
+			}
+
+			const value = penCount[index];
+
+			if (!isNaN(value)) {
+				index = index + 1;
+				currentMean = currentMean + (value - currentMean) / index;
+			}
+
+			return computeAverage(penCount, index, currentMean);
+		}
+
+		function generateDataset(attackers, servers, probability) {
+
+			let dataset = [];
+
+			for (let i = 1; i <= attackers.length; i++) {
+				let attackerData = [];
+				attackerData.push(0);
+				let max = 0;
+
+				for (let j = 1; j < servers.length; j++) {
+
+					let randomValue = Math.random();
+
+					let value = max;
+					if (randomValue < probability) {
+						max = max + 1;
+						value = max;
+					}
+
+					attackerData.push(value);
+				}
+
+				dataset.push({
+					label: `Attacker ${i}`,
+					data: attackerData,
+					borderColor: generateRandomHexColor(),
+					borderWidth: 2,
+					fill: false,
+					stepped: true,
+					pointRadius: 1,
+					pointHoverRadius: 1
+				});
+			}
+
+			return dataset;
+		}
+
+
+		function generateRandomHexColor() {
+			let letters = '0123456789ABCDEF';
+			let color = '#';
+			for (let i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+
+
+		document.getElementById('valuesForm').addEventListener('submit', function (event) {
+			event.preventDefault();
+
+			const integer1 = parseInt(document.getElementById('integer1').value);
+			const integer2 = parseInt(document.getElementById('integer2').value);
+			const p = parseFloat(document.getElementById('decimal').value);
+
+			const servers = [];
+			for (let i = 0; i <= integer1; i++) {
+				servers.push(i);
+			}
+
+			const attackers = [];
+			for (let i = 1; i <= integer2; i++) {
+				attackers.push(i);
+			}
+
+			attackerDatatsets = generateDataset(attackers, servers, p)
+
+			const penetrationCounts = Array(servers.length).fill(0);
+			let attackerPenetrations = []
+			attackerDatatsets.forEach((attacker) => {
+				const finalPenetrations = attacker.data[attacker.data.length - 1];
+				attackerPenetrations.push(finalPenetrations)
+				penetrationCounts[finalPenetrations ]++;
+			});
+
+			const finalMean = computeAverage(attackerPenetrations, 0, 0, 0);
+			const average = finalMean ? finalMean.toFixed(2) : 0;
+
+			createChart(servers, attackers, attackerDatatsets);
+			createSecondChart(servers, penetrationCounts);
+			document.getElementById('result').innerHTML = `The avarage number of server successfully breached is ${average}`;
+			document.getElementById('chartContainer').style.display = 'flex';
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   
 </body>
