@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/statistics/assets/css/style.css?v=2338855d07a80ee1e002e9f9dc12344203d0c366">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+  <!-- Setup theme-color -->
+  <!-- start theme color meta headers -->
+  <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- end theme color meta headers -->
+
+
+  <!-- Setup Google Analytics -->
+
+
+
+  <!-- You can set your favicon here -->
+  <!-- link rel="shortcut icon" type="image/x-icon" href="/statistics/favicon.ico" -->
+
+  <!-- end custom head snippets -->
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+  <title>Statistics 2024/2025</title>
+  <meta name="generator" content="Jekyll v3.10.0" />
+  <meta property="og:title" content="Student Info:" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description"
+    content="This website contains all the Statistics homework done by me for the year 2024/2025." />
+  <meta property="og:description"
+    content="This website contains all the Statistics homework done by me for the year 2024/2025." />
+  <link rel="canonical" href="https://flaviocanofari.github.io/statistics/" />
+  <meta property="og:url" content="https://flaviocanofari.github.io/statistics/" />
+  <meta property="og:site_name" content="Statistics 2024/2025" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Student Info:" />
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"This website contains all the Statistics homework done by me for the year 2024/2025.","headline":"Student Info:","name":"Statistics 2024/2025","url":"https://flaviocanofari.github.io/statistics/"}</script>
+  <!-- End Jekyll SEO tag -->
+  <style>
+    .highlight {
+      color: #d0d0d0
+    }
+
+    .highlight table td {
+      padding: 5px
+    }
+
+    .highlight table pre {
+      margin: 0
+    }
+
+    .highlight .w {
+      color: #d0d0d0
+    }
+
+    .highlight .err {
+      color: #151515;
+      background-color: #ac4142
+    }
+
+    .highlight .c,
+    .highlight .cd,
+    .highlight .cm,
+    .highlight .c1,
+    .highlight .cs {
+      color: #888
+    }
+
+    .highlight .cp {
+      color: #f4bf75
+    }
+
+    .highlight .o,
+    .highlight .ow {
+      color: #f4bf75
+    }
+
+    .highlight .p,
+    .highlight .pi {
+      color: #d0d0d0
+    }
+
+    .highlight .gi {
+      color: #90a959
+    }
+
+    .highlight .gd {
+      color: #ac4142
+    }
+
+    .highlight .gh {
+      color: #6a9fb5;
+      font-weight: bold
+    }
+
+    .highlight .k,
+    .highlight .kn,
+    .highlight .kp,
+    .highlight .kr,
+    .highlight .kv {
+      color: #aa759f
+    }
+
+    .highlight .kc,
+    .highlight .kt,
+    .highlight .kd {
+      color: #d28445
+    }
+
+    .highlight .s,
+    .highlight .sb,
+    .highlight .sc,
+    .highlight .sd,
+    .highlight .s2,
+    .highlight .sh,
+    .highlight .sx,
+    .highlight .s1 {
+      color: #90a959
+    }
+
+    .highlight .sr {
+      color: #75b5aa
+    }
+
+    .highlight .si,
+    .highlight .se {
+      color: #8f5536
+    }
+
+    .highlight .nt,
+    .highlight .nn,
+    .highlight .nc,
+    .highlight .no {
+      color: #f4bf75
+    }
+
+    .highlight .na {
+      color: #6a9fb5
+    }
+
+    .highlight .m,
+    .highlight .mf,
+    .highlight .mh,
+    .highlight .mi,
+    .highlight .il,
+    .highlight .mo,
+    .highlight .mb,
+    .highlight .mx {
+      color: #90a959
+    }
+
+    .highlight .ss {
+      color: #90a959
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #151515 url("../assets/images/bkg.png") 0 0;
+      color: #eaeaea;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0
+    }
+
+    section {
+      display: block;
+      margin: 0 0 20px 0
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0 0 20px
+    }
+
+    li {
+      line-height: 1.4
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.1);
+      width: 100%;
+      border-bottom: 1px dashed #b5e853;
+      padding: 20px 0;
+      margin: 0 0 40px 0
+    }
+
+    header h1 {
+      font-size: 30px;
+      line-height: 1.5;
+      margin: -8px 0 0 -40px;
+      font-weight: bold;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+      color: #b5e853;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1), 0 0 10px rgba(181, 232, 83, 0.1);
+      letter-spacing: -1px;
+      -webkit-font-smoothing: antialiased
+    }
+
+    @media (max-width: 1000px) {
+      header h1 {
+        margin-left: 0
+      }
+    }
+
+    header h1:before {
+      content: "./ ";
+      font-size: 24px
+    }
+
+    header h2 {
+      font-size: 18px;
+      font-weight: 300;
+      color: #666
+    }
+
+    #downloads .btn {
+      display: inline-block;
+      text-align: center;
+      margin: 0
+    }
+
+    #main_content {
+      width: 100%;
+      -webkit-font-smoothing: antialiased
+    }
+
+    section img {
+      max-width: 100%
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+      color: #b5e853;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1), 0 0 10px rgba(181, 232, 83, 0.1)
+    }
+
+    #main_content h1 {
+      font-size: 30px
+    }
+
+    #main_content h2 {
+      font-size: 24px
+    }
+
+    #main_content h3 {
+      font-size: 18px
+    }
+
+    #main_content h4 {
+      font-size: 14px
+    }
+
+    #main_content h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      margin: 0 0 5px 0
+    }
+
+    #main_content h6 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0 0 5px 0
+    }
+
+    dt {
+      font-style: italic;
+      font-weight: bold
+    }
+
+    ul li {
+      list-style-image: url("../assets/images/bullet.png")
+    }
+
+    blockquote {
+      color: #aaa;
+      padding-left: 10px;
+      border-left: 1px dotted #666
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      font-size: 16px;
+      color: #b5e853;
+      border-radius: 2px;
+      word-wrap: normal;
+      overflow: auto;
+      overflow-y: hidden
+    }
+
+    code.highlighter-rouge {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0px 3px;
+      margin: 0px -3px;
+      color: #aa759f;
+      border-radius: 2px
+    }
+
+    table {
+      width: 100%;
+      margin: 0 0 20px 0
+    }
+
+    th {
+      text-align: left;
+      border-bottom: 1px dashed #b5e853;
+      padding: 5px 10px
+    }
+
+    td {
+      padding: 5px 10px
+    }
+
+    hr {
+      height: 0;
+      border: 0;
+      border-bottom: 1px dashed #b5e853;
+      color: #b5e853
+    }
+
+    .btn {
+      display: inline-block;
+      background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+      border-top: 2px solid #000;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05)
+    }
+
+    .btn:hover {
+      background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8))
+    }
+
+    .btn .icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin: 1px 8px 0 0;
+      float: left
+    }
+
+    .btn-github .icon {
+      opacity: 0.6;
+      background: url("../assets/images/blacktocat.png") 0 0 no-repeat
+    }
+
+    a {
+      color: #63c0f5;
+      text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+      text-decoration: none;
+    }
+
+    .cf:before,
+    .cf:after {
+      content: "";
+      display: table
+    }
+
+    .cf:after {
+      clear: both
+    }
+
+    .cf {
+      zoom: 1
+    }
+
+    #a-title {
+      text-decoration: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <ul class="home">
+        <li><a href="https://flaviocanofari.github.io/statistics/">HOME</a></li>
+      </ul>
+      <h1>Homework 3 - Theory</h1>
+      <ul>
+        <li>In order to see the practice <a
+            href="https://flaviocanofari.github.io/statistics/hw3/hw3_practice.html">click here</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <section id="main_content">
+      <h1>The Median Minimizes the Sum of Absolute Deviations</h1>
+      <p>We want to show that the median minimizes the sum of absolute deviations, i.e., the median minimizes the
+        expression:
+        \[S(c) = \sum_{i=1}^{n} |x_i - c|\]
+        where \(x_1, x_2, \ldots, x_n \) are data points, and \(c\) is a constant that we are optimizing
+        over.<br /><br />
+
+        Define the objective function that represents the sum of absolute deviations:
+        \[S(c) = \sum_{i=1}^{n} |x_i - c|\]
+        This function measures how far \(c\) is from each \(x_i\) in terms of absolute deviation.<br /><br />
+        The absolute value function \(|x_i - c|\) is piecewise linear, and it’s not differentiable at \(x_i = c\).
+        Hence, we cannot minimize \(S(c)\) simply by setting its derivative to 0. We need to use a different
+        approach.<br /><br />
+        Assume the data points are ordered, so \(x_1 \leq x_2 \leq \ldots \leq x_n\).<br /><br />
+        Consider moving \(c\) from left to right across the data points:
+      <ul>
+        <li style="list-style-image: none;">When \(c < x_1\), the absolute deviations for all data points are increasing
+            as \(c\) moves to the right.</li>
+        <li style="list-style-image: none;">When \(c = x_1\), some of the deviations will start to decrease (for points
+          \(x_2, x_3, \ldots, x_n\)), and others will increase (for points to the left of \(x_1\)).</li>
+        <li style="list-style-image: none;">As c moves through the sorted data, the number of points with increasing
+          deviations (to the right of \(c\)) balances out with those having decreasing deviations (to the left of \(c\))
+          at the median.</li>
+      </ul>
+      For a given set of ordered data \(x_1 \leq x_2 \leq \cdots \leq x_n\), the median minimizes the sum of absolute
+      deviations. This is because the median is the point that splits the data into two halves, ensuring that any small
+      shift away from the median increases the deviations more for one half than it decreases for the other
+      half.<br /><br />
+
+      Thus, the median \(M\) minimizes the sum of absolute deviations \(S(c)\). This can be expressed as:
+      \[\arg\min_c \sum_{i=1}^{n} |x_i - c| = \text{median}(x_1, x_2, \ldots, x_n)\]
+      </p>
+      <h1>Conceptual Definitions of “Location” (Central Tendency)</h1>
+      <p>
+
+        There are various ways to define a “location” or “center” statistic, depending on how one conceptualizes the
+        idea of centrality in a distribution. Below are some common methods, along with potential generalizations.
+      <h2>Mean (Arithmetic Average)</h2>
+      <h3>Definition</h3>
+      The mean is the sum of all data points divided by the number of points:
+      \[\mu = \frac{1}{n} \sum_{i=1}^{n} x_i\]
+      <h3>Properties</h3>
+      Minimizes the sum of squared deviations:
+      \[\mu = \arg\min_c \sum_{i=1}^{n} (x_i - c)^2\]
+      <h3>Generalization</h3>
+      The mean is the \(L_2\)-norm-based measure of central tendency, which penalizes larger deviations more than
+      smaller
+      ones.
+      </p>
+      <p>
+      <h2>Median</h2>
+
+      <h3>Definition</h3>The median is the middle value in an ordered dataset. <br /><br />
+      <h3>Properties</h3>Minimizes the sum of absolute deviations:
+
+      \[M = \arg\min_c \sum_{i=1}^{n} |x_i - c|\]
+
+      <h3>Generalization</h3>
+      The median is an \(L_1\)-norm-based measure of central tendency, giving equal weight to all
+      deviations.
+      </p>
+      <p>
+      <h2>Mode</h2>
+
+      <h3>Definition</h3>The mode is the value that occurs most frequently in the dataset. <br /><br />
+      <h3>Properties</h3>Represents the most common value and is useful in distributions with repeated values. <br /><br />
+      <h3>Generalization</h3>In a continuous distribution, the mode is the peak point of the probability density
+      function (highest frequency of occurrence).
+      </p>
+      <p>
+      <h2>Geometric Mean</h2>
+
+      <h3>Definition</h3>
+      The geometric mean is defined as the n-th root of the product of the data points:
+
+      \[\text{Geometric Mean} = \left( \prod_{i=1}^{n} x_i \right)^{1/n}\]
+
+      <h3>Properties</h3>
+      Appropriate for data that is multiplicative in nature, or when the data has a log-normal
+      distribution.<br /><br />
+      
+      <h3>Generalization</h3>
+      Can be extended to measures where multiplicative relationships dominate, such as growth rates.
+      </p>
+      <p>
+      <h2>Harmonic Mean</h2>
+
+      <h3>Definition</h3>
+      The harmonic mean is the reciprocal of the arithmetic mean of the reciprocals of the data points:
+
+      \[\text{Harmonic Mean} = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}\]
+
+      <h3>Properties</h3>
+      Useful for rates and ratios, especially in contexts like speed or density.
+      </p>
+      <p>
+
+      <h2>Trimmed Mean</h2>
+
+      <h3>Definition</h3>
+      The trimmed mean excludes a certain percentage of the smallest and largest values before
+      computing the arithmetic mean. <br /><br />
+      <h3>Properties</h3>
+      Robust to outliers and more stable than the regular mean in the presence of extreme values. <br /><br />
+      <h3>Generalization</h3>
+      One can vary the proportion of data excluded, leading to different types of trimmed means
+      (e.g., 5% trimmed mean, 10% trimmed mean, etc.).
+      </p>
+      <p>
+      <h2>Winsorized Mean</h2>
+
+      <h3>Definition</h3>
+      Similar to the trimmed mean, but instead of excluding extreme values, the extreme values are
+      replaced by the nearest values that are not extreme. <br /><br />
+      <h3>Generalization</h3>The level of Winsorization can vary, allowing for different levels of robustness against
+      outliers. <br /><br />
+
+      <h1>Generalizing “Location” Statistics</h1>
+
+      Beyond these common measures of central tendency, there are infinitely many ways to define a “location” or
+      “central tendency” statistic depending on the type of penalties or transformations applied to the data: <br /><br />
+
+      <h2>\(L_p\)-norm Centrality</h2>
+
+      <h3>Definition</h3>
+      A generalization of the mean and median is the \(L_p\)-norm measure of central tendency:
+
+      \[c_p = \arg\min_c \sum_{i=1}^{n} |x_i - c|^p\]
+
+      For \(p = 1\), this gives the median. <br />
+      For \(p = 2\), this gives the mean. <br />
+      For other values of \(p\), we obtain a different central measure, each putting different weight on larger
+      deviations.
+      </p>
+      <p>
+      <h2>Quantiles</h2>
+
+      <h3>Definition</h3>
+      Quantiles are points that divide the distribution into intervals with equal probabilities.
+      The median is the 50th percentile. <br />
+      Quartiles divide the data into quarters. <br />
+      Percentiles divide the data into hundredths. <br /> <br />
+
+      <h2>\(M\)-Estimators</h2>
+
+      <h3>Definition</h3>
+      \(M\)-estimators generalize the mean by minimizing a more general loss function \(\rho(x_i - c)\). The
+      classical mean minimizes the quadratic loss (squared deviations), while other \(M\)-estimators may minimize functions
+      that grow more slowly or faster than the quadratic.
+
+      \[c_{\text{M}} = \arg\min_c \sum_{i=1}^{n} \rho(x_i - c)\]
+
+      <h3>Generalization</h3>
+      By choosing different loss functions \(\rho\), one can create infinitely many different
+      central tendency measures, each with different properties regarding robustness and sensitivity to outliers.
+      </p>
+    </section>
+  </div>
+  <script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+  </script>
+</body>
+
+</html>

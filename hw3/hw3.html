@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework3</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+          <h1>Homework 3</h1>
+          <h2>Theory</h2>
+
+          <p>
+          <h3>The Median Minimizes the Sum of Absolute Deviations</h3>
+          We want to show that the median minimizes the sum of absolute deviations, i.e., the median minimizes the
+          expression:
+          \[S(c) = \sum_{i=1}^{n} |x_i - c|\]
+          where \(x_1, x_2, \ldots, x_n \) are data points, and \(c\) is a constant that we are optimizing
+          over.<br /><br />
+
+          Define the objective function that represents the sum of absolute deviations:
+          \[S(c) = \sum_{i=1}^{n} |x_i - c|\]
+          This function measures how far \(c\) is from each \(x_i\) in terms of absolute deviation.<br /><br />
+          The absolute value function \(|x_i - c|\) is piecewise linear, and it’s not differentiable at \(x_i = c\).
+          Hence, we cannot minimize \(S(c)\) simply by setting its derivative to 0. We need to use a different
+          approach.<br /><br />
+          Assume the data points are ordered, so \(x_1 \leq x_2 \leq \ldots \leq x_n\).<br /><br />
+          Consider moving \(c\) from left to right across the data points:
+          <ul>
+            <li>When \(c < x_1\), the absolute deviations for all data points are increasing
+                as \(c\) moves to the right.</li>
+            <li>When \(c = x_1\), some of the deviations will start to decrease (for points
+            \(x_2, x_3, \ldots, x_n\)), and others will increase (for points to the left of \(x_1\)).</li>
+            <li>As c moves through the sorted data, the number of points with increasing
+            deviations (to the right of \(c\)) balances out with those having decreasing deviations (to the left of \(c\))
+            at the median.</li>
+          </ul>
+          For a given set of ordered data \(x_1 \leq x_2 \leq \cdots \leq x_n\), the median minimizes the sum of absolute
+          deviations. This is because the median is the point that splits the data into two halves, ensuring that any small
+          shift away from the median increases the deviations more for one half than it decreases for the other
+          half.<br /><br />
+
+          Thus, the median \(M\) minimizes the sum of absolute deviations \(S(c)\). This can be expressed as:
+          \[\arg\min_c \sum_{i=1}^{n} |x_i - c| = \text{median}(x_1, x_2, \ldots, x_n)\]
+          </p>
+
+          <p>
+          <h3>Conceptual Definitions of “Location” (Central Tendency)</h3>
+          There are various ways to define a “location” or “center” statistic, depending on how one conceptualizes the
+          idea of centrality in a distribution. Below are some common methods, along with potential generalizations.
+          <h4><u>Mean (Arithmetic Average)</u></h4>
+          <h4>Definition</h4>
+          The mean is the sum of all data points divided by the number of points:
+          \[\mu = \frac{1}{n} \sum_{i=1}^{n} x_i\]
+          <h4>Properties</h4>
+          Minimizes the sum of squared deviations:
+          \[\mu = \arg\min_c \sum_{i=1}^{n} (x_i - c)^2\]
+          <h4>Generalization</h4>
+          The mean is the \(L_2\)-norm-based measure of central tendency, which penalizes larger deviations more than
+          smaller
+          ones.
+          </p>
+
+          <p>
+          <h4><u>Median</u></h4>
+          <h4>Definition</h4>The median is the middle value in an ordered dataset. <br /><br />
+          <h4>Properties</h4>Minimizes the sum of absolute deviations:
+          \[M = \arg\min_c \sum_{i=1}^{n} |x_i - c|\]
+          <h4>Generalization</h4>
+          The median is an \(L_1\)-norm-based measure of central tendency, giving equal weight to all
+          deviations.
+          </p>
+
+          <p>
+          <h4><u>Mode</u></h4>
+          <h4>Definition</h4>The mode is the value that occurs most frequently in the dataset. <br /><br />
+          <h4>Properties</h4>Represents the most common value and is useful in distributions with repeated values. <br /><br />
+          <h4>Generalization</h4>In a continuous distribution, the mode is the peak point of the probability density
+          function (highest frequency of occurrence).
+          </p>
+
+          <p>
+          <h4><u>Geometric Mean</u></h4>
+          <h4>Definition</h4>
+          The geometric mean is defined as the n-th root of the product of the data points:
+          \[\text{Geometric Mean} = \left( \prod_{i=1}^{n} x_i \right)^{1/n}\]
+          <h4>Properties</h4>
+          Appropriate for data that is multiplicative in nature, or when the data has a log-normal
+          distribution.<br /><br />
+          <h4>Generalization</h4>
+          Can be extended to measures where multiplicative relationships dominate, such as growth rates.
+          </p>
+
+          <p>
+          <h4><u>Harmonic Mean</u></h4>
+          <h4>Definition</h4>
+          The harmonic mean is the reciprocal of the arithmetic mean of the reciprocals of the data points:
+          \[\text{Harmonic Mean} = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}\]
+          <h4>Properties</h4>
+          Useful for rates and ratios, especially in contexts like speed or density.
+          </p>
+
+          <p>
+          <h4><u>Trimmed Mean</u></h4>
+          <h4>Definition</h4>
+          The trimmed mean excludes a certain percentage of the smallest and largest values before
+          computing the arithmetic mean. <br /><br />
+          <h4>Properties</h4>
+          Robust to outliers and more stable than the regular mean in the presence of extreme values. <br /><br />
+          <h4>Generalization</h4>
+          One can vary the proportion of data excluded, leading to different types of trimmed means
+          (e.g., 5% trimmed mean, 10% trimmed mean, etc.).
+          </p>
+
+          <p>
+          <h4><u>Winsorized Mean</u></h4>
+          <h4>Definition</h4>
+          Similar to the trimmed mean, but instead of excluding extreme values, the extreme values are
+          replaced by the nearest values that are not extreme. <br /><br />
+          <h4>Generalization</h4>The level of Winsorization can vary, allowing for different levels of robustness against
+          outliers. <br /><br />
+          </p>
+
+
+          <h3>Generalizing “Location” Statistics</h3>
+          <p>
+          Beyond these common measures of central tendency, there are infinitely many ways to define a “location” or
+          “central tendency” statistic depending on the type of penalties or transformations applied to the data: <br /><br />
+          
+          <h4><u>\(L_p\)-norm Centrality</u></h4>
+          <h4>Definition</h4>
+          A generalization of the mean and median is the \(L_p\)-norm measure of central tendency:
+          \[c_p = \arg\min_c \sum_{i=1}^{n} |x_i - c|^p\]
+          For \(p = 1\), this gives the median. <br />
+          For \(p = 2\), this gives the mean. <br />
+          For other values of \(p\), we obtain a different central measure, each putting different weight on larger
+          deviations.
+          </p>
+
+          <p>
+          <h4><u>Quantiles</u></h4>
+          <h4>Definition</h4>
+          Quantiles are points that divide the distribution into intervals with equal probabilities.
+          The median is the 50th percentile. <br />
+          Quartiles divide the data into quarters. <br />
+          Percentiles divide the data into hundredths. <br /> <br />
+
+          <h4><u>\(M\)-Estimators</u></h4>
+          <h4>Definition</h4>
+          \(M\)-estimators generalize the mean by minimizing a more general loss function \(\rho(x_i - c)\). The
+          classical mean minimizes the quadratic loss (squared deviations), while other \(M\)-estimators may minimize functions
+          that grow more slowly or faster than the quadratic.
+          \[c_{\text{M}} = \arg\min_c \sum_{i=1}^{n} \rho(x_i - c)\]
+          <h4>Generalization</h4>
+          By choosing different loss functions \(\rho\), one can create infinitely many different
+          central tendency measures, each with different properties regarding robustness and sensitivity to outliers.
+          </p>
+
+          <!--+++++++++++++++++++++++++++++ START OF PRACTICAL +++++++++++++++++++++++++++++-->
+          <h2>Practical</h2>
+          <h3>Stochastic Differential Equation simulator refinement</h3>
+          <p>
+            Refine your SDE simulator to simulate a continuous time process where we can have an attack (indicated with a jump of +1) at any time with a constant rate of attack. To create the approximation of time continuity subdivide your reference temporal window into numerous intervals of vanishing size dt = 1/n and to each infinitesimal interval assign a probability of a +1 "jump" (attack success) equal to Lambda * dt, where Lambda is a simulation parameter, having the meaning of expected total number of attacks in the reference period.
+          </p>
+          <!---------- Button and values to be input ---------->
+          <!-- ------------- Change class (mb-4, mb-3) into input-group to control the chart ------------- -->
+          <h3>Please fill the forms below to generate the chart</h3>
+
+          <form id="valuesForm">
+            <div class="input-group">
+              <label for="integer1" class="form-label">Total Simulation Time (T)</label>
+              <input value=25 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
+                required>
+            </div>
+            <div class="input-group">
+              <label for="integer1.5" class="form-label">Total Number of Intervals (n)</label>
+              <input value=100 type="number" class="form-control" id="integer1.5" placeholder="Please insert an integer"
+                required>
+            </div>
+      
+            <div class="input-group">
+              <label for="integer2" class="form-label">Number of Attackers</label>
+              <input value=50 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
+                required>
+            </div>
+      
+            <div class="input-group">
+              <label for="decimal" class="form-label">Lambda (Rate of Attack)</label>
+              <input value=2 type="number" class="form-control" id="decimal" step="0.1" min="0"
+                placeholder="Please insert a decimal greater than 0" required>
+            </div>
+      
+            <!-- Here we changed the button class -->
+            <div class="run-button-container">
+              <button type="submit" class="run-button" style="margin-top: 10px;">Generate</button>
+            </div>
+          </form>
+
+          <!----------------- Generating the chart -------------------->
+          <div id="chartContainer">
+            <div id="singleChartOne">
+              <canvas id="myChart"></canvas>
+            </div>
+            <div id="singleChartTwo">
+              <div id="resultContainer" style="margin-top: -92px; margin-left: 30px;">
+                <p id="resultMean" style="text-align: left; font-size: 20px;"></p>
+                <p id="resultVariance" style="text-align: left; font-size: 20px;"></p>
+              </div>
+              <canvas id="mySecondChart"></canvas>
+            </div>
+            <!-- <div id="singleChartThree">
+              <canvas id="myThirdChart"></canvas>
+              <p id="result2Mean" style="text-align: left; font-size: 20px;margin-top:30px; margin-left: 30px;"></p>
+              <p id="result2Variance" style="text-align: left; font-size: 20px; margin-left: 30px;"></p>
+            </div> -->
+            <div id="singleChartFour">
+              <canvas id="myFourthChart"></canvas>
+            </div>
+          </div>
+
+          <!------------------ Comments after the chart ------------------>
+          <h2>Code Explanation</h2>
+          <p>
+              Most of the code is the same as the previous homework. Below there are the only few relevant changes in this homework. 
+              <br /><br />
+          </p>
+          <h3>Generate DataSet</h3>
+          <p>
+          As for the second homework, this function simulates the attack process, with few modifications.<br />
+          Now an attack is simulated for each interval selected by the user.<br />
+          For each interval, a random value between 0 and 1 is generated using Math.random(). If this value is less than
+          the probability of lambda * dt (where dt is equal to the Total Time Window/Intervals, both chosen by the user with lambda), the attacker succeeds in penetrating a server (jump
+          +1)<br />
+          The results are stored in a ‘dataset’, where each attacker has a line tracking how many servers he has
+          penetrated as the attack progresses.<br /><br />
+          In the meanwhile also the number of successful jumps done in each step is saved in an array for the absolute
+          frequency, and for the relative frequency the latter array is taken and copied to another array by dividing
+          each element for the total numebr of attempts done in the step (which is the number of attackers).<br /><br />
+          <img src="src/code1_GenerateDataSet.png">
+          <br /><br />
+          </p>
+          <h3>HTML form to get all together</h3>
+          <p>
+          As for the second homework, when the user submits the form, the values entered for the Total Simulation Time (or Total Time Window)
+          (integer1), The Total Number of Intervals (integer1_5), the number of
+          attackers (integer2) and \(\lambda\) (lambda) are
+          collected.<br />
+          These values are used to generate the attack data, compute the distribution, mean, variance and
+          frequencies in order to create or update the graphs.<br />
+          After the graphs have been created, the value of the mean and variance for both the distribution are
+          shown.<br /><br />
+          <img src="src/code2_htmlManage.png">
+          <br /><br />
+          </p>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+  let myChart = null;
+  let mySecondChart = null;
+  // let myThirdChart = null;
+  let myFourthChart = null;
+
+  function createChart(servers, attackerDatasets) {
+
+    if (myChart !== null) {
+      myChart.destroy();
+    }
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: servers,
+        datasets: attackerDatasets
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false,
+            labels: {
+              color: 'black'
+            }
+          }
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: false,
+              text: 'servers',
+              color: "black",
+              font: {
+                size: 18,
+              },
+            },
+            position: 'bottom',
+            grid: {
+              color: 'grey'
+            },
+            ticks: {
+              color: 'grey'
+            }
+          },
+          y: {
+            display: true,
+            title: {
+              display: false,
+              text: 'successful breach',
+              color: "black",
+              font: {
+                size: 18,
+              },
+            },
+            position: 'left',
+            max: servers.length + 1,
+            grid: {
+              color: 'grey'
+            },
+            ticks: {
+              stepSize: 1,
+              color: 'grey'
+            }
+          },
+        }
+      }
+    });
+  }
+
+  function createSecondChart(servers, penetrationCounts) {
+    if (mySecondChart !== null) {
+      mySecondChart.destroy();
+    }
+
+    const secondCtx = document.getElementById('mySecondChart').getContext('2d');
+
+    let newLabel = servers;
+
+    mySecondChart = new Chart(secondCtx, {
+
+      type: 'bar',
+      data: {
+        labels: newLabel,
+        datasets: [{
+          label: "Number of attackers for each level",
+          borderColor: 'yellow',
+          borderWidth: 2,
+          radius: 4,
+          pointBackgroundColor: 'yellow',
+          backgroundColor: "yellow",
+          fill: true,
+          data: penetrationCounts,
+        }]
+
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+          legend: {
+            display: false,
+            labels: {
+              color: 'black'
+            }
+          }
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: false,
+              text: 'attackers',
+              color: "black",
+              font: {
+                size: 18,
+              },
+            },
+            position: 'bottom',
+            grid: {
+              display: false,
+              color: 'black'
+            },
+            ticks: {
+              display: false,
+              color: 'black',
+              stepSize: 1
+            }
+          },
+          y: {
+            display: false,
+            reverse: true,
+            title: {
+              display: false,
+              text: 'successful breach',
+              color: "black",
+              font: {
+                size: 18,
+              },
+            },
+
+            position: 'left',
+            grid: {
+              display: false,
+              color: 'black'
+            },
+            // min: 0,
+            // max: servers.length - 1,
+            ticks: {
+              callback: function (value, index, values) {
+                return '';
+              },
+              color: 'black',
+            }
+          }
+        }
+
+      },
+      maintainAspectRatio: false,
+    });
+  }
+
+  function createFourthChart(servers, successfulJumps, relativeSuccessfulJumps) {
+
+    if (myFourthChart !== null) {
+      myFourthChart.destroy();
+    }
+
+    const fourthCtx = document.getElementById('myFourthChart').getContext('2d');
+    myFourthChart = new Chart(fourthCtx, {
+      type: 'line',
+      data: {
+        labels: servers,
+        datasets: [{
+          label: `Absolute frequency`,
+          data: successfulJumps,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 3,
+          pointRadius: 2,
+          pointHoverRadius: 1,
+          tension: 0.4,
+        },
+        {
+          label: `Relative frequency`,
+          data: relativeSuccessfulJumps,
+          borderColor: 'rgba(255, 150, 100, 1)',
+          borderWidth: 3,
+          pointRadius: 2,
+          pointHoverRadius: 1,
+          tension: 0.4,
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: 'black'
+            }
+          }
+        },
+        scales: {
+          x: {
+            display: true,
+            position: 'bottom',
+            title: {
+              display: true,
+              text: 'servers',
+              color: "black",
+              font: {
+                size: 18,
+              },
+            },
+            grid: {
+              color: 'grey'
+            },
+            ticks: {
+              color: 'grey'
+            }
+          },
+          y: {
+            display: true,
+            position: 'right',
+            grid: {
+              color: 'grey'
+            },
+            title: {
+              display: true,
+              text: 'successful jumps',
+              color: "black",
+              font: {
+                size: 18,
+              },
+            },
+            ticks: {
+              stepSize: 1,
+              color: 'grey'
+            }
+          },
+        }
+      }
+    });
+  }
+
+
+  function computeMeanAndVariance(penCount, index = 0, currentMean = 0, M2 = 0) {
+    if (index >= penCount.length) {
+      const variance = index > 1 ? M2 / (index - 1) : 0;
+      return { mean: currentMean, variance: variance };
+    }
+
+    const value = penCount[index];
+
+    if (!isNaN(value)) {
+      const newIndex = index + 1;
+      const delta = value - currentMean;
+      const newMean = currentMean + delta / newIndex;
+
+      const delta2 = value - newMean;
+      const newM2 = M2 + delta * delta2;
+
+      return computeMeanAndVariance(penCount, newIndex, newMean, newM2);
+    }
+
+    return computeMeanAndVariance(penCount, index + 1, currentMean, M2);
+  }
+
+
+  function generateDataset(attackers, intervals, lambda, dt) {
+    let dataset = [];
+    let totalSuccessfulJumps = Array(intervals + 1).fill(0);
+
+    for (let i = 1; i <= attackers.length; i++) {
+      let attackerData = [];
+      attackerData.push(0);
+      let max = 0;
+
+      for (let j = 1; j <= intervals; j++) {
+
+        let randomValue = Math.random();
+
+        if (randomValue < lambda * dt) {
+          max = max + 1;
+          totalSuccessfulJumps[j] += 1;
+        }
+        attackerData.push(max);
+      }
+
+      dataset.push({
+        label: `Attacker ${i}`,
+        data: attackerData,
+        borderColor: generateRandomHexColor(),
+        borderWidth: 2,
+        fill: false,
+        tension: 0.8,
+        pointRadius: 1,
+        pointHoverRadius: 1
+      });
+    }
+    const relativeSuccessfulJumps = totalSuccessfulJumps.map((value) => {
+      return value / (attackers.length);
+    });
+    return [dataset, totalSuccessfulJumps, relativeSuccessfulJumps];
+  }
+
+
+  function generateRandomHexColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function getIntermediateDistribution(serversLen, attackerDatasets, step) {
+    const penetrationCounts = Array(serversLen - 1).fill(0);
+    let attackerPenetrations = []
+    attackerDatasets.forEach((attacker) => {
+      const finalPenetrations = attacker.data[step];
+      attackerPenetrations.push(finalPenetrations)
+      penetrationCounts[finalPenetrations - 1]++;
+    });
+    return [penetrationCounts, attackerPenetrations];
+  }
+
+
+  document.getElementById('valuesForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const integer1 = parseInt(document.getElementById('integer1').value);
+    const integer1_5 = parseInt(document.getElementById('integer1.5').value);
+    const integer2 = parseInt(document.getElementById('integer2').value);
+    const lambda = parseFloat(document.getElementById('decimal').value);
+
+    if (integer1 < 0 || integer1_5 < integer1) {
+      event.preventDefault();
+      alert(`Error: The total number of intervals must be greater than the total time window`);
+    } else {
+      const dt = integer1 / integer1_5;
+      if (lambda > 1 / dt) {
+      event.preventDefault();
+      alert(`Error: Lambda must be less then then 1/dt (where dt is T/n)`);
+      }
+      else {
+        const steps = [];
+        for (let i = 0; i <= integer1_5; i++) {
+          steps.push(i * dt);
+        }
+        const attackers = [];
+        for (let i = 1; i <= integer2; i++) {
+          attackers.push(i);
+        }
+        let [attackerDatasets, successfulJumps, relativeSuccessfulJumps] = generateDataset(attackers, integer1_5, lambda, dt)
+        let [finalDistribution, finalAttackerPenetrations] = getIntermediateDistribution(steps.length, attackerDatasets, integer1_5);
+        const finalMeanAndVariance = computeMeanAndVariance(finalAttackerPenetrations);
+        const finalAvarage = finalMeanAndVariance.mean ? finalMeanAndVariance.mean.toFixed(2) : 0;
+        const finalVariance = finalMeanAndVariance.variance ? finalMeanAndVariance.variance.toFixed(2) : 0;
+
+        createChart(steps, attackerDatasets);
+        createSecondChart(steps, finalDistribution);
+        createFourthChart(steps, successfulJumps, relativeSuccessfulJumps);
+        document.getElementById('resultMean').innerHTML = `Mean: ${finalAvarage}`;
+        document.getElementById('resultVariance').innerHTML = `Variance: ${finalVariance}`;
+        document.getElementById('chartContainer').style.display = 'block';
+        let resultContainer = document.getElementById('resultContainer');
+        if (resultContainer.offsetHeight === 76) {
+          resultContainer.style.marginTop = '-92px';
+        } else if (resultContainer.offsetHeight === 106) {
+          resultContainer.style.marginTop = '-122px';
+        } else {
+          resultContainer.style.marginTop = '-152px';
+        }
+      }
+    }
+  });
+</script>
+
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js"></script>
+
+</body>
+
+</html>
