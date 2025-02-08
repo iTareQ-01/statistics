@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/statistics/assets/css/style.css?v=2338855d07a80ee1e002e9f9dc12344203d0c366">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+  <!-- Setup theme-color -->
+  <!-- start theme color meta headers -->
+  <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- end theme color meta headers -->
+
+
+  <!-- Setup Google Analytics -->
+
+
+
+  <!-- You can set your favicon here -->
+  <!-- link rel="shortcut icon" type="image/x-icon" href="/statistics/favicon.ico" -->
+
+  <!-- end custom head snippets -->
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+  <title>Statistics 2024/2025</title>
+  <meta name="generator" content="Jekyll v3.10.0" />
+  <meta property="og:title" content="Student Info:" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description"
+    content="This website contains all the Statistics homework done by me for the year 2024/2025." />
+  <meta property="og:description"
+    content="This website contains all the Statistics homework done by me for the year 2024/2025." />
+  <link rel="canonical" href="https://flaviocanofari.github.io/statistics/" />
+  <meta property="og:url" content="https://flaviocanofari.github.io/statistics/" />
+  <meta property="og:site_name" content="Statistics 2024/2025" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Student Info:" />
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"This website contains all the Statistics homework done by me for the year 2024/2025.","headline":"Student Info:","name":"Statistics 2024/2025","url":"https://flaviocanofari.github.io/statistics/"}</script>
+  <!-- End Jekyll SEO tag -->
+  <style>
+    .highlight {
+      color: #d0d0d0
+    }
+
+    .highlight table td {
+      padding: 5px
+    }
+
+    .highlight table pre {
+      margin: 0
+    }
+
+    .highlight .w {
+      color: #d0d0d0
+    }
+
+    .highlight .err {
+      color: #151515;
+      background-color: #ac4142
+    }
+
+    .highlight .c,
+    .highlight .cd,
+    .highlight .cm,
+    .highlight .c1,
+    .highlight .cs {
+      color: #888
+    }
+
+    .highlight .cp {
+      color: #f4bf75
+    }
+
+    .highlight .o,
+    .highlight .ow {
+      color: #f4bf75
+    }
+
+    .highlight .p,
+    .highlight .pi {
+      color: #d0d0d0
+    }
+
+    .highlight .gi {
+      color: #90a959
+    }
+
+    .highlight .gd {
+      color: #ac4142
+    }
+
+    .highlight .gh {
+      color: #6a9fb5;
+      font-weight: bold
+    }
+
+    .highlight .k,
+    .highlight .kn,
+    .highlight .kp,
+    .highlight .kr,
+    .highlight .kv {
+      color: #aa759f
+    }
+
+    .highlight .kc,
+    .highlight .kt,
+    .highlight .kd {
+      color: #d28445
+    }
+
+    .highlight .s,
+    .highlight .sb,
+    .highlight .sc,
+    .highlight .sd,
+    .highlight .s2,
+    .highlight .sh,
+    .highlight .sx,
+    .highlight .s1 {
+      color: #90a959
+    }
+
+    .highlight .sr {
+      color: #75b5aa
+    }
+
+    .highlight .si,
+    .highlight .se {
+      color: #8f5536
+    }
+
+    .highlight .nt,
+    .highlight .nn,
+    .highlight .nc,
+    .highlight .no {
+      color: #f4bf75
+    }
+
+    .highlight .na {
+      color: #6a9fb5
+    }
+
+    .highlight .m,
+    .highlight .mf,
+    .highlight .mh,
+    .highlight .mi,
+    .highlight .il,
+    .highlight .mo,
+    .highlight .mb,
+    .highlight .mx {
+      color: #90a959
+    }
+
+    .highlight .ss {
+      color: #90a959
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #151515 url("../assets/images/bkg.png") 0 0;
+      color: #eaeaea;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace
+    }
+
+    .mine_container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto
+    }
+
+    section {
+      display: block;
+      margin: 0 0 20px 0
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0 0 20px
+    }
+
+    li {
+      line-height: 1.4
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.1);
+      width: 100%;
+      border-bottom: 1px dashed #b5e853;
+      padding: 20px 0;
+      margin: 0 0 40px 0
+    }
+
+    header h1 {
+      font-size: 30px;
+      line-height: 1.5;
+      margin: -8px 0 0 -40px;
+      font-weight: bold;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+      color: #b5e853;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1), 0 0 10px rgba(181, 232, 83, 0.1);
+      letter-spacing: -1px;
+      -webkit-font-smoothing: antialiased
+    }
+
+    @media (max-width: 1000px) {
+      header h1 {
+        margin-left: 0
+      }
+    }
+
+    header h1:before {
+      content: "./ ";
+      font-size: 24px
+    }
+
+    header h2 {
+      font-size: 18px;
+      font-weight: 300;
+      color: #666
+    }
+
+    #downloads .btn {
+      display: inline-block;
+      text-align: center;
+      margin: 0
+    }
+
+    #main_content {
+      width: 100%;
+      -webkit-font-smoothing: antialiased
+    }
+
+    section img {
+      max-width: 100%
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+      color: #b5e853;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1), 0 0 10px rgba(181, 232, 83, 0.1)
+    }
+
+    #main_content h1 {
+      font-size: 30px
+    }
+
+    #main_content h2 {
+      font-size: 24px
+    }
+
+    #main_content h3 {
+      font-size: 18px
+    }
+
+    #main_content h4 {
+      font-size: 14px
+    }
+
+    #main_content h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      margin: 0 0 5px 0
+    }
+
+    #main_content h6 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0 0 5px 0
+    }
+
+    dt {
+      font-style: italic;
+      font-weight: bold
+    }
+
+    ul li {
+      list-style-image: url("../assets/images/bullet.png")
+    }
+
+    blockquote {
+      color: #aaa;
+      padding-left: 10px;
+      border-left: 1px dotted #666
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      font-size: 16px;
+      color: #b5e853;
+      border-radius: 2px;
+      word-wrap: normal;
+      overflow: auto;
+      overflow-y: hidden
+    }
+
+    code.highlighter-rouge {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0px 3px;
+      margin: 0px -3px;
+      color: #aa759f;
+      border-radius: 2px
+    }
+
+    table {
+      width: 100%;
+      margin: 0 0 20px 0
+    }
+
+    th {
+      text-align: left;
+      border-bottom: 1px dashed #b5e853;
+      padding: 5px 10px
+    }
+
+    td {
+      padding: 5px 10px
+    }
+
+    hr {
+      height: 0;
+      border: 0;
+      border-bottom: 1px dashed #b5e853;
+      color: #b5e853
+    }
+
+    .btn {
+      display: inline-block;
+      background: -webkit-linear-gradient(top, rgba(130, 130, 130, 0.6), rgba(100, 100, 100, 0.6) 50%, rgba(70, 70, 70, 0.8) 50%, rgba(40, 40, 40, 0.8));
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+      border-top: 2px solid #000;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05)
+    }
+
+    .btn:hover {
+      background: -webkit-linear-gradient(top, rgba(130, 130, 130, 0.6), rgba(100, 100, 100, 0.6) 50%, rgba(70, 70, 70, 0.8) 50%, rgba(40, 40, 40, 0.8));
+    }
+
+    .btn .icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin: 1px 8px 0 0;
+      float: left
+    }
+
+    .btn-github .icon {
+      opacity: 0.6;
+      background: url("../assets/images/blacktocat.png") 0 0 no-repeat
+    }
+
+    a {
+      color: #63c0f5;
+      text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+      text-decoration: none;
+    }
+
+    .cf:before,
+    .cf:after {
+      content: "";
+      display: table
+    }
+
+    .cf:after {
+      clear: both
+    }
+
+    .cf {
+      zoom: 1
+    }
+
+    #a-title {
+      text-decoration: none
+    }
+
+    #chartContainer {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      display: none;
+    }
+
+    #singleChartOne {
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      width: 80%;
+    }
+
+    #singleChartTwo {
+      position: absolute;
+      left: calc(80% - 4px);
+      top: 60px;
+      width: 15%;
+    }
+
+    #singleChartThree {
+      position: absolute;
+      top: 70px;
+      width: 15%;
+    }
+
+    #singleChartFour {
+      position: absolute;
+      bottom: 0px;
+      left: 36px;
+      width: calc(80% + 21px);
+      ;
+    }
+
+    canvas {
+      width: 100% !important;
+
+    }
+
+    #myChart {
+      height: 500px !important;
+
+    }
+
+    #mySecondChart {
+      height: 458px !important;
+
+    }
+
+    /* #myThirdChart {
+      height: 460px !important;
+
+    } */
+
+    #myFourthChart {
+      height: 500px !important;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="mine_container">
+      <ul class="home">
+        <li><a href="https://flaviocanofari.github.io/statistics/">HOME</a></li>
+      </ul>
+      <h1>Homework 5 - Practice</h1>
+      <ul>
+        <li>In order to see the theory <a href="https://flaviocanofari.github.io/statistics/hw5/hw5_theory.html">click
+            here</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="mine_container">
+    <section id="main_content">
+      <h1>E-M Simulator Enhancement</h1>
+      Enhance your existing Euler-Maruyama (E-M) simulator by developing a unified simulation framework. Create a general central class that can possibly manage various types of stochastic differential equations (SDEs).</br></br>
+      <h2>Please fill the forms below to generate the chart</h2>
+
+      <form id="valuesForm" class="mb-4">
+        <div class="mb-3">
+          <label for="integer1" class="form-label">Total Simulation Time (T)</label>
+          <input value=50 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="integer1.5" class="form-label">Total Number of Intervals (n)</label>
+          <input value=100 type="number" class="form-control" id="integer1.5" placeholder="Please insert an integer"
+            required>
+        </div>
+
+        <div class="mb-3">
+          <label for="integer2" class="form-label">Number of Attackers</label>
+          <input value=50 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
+            required>
+        </div>
+
+        <div class="mb-3">
+          <label for="decimal" class="form-label">Probability (or \(\lambda\) for Poisson)</label>
+          <input value=0.5 type="number" class="form-control" id="decimal" step="0.1" min="0"
+            placeholder="Please insert a decimal greater than 0" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="integer3" class="form-label">Intermediate Step</label>
+          <input value=25 type="number" class="form-control" id="integer3"
+            placeholder="Please insert an integer between 0 and the Total Simulation Time chosen" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Select Chart Type</label>
+          <div>
+            <input type="radio" id="option1" name="chartType" value="type1" checked>
+            <label for="option1">Bernoulli</label>
+          </div>
+          <div>
+            <input type="radio" id="option2" name="chartType" value="type2">
+            <label for="option2">Random Walk</label>
+          </div>
+          <div>
+            <input type="radio" id="option3" name="chartType" value="type3">
+            <label for="option3">Poisson</label>
+          </div>
+          <div>
+            <input type="radio" id="option4" name="chartType" value="type4">
+            <label for="option4">Brownian Motion</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Generate</button>
+      </form>
+    </section>
+  </div>
+  <div id="chartContainer">
+    <div id="singleChartOne">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div id="singleChartTwo">
+      <div id="resultContainer" style="margin-top: -92px; margin-left: 30px;">
+        <p id="resultMean" style="text-align: left; font-size: 20px;"></p>
+        <p id="resultVariance" style="text-align: left; font-size: 20px;"></p>
+      </div>
+      <canvas id="mySecondChart"></canvas>
+    </div>
+    <div id="singleChartThree">
+      <canvas id="myThirdChart"></canvas>
+      <p id="result2Mean" style="text-align: left; font-size: 20px;margin-top:30px; margin-left: 30px;"></p>
+      <p id="result2Variance" style="text-align: left; font-size: 20px; margin-left: 30px;"></p>
+    </div>
+    <!-- <div id="singleChartFour">
+      <canvas id="myFourthChart"></canvas>
+    </div> -->
+  </div>
+  <div class="mine_container">
+    <section id="main_content">
+    <h1>Optional Exercise</h1>
+    <h2>Calculation of Regression Coefficients and R<sup>2</sup></h2>
+
+  <label for="xValues">Enter the values of X (separated by commas):</label>
+  <input style="width: 40%;" type="text" id="xValues" placeholder="Example: 1, 2, 3, 4, 5">
+
+  <label for="yValues">Enter the values of Y (separated by commas):</label>
+  <input style="width: 40%;" type="text" id="yValues" placeholder="Example: 2, 4, 5, 4, 5">
+    </br>
+    <button onclick="calculateRegression()" class="btn btn-primary" style="margin-top: 10px;">Calculate</button>
+
+  <div id="output">
+  </div>
+
+    </section>
+    </div>
+  <div class="mine_container">
+    <section id="main_content">
+      <h1>Code Explanation</h1>
+      <p>
+          Most of the code is the same as the previous homework. Below there are the only few relevant changes in this homework. 
+          <br /><br />
+          <h2>HTML form management</h2>
+          The only relevant change is in the HTML form management, where now based on the type of chart selection will re-use the previous homework codes in order to generate the asked chart.<br /><br />
+          <img src="./code-1.png">
+    </section>
+  </div>
+  <script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+  </script>
+  <script>
+    let myChart = null;
+    let mySecondChart = null;
+    let myThirdChart = null;
+    let myFourthChart = null;
+
+    document.getElementById('valuesForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const integer1 = parseInt(document.getElementById('integer1').value);
+      const integer1_5 = parseInt(document.getElementById('integer1.5').value);
+      const integer2 = parseInt(document.getElementById('integer2').value);
+      const p = parseFloat(document.getElementById('decimal').value);
+      const integer3 = parseInt(document.getElementById('integer3').value);
+      const chartType = document.querySelector('input[name="chartType"]:checked').value;
+
+      switch (chartType) {
+        case 'type1':
+          generateChartType1(integer1, integer2, p);
+          break;
+        case 'type2':
+          generateChartType2(integer1, integer2, integer3, p, event);
+          break;
+        case 'type3':
+          generateChartType3(integer1, integer1_5, integer2, p, event);
+          break;
+        case 'type4':
+          generateChartType4(integer1, integer1_5, integer2, p, event);
+          break;
+      }
+    });
+  </script>
+   <script>
+    function calculateRegressionCoefficients(x, y) {
+      const n = x.length;
+
+      const meanX = x.reduce((sum, xi) => sum + xi, 0) / n;
+      const meanY = y.reduce((sum, yi) => sum + yi, 0) / n;
+
+      let numerator = 0;
+      let denominator = 0;
+      for (let i = 0; i < n; i++) {
+        numerator += (x[i] - meanX) * (y[i] - meanY);
+        denominator += (x[i] - meanX) ** 2;
+      }
+      const b = numerator / denominator;
+
+      const a = meanY - b * meanX;
+
+      return { a, b };
+    }
+
+    function calculateRSquared(x, y, a, b) {
+      const n = x.length;
+      const meanY = y.reduce((sum, yi) => sum + yi, 0) / n;
+
+      let SST = 0;
+      let SSE = 0;
+
+      for (let i = 0; i < n; i++) {
+        const yPredicted = a + b * x[i];
+        SST += (y[i] - meanY) ** 2;
+        SSE += (y[i] - yPredicted) ** 2;
+      }
+
+      const R2 = 1 - (SSE / SST);
+
+      return R2;
+    }
+
+    function calculateRegression() {
+      const xInput = document.getElementById("xValues").value;
+      const yInput = document.getElementById("yValues").value;
+
+      const x = xInput.split(",").map(Number);
+      const y = yInput.split(",").map(Number);
+
+      if (x.length !== y.length || x.some(isNaN) || y.some(isNaN)) {
+        document.getElementById("output").innerHTML = "<p style='color: red;'>Error: ensure that you enter valid numerical values for X and Y and that they have the same length.</p>";
+        return;
+      }
+
+      const { a, b } = calculateRegressionCoefficients(x, y);
+      const R2 = calculateRSquared(x, y, a, b);
+
+      document.getElementById("output").innerHTML = `
+    </br></br><p><strong>Intercept (a):</strong> ${a.toFixed(2)}</p>
+        <p><strong>Slope (b):</strong> ${b.toFixed(2)}</p>
+        <p><strong>R<sup>2</sup>:</strong> ${R2.toFixed(2)}</p>
+      `;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+  </script>
+  <script src="./hw1_practice.js"></script>
+  <script src="./hw2_practice.js"></script>
+  <script src="./hw3_practice.js"></script>
+  <script src="./hw4_practice.js"></script>
+</body>
+
+</html>

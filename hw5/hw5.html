@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework5</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+            <h1>Homework 5</h1>
+            <h2>Theory</h2>
+            <p>
+            <h3>Proof of the Cauchy-Schwarz Inequality</h3>
+            The Cauchy-Schwarz inequality states that for any vectors \(\mathbf{a}\) and \(\mathbf{b}\) in an inner product
+            space, the following inequality holds:
+
+            \[|\langle \mathbf{a}, \mathbf{b} \rangle| \leq \|\mathbf{a}\| \|\mathbf{b}\|\]
+
+            where \(\langle \mathbf{a}, \mathbf{b} \rangle\) denotes the inner product of \(\mathbf{a}\) and \(\mathbf{b}\),
+            and \(\|\mathbf{a}\|\) and \(\|\mathbf{b}\|\) denote the norms of \(\mathbf{a}\) and \(\mathbf{b}\),
+            respectively.
+
+            <ol>
+                <li>
+                Consider the vector form: For any two vectors \(\mathbf{a}\) and \(\mathbf{b}\), and any scalar \(t \in
+                \mathbb{R}\), the expression
+
+                \[\| \mathbf{a} + t \mathbf{b} \|^2 \geq 0\]
+
+                must be non-negative because the squared norm of any vector is always non-negative. </br></br>
+                </li>
+                <li>
+                Expand the norm: Using the definition of the inner product, expand \(\| \mathbf{a} + t \mathbf{b} \|^2\):
+
+                \[\| \mathbf{a} + t \mathbf{b} \|^2 = \langle \mathbf{a} + t \mathbf{b}, \mathbf{a} + t \mathbf{b} \rangle.\]
+
+                Expanding this inner product gives:
+
+                \[= \langle \mathbf{a}, \mathbf{a} \rangle + 2t \langle \mathbf{a}, \mathbf{b} \rangle + t^2 \langle
+                \mathbf{b}, \mathbf{b} \rangle.\]
+
+                Using the norm notation, we rewrite this as:
+
+                \[= \|\mathbf{a}\|^2 + 2t \langle \mathbf{a}, \mathbf{b} \rangle + t^2 \|\mathbf{b}\|^2.\]
+                </li>
+                <li>
+                Apply the quadratic inequality: Since \(\| \mathbf{a} + t \mathbf{b} \|^2 \geq 0\), we have:
+
+                \[\|\mathbf{a}\|^2 + 2t \langle \mathbf{a}, \mathbf{b} \rangle + t^2 \|\mathbf{b}\|^2 \geq 0.\]
+
+                This is a quadratic expression in \(t\), which must have a non-negative discriminant for the inequality to
+                hold for
+                all \(t\).</br></br>
+
+                </li>
+                <li>
+                Set up the discriminant: The discriminant of this quadratic in \(t\) is:
+
+                \[(2 \langle \mathbf{a}, \mathbf{b} \rangle)^2 - 4 \|\mathbf{a}\|^2 \|\mathbf{b}\|^2 = 4 \langle \mathbf{a},
+                \mathbf{b} \rangle^2 - 4 \|\mathbf{a}\|^2 \|\mathbf{b}\|^2.\]
+
+                For this discriminant to be non-positive, we must have:
+
+                \[\langle \mathbf{a}, \mathbf{b} \rangle^2 \leq \|\mathbf{a}\|^2 \|\mathbf{b}\|^2.\]
+
+                Taking the square root of both sides, we get the desired inequality:
+
+                \[|\langle \mathbf{a}, \mathbf{b} \rangle| \leq \|\mathbf{a}\| \|\mathbf{b}\|.\]
+
+                </li>
+            </ol>
+
+
+            <h3>Concepts of Independence and Uncorrelation</h3>
+            <h4>Independence</h4>
+            Two random variables \(X\) and \(Y\) are independent if the occurrence of one does not affect the probability
+            distribution
+            of the other. Mathematically, \(X\) and \(Y\) are independent if and only if:
+
+            \[P(X \leq x, Y \leq y) = P(X \leq x) P(Y \leq y) \quad \text{for all } x \text{ and } y.\]
+
+            This definition extends to events and functions of random variables as well, preserving the property that knowing
+            one variable gives no information about the other. Independence is a strong condition, implying that all moments
+            (not just the first and second) are uncorrelated.</br></br>
+
+            <h4>Uncorrelation</h4>
+
+            Two random variables X and Y are uncorrelated if their covariance is zero:
+
+            \[\text{Cov}(X, Y) = \mathbb{E}[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])] = 0.\]
+
+            Uncorrelatedness means that \(X\) and \(Y\) have no linear relationship, i.e., the expected product of their
+            deviations
+            from their means is zero. However, uncorrelation does not imply independence.</br>
+            For example, if \(X\) is uniformly
+            distributed on \([-1, 1]\) and \(Y = X^2\) , then \(X\) and \(Y\) are uncorrelated (since \(\mathbb{E}[X] = 0\)),
+            but they are
+            clearly dependent.</br></br>
+
+            <h3>Conceptual Differences and Measures</h3>
+            <ul>
+                <li> Independence implies uncorrelation, but the converse is not true.</li>
+                <li> Independence is a stronger concept: it encompasses all kinds of relationships (linear and nonlinear),
+                whileuncorrelation only ensures that there is no linear relationship.</li>
+            </ul>
+            <h4>Measures</h4>
+            <ul>
+                <li>Correlation coefficient \(r\) : Measures linear dependence; \(r = 0\) implies uncorrelation but not independence.</li>
+                <li>Mutual information: Measures any kind of dependency (linear or nonlinear) between \(X\) and \(Y\). \(I(X; Y) = 0\) if andonly if \(X\) and \(Y\) are independent.</li>
+            </ul>
+            </p>
+
+            <h2>Practical</h2>
+            <h3>E-M Simulator Enhancement</h3>
+            <p>
+                Enhance your existing Euler-Maruyama (E-M) simulator by developing a unified simulation framework. Create a general 
+                central class that can possibly manage various types of stochastic differential equations (SDEs).</br></br>
+            </p>
+
+            <h3>Please fill the forms below to generate the chart</h3>
+            <!---------- Button and values to be input ---------->
+            <!-- ------------- Change class (mb-4, mb-3) into input-group to control the chart ------------- -->
+            <form id="valuesForm">
+                <div class="input-group">
+                <label for="integer1" class="form-label">Total Simulation Time (T)</label>
+                <input value=50 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
+                    required>
+                </div>
+
+                <div class="input-group">
+                <label for="integer1.5" class="form-label">Total Number of Intervals (n)</label>
+                <input value=100 type="number" class="form-control" id="integer1.5" placeholder="Please insert an integer"
+                    required>
+                </div>
+
+                <div class="input-group">
+                <label for="integer2" class="form-label">Number of Attackers</label>
+                <input value=50 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
+                    required>
+                </div>
+
+                <div class="input-group">
+                <label for="decimal" class="form-label">Probability (or \(\lambda\) for Poisson)</label>
+                <input value=0.5 type="number" class="form-control" id="decimal" step="0.1" min="0"
+                    placeholder="Please insert a decimal greater than 0" required>
+                </div>
+
+                <div class="input-group">
+                <label for="integer3" class="form-label">Intermediate Step</label>
+                <input value=25 type="number" class="form-control" id="integer3"
+                    placeholder="Please insert an integer between 0 and the Total Simulation Time chosen" required>
+                </div>
+
+                <div class="input-group">
+                    <label class="form-label">Select Chart Type</label>
+                    <div>
+                        <input type="radio" id="option1" name="chartType" value="type1" checked>
+                        <label for="option1">Bernoulli</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="option2" name="chartType" value="type2">
+                        <label for="option2">Random Walk</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="option3" name="chartType" value="type3">
+                        <label for="option3">Poisson</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="option4" name="chartType" value="type4">
+                        <label for="option4">Brownian Motion</label>
+                    </div>
+                </div>
+
+                <!-- Here we changed the button class -->
+                <div class="run-button-container">
+                    <button type="submit" class="run-button" style="margin-top: 10px;">Generate</button>
+                </div>
+            </form>
+            
+            <!----------------- Generating the chart AND deleting 4th Chart-------------------->
+            <div id="chartContainer">
+                <div id="singleChartOne">
+                <canvas id="myChart"></canvas>
+                </div>
+                <div id="singleChartTwo">
+                <div id="resultContainer" style="margin-top: -92px; margin-left: 30px;">
+                    <p id="resultMean" style="text-align: left; font-size: 20px;"></p>
+                    <p id="resultVariance" style="text-align: left; font-size: 20px;"></p>
+                </div>
+                <canvas id="mySecondChart"></canvas>
+                </div>
+                <div id="singleChartThree">
+                <canvas id="myThirdChart"></canvas>
+                <p id="result2Mean" style="text-align: left; font-size: 20px;margin-top:30px; margin-left: 30px;"></p>
+                <p id="result2Variance" style="text-align: left; font-size: 20px; margin-left: 30px;"></p>
+                </div>
+            </div>
+
+            <!-- <h1>Optional Exercise</h1>
+            <h2>Calculation of Regression Coefficients and R<sup>2</sup></h2>
+
+            <label for="xValues">Enter the values of X (separated by commas):</label>
+            <input style="width: 40%;" type="text" id="xValues" placeholder="Example: 1, 2, 3, 4, 5">
+
+            <label for="yValues">Enter the values of Y (separated by commas):</label>
+            <input style="width: 40%;" type="text" id="yValues" placeholder="Example: 2, 4, 5, 4, 5">
+                </br>
+                <button onclick="calculateRegression()" class="btn btn-primary" style="margin-top: 10px;">Calculate</button>
+
+            <div id="output">
+            </div> -->
+
+            <!------------------ Comments after the chart ------------------>
+            <h2>Code Explanation</h2>
+            <p>
+            Most of the code is the same as the previous homework. Below there are the only few relevant changes in this homework. 
+            <br /><br />
+            </p>
+            <h3>HTML form to get all together</h3>
+            <p>
+            The only relevant change is in the HTML form management, where now based on the type of chart selection will re-use the previous homework codes in order to generate the asked chart.<br /><br />
+            <img src="src/code1_html_manage_toWrapAll.png">
+            </p>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let myChart = null;
+    let mySecondChart = null;
+    let myThirdChart = null;
+    // let myFourthChart = null;
+
+    document.getElementById('valuesForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const integer1 = parseInt(document.getElementById('integer1').value);
+      const integer1_5 = parseInt(document.getElementById('integer1.5').value);
+      const integer2 = parseInt(document.getElementById('integer2').value);
+      const p = parseFloat(document.getElementById('decimal').value);
+      const integer3 = parseInt(document.getElementById('integer3').value);
+      const chartType = document.querySelector('input[name="chartType"]:checked').value;
+
+      switch (chartType) {
+        case 'type1':
+          generateChartType1(integer1, integer2, p);
+          break;
+        case 'type2':
+          generateChartType2(integer1, integer2, integer3, p, event);
+          break;
+        case 'type3':
+          generateChartType3(integer1, integer1_5, integer2, p, event);
+          break;
+        case 'type4':
+          generateChartType4(integer1, integer1_5, integer2, p, event);
+          break;
+      }
+    });
+</script>
+
+<!-- -------------------------------------------OPTIONAL EXCERCISE---------------------------------------------- -->
+<!-- <script>
+    function calculateRegressionCoefficients(x, y) {
+      const n = x.length;
+
+      const meanX = x.reduce((sum, xi) => sum + xi, 0) / n;
+      const meanY = y.reduce((sum, yi) => sum + yi, 0) / n;
+
+      let numerator = 0;
+      let denominator = 0;
+      for (let i = 0; i < n; i++) {
+        numerator += (x[i] - meanX) * (y[i] - meanY);
+        denominator += (x[i] - meanX) ** 2;
+      }
+      const b = numerator / denominator;
+
+      const a = meanY - b * meanX;
+
+      return { a, b };
+    }
+
+    function calculateRSquared(x, y, a, b) {
+      const n = x.length;
+      const meanY = y.reduce((sum, yi) => sum + yi, 0) / n;
+
+      let SST = 0;
+      let SSE = 0;
+
+      for (let i = 0; i < n; i++) {
+        const yPredicted = a + b * x[i];
+        SST += (y[i] - meanY) ** 2;
+        SSE += (y[i] - yPredicted) ** 2;
+      }
+
+      const R2 = 1 - (SSE / SST);
+
+      return R2;
+    }
+
+    function calculateRegression() {
+      const xInput = document.getElementById("xValues").value;
+      const yInput = document.getElementById("yValues").value;
+
+      const x = xInput.split(",").map(Number);
+      const y = yInput.split(",").map(Number);
+
+      if (x.length !== y.length || x.some(isNaN) || y.some(isNaN)) {
+        document.getElementById("output").innerHTML = "<p style='color: red;'>Error: ensure that you enter valid numerical values for X and Y and that they have the same length.</p>";
+        return;
+      }
+
+      const { a, b } = calculateRegressionCoefficients(x, y);
+      const R2 = calculateRSquared(x, y, a, b);
+
+      document.getElementById("output").innerHTML = `
+    </br></br><p><strong>Intercept (a):</strong> ${a.toFixed(2)}</p>
+        <p><strong>Slope (b):</strong> ${b.toFixed(2)}</p>
+        <p><strong>R<sup>2</sup>:</strong> ${R2.toFixed(2)}</p>
+      `;
+    }
+</script> -->
+
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script 
+    type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="./HW5_Practical_type1chart.js"></script>
+<script src="./HW5_Practical_type2chart.js"></script>
+<script src="./HW5_Practical_type3chart.js"></script>
+<script src="./HW5_Practical_type4chart.js"></script>
+
+</body>
+
+</html>
