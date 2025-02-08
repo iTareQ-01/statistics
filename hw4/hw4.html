@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework4</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+            <h1>Homework 4</h1>
+            <h2>Theory</h2>
+            <h3>Statistical Independence</h3>
+            <p>
+            The concept of statistical independence is fundamental in probability and statistics and describes the
+            relationship between two events (or variables) where the occurrence of one event does not influence the occurrence
+            of the other. </br></br>
+
+            <h3>Definition of Statistical Independence</h3>
+
+            Two events, \(A\) and \(B\), are defined as independent if the occurrence of one does not affect the occurrence
+            of the
+            other. Formally, we can express this independence through probabilities. Specifically, \(A\) and \(B\) are
+            independent if
+            and only if:
+
+            \[P(A \cap B) = P(A) \cdot P(B)\]
+
+            where:</br></br>
+
+            <ul>
+                <li style="list-style-image: none;">
+                \(P(A \cap B)\) is the probability that both events \(A\) and \(B\) occur simultaneously.
+                </li>
+                <li style="list-style-image: none;">
+                \(P(A)\) and \(P(B)\) are the probabilities of events \(A\) and \(B\) occurring individually.
+                </li>
+            </ul>
+
+            <h3>Intuition Behind the Formula</h3>
+
+            The formula \(P(A \cap B) = P(A) \cdot P(B)\) essentially states that, if \(A\) and \(B\) are independent, the probability of
+            both events occurring together is simply the product of their individual probabilities. This means that knowing
+            one event has occurred does not provide any information about the probability of the other.
+
+            For instance:</br></br>
+
+            <ul>
+                <li style="list-style-image: none;">Imagine flipping two separate coins. Let \(A\) be the event “the first coin lands on heads,” and \(B\) be the event “the second coin lands on heads.”</li>
+                <li style="list-style-image: none;">The probability of \(A\) occurring (the first coin landing on heads) is \(P(A) = 0.5\).</li>
+                <li style="list-style-image: none;">Similarly, \(P(B) = 0.5\).</li>
+            </ul>
+
+            If the two coin flips are independent, the probability that both coins land on heads (event \(A \cap B\) ) is:
+
+            \[P(A \cap B) = P(A) \cdot P(B) = 0.5 \cdot 0.5 = 0.25\]
+
+            This means that in 25% of the trials, both coins will land on heads, confirming that one coin’s result does not
+            impact the other’s.</br></br>
+
+            <h3>Independence and Conditional Probability</h3>
+
+            An alternative way to define independence is by using conditional probability. The conditional probability of \(A\)
+            given \(B\), denoted \(P(A | B)\), is the probability of \(A\) occurring if we know \(B\) has occurred. For \(A\) and \(B\) to be
+            independent, the occurrence of \(B\) should not affect the probability of \(A\). Hence, if \(A\) and \(B\) are independent:
+
+            \[P(A | B) = P(A)\]
+
+            This means that knowing \(B\) has occurred does not change the probability of \(A\) occurring, reinforcing that \(A\) and \(B\)
+            are statistically independent.</br></br>
+
+            <h3>Comparison to Dependent Events</h3>
+
+            In contrast, when two events are dependent, the occurrence of one affects the probability of the other. For
+            dependent events \(C\) and \(D\), we would observe that \(P(C \cap D) \neq P(C) \cdot P(D)\), and consequently, \(P(C | D)
+            \neq P(C)\).
+            </p>
+
+            <h2>Practical</h2>
+            <h3>Stochastic Differential Equation simulator refinement</h3>
+            <p>
+            Refine your stochastic SDE simulator to generate a continuous time, process to represent the scaling limit of
+            the random Walk. To create the approximation of time continuity subdivide your reference temporal window into
+            vanishing intervals dt and on each infinitesimal interval assign a probability p or p to make a jump of a + or -
+            sqrt(dt). Note the significance of the simulation (Donsker invariance principle/ theorem or the functional
+            central limit theorem) in relation to the Wiener process.
+            </p>
+            <h3>Please fill the forms below to generate the chart</h3>
+            <!---------- Button and values to be input ---------->
+            <!-- ------------- Change class (mb-4, mb-3) into input-group to control the chart ------------- -->
+            <form id="valuesForm">
+                <div class="input-group">
+                <label for="integer1" class="form-label">Total Simulation Time (T)</label>
+                <input value=25 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
+                    required>
+                </div>
+                <div class="input-group">
+                <label for="integer1.5" class="form-label">Total Number of Intervals (n)</label>
+                <input value=100 type="number" class="form-control" id="integer1.5" placeholder="Please insert an integer"
+                    required>
+                </div>
+
+                <div class="input-group">
+                <label for="integer2" class="form-label">Number of Attackers</label>
+                <input value=50 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
+                    required>
+                </div>
+
+                <div class="input-group">
+                <label for="decimal" class="form-label">Probability</label>
+                <input value=0.5 type="number" class="form-control" id="decimal" step="0.1" min="0" max="1"
+                    placeholder="Please insert a decimal greater than 0" required>
+                </div>
+
+                <!-- Here we changed the button class -->
+                <div class="run-button-container">
+                    <button type="submit" class="run-button" style="margin-top: 10px;">Generate</button>
+                </div>
+            </form>
+
+            <!----------------- Generating the chart AND deleting 2nd/3rd Charts-------------------->
+            <div id="chartContainer">
+                <div id="singleChartOne">
+                    <canvas id="myChart"></canvas>
+                </div>
+
+                <div id="singleChartFour">
+                    <canvas id="myFourthChart"></canvas>
+                </div>
+            </div>
+
+            
+            <!------------------ Comments after the chart ------------------>
+            <h2>Code Explanation</h2>
+            <p>
+                Most of the code is the same as the previous homework. Below there are the only few relevant changes in this homework. 
+                <br /><br />
+            </p>
+            <h3>Generate DataSet</h3>
+            <p>
+            As for the previous homeworks, this function simulates the attack process, with few modifications.<br />
+            For each interval, a random value between 0 and 1 is generated using Math.random(). If this value is less than
+            the probability p (chosen by the user), the attacker succeeds in penetrating a server (jump
+            +\(\sqrt{dt}\)), otherwirse the attacker fails (jump -\(\sqrt{dt}\)). \(dt\) is equal to the Total Time Window/Intervals.<br />
+            The results are stored in a ‘dataset’, where each attacker has a line tracking how many servers he has
+            penetrated as the attack progresses.<br /><br />
+            In the meanwhile also the number of successful jumps done in each step is saved in an array for the absolute
+            frequency, and for the relative frequency the latter array is taken and copied to another array by dividing
+            each element for the total numebr of attempts done in the step (which is the number of attackers).<br /><br />
+            <img src="src/code1_GenerateData.png">
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let myChart = null;
+    // let mySecondChart = null;
+    // let myThirdChart = null;
+    let myFourthChart = null;
+
+    function createChart(servers, attackerDatasets) {
+
+      if (myChart !== null) {
+        myChart.destroy();
+      }
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: servers,
+          datasets: attackerDatasets
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+              labels: {
+                color: 'black'
+              }
+            }
+          },
+          scales: {
+            x: {
+              display: true,
+              title: {
+                display: false,
+                text: 'servers',
+                color: "black",
+                font: {
+                  size: 18,
+                },
+              },
+              position: 'bottom',
+              grid: {
+                color: 'grey'
+              },
+              ticks: {
+                color: 'grey'
+              }
+            },
+            y: {
+              display: true,
+              title: {
+                display: false,
+                text: 'successful breach',
+                color: "black",
+                font: {
+                  size: 18,
+                },
+              },
+              position: 'left',
+              grid: {
+                color: 'grey'
+              },
+              ticks: {
+                stepSize: 1,
+                color: 'grey'
+              }
+            },
+          }
+        }
+      });
+    }
+
+// function createSecondChart(servers, penetrationCounts, attackDistribution)  +++++++===== DELETED +++++++=====
+
+// function createThirdChart(servers, penetrationCounts) +++++++===== DELETED +++++++=====
+
+    function createFourthChart(servers, successfulJumps, relativeSuccessfulJumps) {
+
+      if (myFourthChart !== null) {
+        myFourthChart.destroy();
+      }
+
+      const fourthCtx = document.getElementById('myFourthChart').getContext('2d');
+      myFourthChart = new Chart(fourthCtx, {
+        type: 'line',
+        data: {
+          labels: servers,
+          datasets: [{
+            label: `Absolute frequency`,
+            data: successfulJumps,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 3,
+            pointRadius: 2,
+            pointHoverRadius: 1,
+            tension: 0.4,
+          },
+          {
+            label: `Relative frequency`,
+            data: relativeSuccessfulJumps,
+            borderColor: 'rgba(255, 150, 100, 1)',
+            borderWidth: 3,
+            pointRadius: 2,
+            pointHoverRadius: 1,
+            tension: 0.4,
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: 'black'
+              }
+            }
+          },
+          scales: {
+            x: {
+              display: true,
+              position: 'bottom',
+              title: {
+                display: true,
+                text: 'servers',
+                color: "black",
+                font: {
+                  size: 18,
+                },
+              },
+              grid: {
+                color: 'grey'
+              },
+              ticks: {
+                color: 'grey'
+              }
+            },
+            y: {
+              display: true,
+              position: 'right',
+              grid: {
+                color: 'grey'
+              },
+              title: {
+                display: true,
+                text: 'successful jumps',
+                color: "black",
+                font: {
+                  size: 18,
+                },
+              },
+              ticks: {
+                stepSize: 1,
+                color: 'grey'
+              }
+            },
+          }
+        }
+      });
+    }
+
+
+    function computeMeanAndVariance(penCount, index = 0, currentMean = 0, M2 = 0) {
+      if (index >= penCount.length) {
+        const variance = index > 1 ? M2 / (index - 1) : 0;
+        return { mean: currentMean, variance: variance };
+      }
+
+      const value = penCount[index];
+
+      if (!isNaN(value)) {
+        const newIndex = index + 1;
+        const delta = value - currentMean;
+        const newMean = currentMean + delta / newIndex;
+
+        const delta2 = value - newMean;
+        const newM2 = M2 + delta * delta2;
+
+        return computeMeanAndVariance(penCount, newIndex, newMean, newM2);
+      }
+
+      return computeMeanAndVariance(penCount, index + 1, currentMean, M2);
+    }
+
+
+    function generateDataset(attackers, intervals, p, dt) {
+      let dataset = [];
+      let totalSuccessfulJumps = Array(intervals + 1).fill(0);
+      const sqrtDt = Math.sqrt(dt);
+
+      for (let i = 1; i <= attackers.length; i++) {
+        let attackerData = [];
+        attackerData.push(0);
+        let max = 0;
+        for (let j = 1; j <= intervals; j++) {
+
+          let randomValue = Math.random();
+
+          if (randomValue < p) {
+            max = max + sqrtDt;
+            totalSuccessfulJumps[j] += 1;
+          }
+          else {
+            max = max - sqrtDt;
+          }
+          attackerData.push(max);
+        }
+
+        dataset.push({
+          label: `Attacker ${i}`,
+          data: attackerData,
+          borderColor: generateRandomHexColor(),
+          borderWidth: 2,
+          fill: false,
+          tension: 0.8,
+          pointRadius: 1,
+          pointHoverRadius: 1
+        });
+      }
+      const relativeSuccessfulJumps = totalSuccessfulJumps.map((value) => {
+        return value / (attackers.length);
+      });
+      return [dataset, totalSuccessfulJumps, relativeSuccessfulJumps];
+    }
+
+
+    function generateRandomHexColor() {
+      let letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function getIntermediateDistribution(serversLen, attackerDatasets, step) {
+      const penetrationCounts = Array(serversLen * 2 - 1).fill(0);
+      let attackerPenetrations = []
+      attackerDatasets.forEach((attacker) => {
+        const finalPenetrations = attacker.data[step];
+        attackerPenetrations.push(finalPenetrations)
+        penetrationCounts[finalPenetrations + serversLen - 1]++;
+      });
+      return [penetrationCounts, attackerPenetrations];
+    }
+
+
+    document.getElementById('valuesForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const integer1 = parseInt(document.getElementById('integer1').value);
+      const integer1_5 = parseInt(document.getElementById('integer1.5').value);
+      const integer2 = parseInt(document.getElementById('integer2').value);
+      const p = parseFloat(document.getElementById('decimal').value);
+
+      if (integer1 < 0 || integer1_5 < integer1) {
+        event.preventDefault();
+        alert(`Error: The total number of intervals must be greater than the total time window`);
+      } else {
+        const dt = integer1 / integer1_5;
+
+        // const attackDistribution = [];
+        // for (let i = 0; i * Math.sqrt(dt) <= integer1_5 * Math.sqrt(dt); i++) {
+        //   attackDistribution.push(i * Math.sqrt(dt));
+        // }
+        // console.log(attackDistribution)
+        const steps = [];
+        for (let i = 0; i <= integer1_5; i++) {
+          steps.push(i * dt);
+        }
+        const attackers = [];
+        for (let i = 1; i <= integer2; i++) {
+          attackers.push(i);
+        }
+        let [attackerDatasets, successfulJumps, relativeSuccessfulJumps] = generateDataset(attackers, integer1_5, p, dt)
+        // let [finalDistribution, finalAttackerPenetrations] = getIntermediateDistribution(steps.length, attackerDatasets, integer1_5);
+        // const finalMeanAndVariance = computeMeanAndVariance(finalAttackerPenetrations);
+        // const finalAvarage = finalMeanAndVariance.mean ? finalMeanAndVariance.mean.toFixed(2) : 0;
+        // const finalVariance = finalMeanAndVariance.variance ? finalMeanAndVariance.variance.toFixed(2) : 0;
+
+        createChart(steps, attackerDatasets, Math.sqrt(dt));
+        // createSecondChart(steps, finalDistribution, attackDistribution);
+        createFourthChart(steps, successfulJumps, relativeSuccessfulJumps);
+        // document.getElementById('resultMean').innerHTML = `Mean: ${finalAvarage}`;
+        // document.getElementById('resultVariance').innerHTML = `Variance: ${finalVariance}`;
+        document.getElementById('chartContainer').style.display = 'block';
+        //   let resultContainer = document.getElementById('resultContainer');
+        //   if (resultContainer.offsetHeight === 76) {
+        //     resultContainer.style.marginTop = '-92px';
+        //   } else if (resultContainer.offsetHeight === 106) {
+        //     resultContainer.style.marginTop = '-122px';
+        //   } else {
+        //     resultContainer.style.marginTop = '-152px';
+        //   }
+      }
+    });
+</script>
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script 
+    type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
