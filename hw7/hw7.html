@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework7</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+            <h1>Homework 7</h1>
+            <h2>Practical</h2>
+            <h3>Distribution of the sampling average</h3>
+            <!---------- Button and values to be input ---------->
+            <!-- ------------- Change class(input-section)) into input-group to control the chart ------------- -->
+            <div>
+                <label for="numFields">Enter number of fields (2-10): </label>
+                <input type="number" value="5" id="numFields" min="2" max="10" step="1">
+                <!-- Here we changed the button class -->
+                <button type="submit" class="run-button" onclick="createFields()"
+                  style="margin-top: 10px;">Create Fields</button>
+        
+                <div id="inputContainer"></div>
+                <br />
+                <!-- Here we changed the button class -->
+                <button id="randomizeButton" class="run-button" onclick="randomizeFields()"
+                  style="display: none;">Randomize Fields</button>
+                <br /><br />
+  
+                <p id="sumStatus">Sum: 0.00</p>
+                <label>Samples:</label>
+                <input type="number" style="width: 10%;" id="sampleIntervals" min="1" max="100000" value="5000">
+                <br><br>
+                <label>Sample size:</label>
+                <input type="number" style="width: 10%;" id="size" min="2" max="1000" value="100">
+                <!-- Here we changed the button class -->
+                <div class="run-button-container">
+                  <button id="generateGraphButton" type="submit" class="run-button" onclick="generateHistogram()"
+                    style="margin-top: 10px;">Generate</button>
+                </div>
+            </div>
+
+            <canvas id="histogramCanvas" style="display: none;" height="400"></canvas>
+
+            <b>
+                <p id="resultMean" style="text-align: center; font-size: 20px;"></p>
+            </b>
+            <b>
+                <p id="resultVariance" style="text-align: center; font-size: 20px;"></p>
+            </b>
+
+            <!------------------ Comments after the calculation ------------------>
+            <h3>Mean and Variance Analysis</h3>
+            <p>The average of the distribution of the averages of the samples is very close to the theoretical mean because
+                the samples are generated respecting the parent distribution. Even if the sample size n or the number of samples
+                m changes, this relationship remains valid.
+                For the variance, the relationship is similar but the variance of the sample mean distribution is lower than the
+                variance of the parent distribution. This reduction is due to the fact that the variance of the sample mean
+                decreases with increasing sample size n.
+            </p>
+
+
+            <!-- ================= OPTIONAL HOMEWORK ==================== -->
+            <h2>Optional Homework</h2>
+            <h3>Modular Exponentiation Distribution Results</h3>
+
+            <p id="output"></p>
+
+            <h3>Analysis of the Results</h3>
+
+            <h4>Case A: n = 19, g = {2, 3, 10, 17}</h4>
+            <p>The distributions for Case A are fairly uniform, with entropy values close to 4 for each of the chosen values
+                of <em>g</em>. This indicates that the values of \(Y = g^U\) mod n are spread out relatively evenly across the
+                possible remainders (0 to 18). A higher entropy value means that the distribution is less predictable and more
+                "random". In cryptographic contexts, a high entropy distribution is desirable because it makes the outcome less
+                predictable and harder to reverse-engineer.</p>
+
+            <h4>Cryptographic Implications for Case A:</h4>
+            <ul>
+                <li>Higher uniformity and entropy suggest stronger randomness, making this distribution suitable for
+                cryptographic applications.</li>
+                <li>Randomness and unpredictability are key to ensuring that outputs (e.g., cryptographic keys or random
+                numbers) are not easily guessed.</li>
+                <li>The entropy values closer to 4 show that each outcome is almost equally likely, which is important for
+                security protocols like key generation, hashing, and encryption.</li>
+            </ul>
+
+            <h4>Case B: n = 15, g = {3, 6, 9, 12}</h4>
+            <p>In Case B, the entropy values are lower, indicating less uniformity in the distributions. For example, the
+                distribution of g = 6 is very concentrated, with many values having a frequency of 0. This suggests that the
+                values of Y = g^U mod n repeat more frequently, making the outcome more predictable.</p>
+
+            <h4>Cryptographic Implications for Case B:</h4>
+            <ul>
+                <li>Lower entropy means higher predictability, which can be a vulnerability in cryptographic systems.</li>
+                <li>If a system generates predictable values (e.g., for keys, salts, or nonces), an attacker can potentially
+                reverse-engineer the system and compromise security.</li>
+                <li>For example, if the output of a cryptographic function is too predictable, it could be easier for an
+                adversary to guess future outputs or exploit patterns in the distribution.</li>
+            </ul>
+
+            <h4>Reason for choosing the set {2, 3, 10, 17} in Case A:</h4>
+            <p>The set of values {2, 3, 10, 17} was likely chosen because these values are primitive roots modulo 19, meaning
+                they generate a full range of values when raised to powers mod 19. A primitive root has the property that the
+                powers of the root modulo a prime \( n \) will generate all numbers from 1 to \( n-1 \). This is desirable in
+                cryptography, as it ensures that all possible values of \( Y \) are evenly distributed.</p>
+
+            <h4>Potential Errors in the Exercise:</h4>
+            <ul>
+                <li>If we were not to choose primitive roots in Case A, the distribution might not be uniform, potentially
+                leading to lower entropy and weaker cryptographic properties.</li>
+                <li>Additionally, using values of <em>g</em> that do not have a good spread of outputs modulo \( n \) could
+                cause patterns in the distribution, which would be undesirable in a cryptographic context.</li>
+            </ul>
+
+
+            <!-- ================ CODE EXPLANATION ===================-->
+            <h2>Code Explanation</h2>
+            <p>The only major change in the code compared to the previous homework concerns the generation of data. In fact,
+                this time m arrays of size n are created, where each is filled with the value of the various outcomes according
+                to the distribution previously decided by the user. For each of these arrays, the mean is calculated, which is
+                shown as the distribution on the graph in addition to the variance.</p>
+            <img src="src/code1_GenerateHistogram.png">
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function computeWeightedMeanAndVariance(values, probabilities, index = 0, currentMean = 0, M2 = 0) {
+      if (index >= values.length) {
+        const variance = M2;
+        return { mean: currentMean, variance: variance };
+      }
+      const value = values[index];
+      const prob = probabilities[index];
+
+      const delta = value - currentMean;
+      const newMean = currentMean + prob * delta;
+      const delta2 = value - newMean;
+      const newM2 = M2 + prob * delta * delta2;
+
+      return computeWeightedMeanAndVariance(values, probabilities, index + 1, newMean, newM2);
+    }
+
+    function computeMeanAndVariance(penCount, index = 0, currentMean = 0, M2 = 0) {
+      if (index >= penCount.length) {
+        const variance = index > 1 ? M2 / (index - 1) : 0;
+        return { mean: currentMean, variance: variance };
+      }
+
+      const value = penCount[index];
+
+      if (!isNaN(value)) {
+        const newIndex = index + 1;
+        const delta = value - currentMean;
+        const newMean = currentMean + delta / newIndex;
+
+        const delta2 = value - newMean;
+        const newM2 = M2 + delta * delta2;
+
+        return computeMeanAndVariance(penCount, newIndex, newMean, newM2);
+      }
+
+      return computeMeanAndVariance(penCount, index + 1, currentMean, M2);
+    }
+
+    function createFields() {
+      const numFields = document.getElementById('numFields').value;
+
+      if (numFields < 2 || numFields > 10) {
+        alert("Please enter a number between 2 and 10.");
+        return;
+      }
+
+      const container = document.getElementById('inputContainer');
+      container.innerHTML = "";
+      document.getElementById('sumStatus').innerText = "Sum: 0.00";
+      document.getElementById('generateGraphButton').disabled = true;
+      document.getElementById('randomizeButton').style.display = 'inline';
+
+      for (let i = 0; i < numFields; i++) {
+        const input = document.createElement("input");
+        input.type = "number";
+        input.step = "0.01";
+        input.min = "0";
+        input.max = "100";
+        input.style.width = "20%"
+        input.placeholder = `Probability ${i + 1}`;
+        input.oninput = validateSum;
+
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+      }
+    }
+
+    function randomizeFields() {
+      const inputs = document.querySelectorAll("#inputContainer input");
+      const numFields = inputs.length;
+      const randomValues = generateRandomProbabilities(numFields);
+
+      inputs.forEach((input, index) => {
+        input.value = randomValues[index].toFixed(2);
+      });
+
+      validateSum();
+    }
+
+    function generateRandomProbabilities(numFields) {
+
+      let values = Array(numFields).fill(0).map(() => Math.random());
+      const sum = values.reduce((acc, val) => acc + val, 0);
+      values = values.map(val => val / sum);
+
+      values = values.map(val => parseFloat(val.toFixed(2)));
+
+      const roundedSum = values.reduce((acc, val) => acc + val, 0);
+      const difference = 1 - roundedSum;
+      values[values.length - 1] += parseFloat(difference.toFixed(4));
+
+      return values;
+    }
+
+    function validateSum() {
+      const inputs = document.querySelectorAll("#inputContainer input");
+      let sum = 0;
+
+      inputs.forEach(input => {
+        const value = parseFloat(input.value) || 0;
+        sum += value;
+      });
+
+      document.getElementById('sumStatus').innerText = "Sum: " + sum.toFixed(2) + " should be 1";
+      document.getElementById('generateGraphButton').disabled = (sum.toFixed(2) !== "1.00");
+    }
+
+    async function drawHistogram(distribution, probabilitiesInput, outcomeCount, meanOfMeans, varianceOfVariances) {
+      const canvas = document.getElementById("histogramCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.canvas.width = window.innerWidth;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const outcomeArray = Array.from({ length: outcomeCount }, (_, i) => i + 1);
+
+      const theoreticalFrequencies = probabilitiesInput;
+
+      const barWidth = (canvas.width - 300) / (outcomeCount * 2 - 1);
+      ctx.font = "15px Arial";
+      ctx.textAlign = "center";
+
+      for (let i = 0; i < outcomeCount; i++) {
+        const x = i * 2 * barWidth;
+
+        ctx.fillStyle = "purple";
+
+        ctx.fillStyle = "green";
+        const theoreticalHeight = theoreticalFrequencies[i] * (canvas.height - 55);
+        ctx.fillRect(x + 100, canvas.height - theoreticalHeight - 30, barWidth, theoreticalHeight);
+
+        ctx.fillStyle = "black";
+        ctx.fillText(`${(theoreticalFrequencies[i] * 100).toFixed(2)}%`, x + barWidth / 2 + 100, canvas.height - theoreticalHeight - 40);
+
+        ctx.fillText(`Outcome ${i + 1}`, x + barWidth / 2 + 100, canvas.height - 10);
+      }
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'purple';
+      ctx.lineWidth = 3;
+      ctx.moveTo(100, canvas.height - 30);
+
+      const lineWidth = (canvas.width - 300) / (Object.keys(distribution).length) + 1;
+      const keys = Object.keys(distribution);
+
+      keys.forEach((key, index) => {
+        ctx.lineCap = 'round';
+        const canvasX = index * lineWidth + 100;
+        const canvasY = canvas.height - distribution[key] / 10 * (canvas.height - 55) - 30;
+        ctx.lineTo(canvasX, canvasY);
+      });
+
+      ctx.stroke();
+      ctx.closePath();
+
+
+      ctx.fillStyle = "green";
+      ctx.fillText("Theoretical", canvas.width - 80, 20);
+      ctx.fillStyle = "purple";
+      ctx.fillText("Sample distribution", canvas.width - 80, 50);
+      const theoreticalMeanAndVariance = computeWeightedMeanAndVariance(outcomeArray, theoreticalFrequencies);
+      const theMean = theoreticalMeanAndVariance.mean ? theoreticalMeanAndVariance.mean.toFixed(3) : 0;
+      const theVariance = theoreticalMeanAndVariance.variance ? theoreticalMeanAndVariance.variance.toFixed(3) : 0;
+      document.getElementById('histogramCanvas').style.display = 'block';
+      document.getElementById('resultMean').innerHTML = `Theorical mean: ${theMean} vs Mean of Means ${meanOfMeans}`;
+      document.getElementById('resultVariance').innerHTML = `Theorical variance: ${theVariance} vs Variance of Variances ${varianceOfVariances}`;
+      await new Promise(r => setTimeout(r, 1));
+    }
+
+    function createDistribution(samples, min, max, step) {
+
+      const result = {};
+
+      for (let i = min; i <= max; i = parseFloat((i + step).toFixed(2))) {
+        result[i.toFixed(2)] = 0;
+      }
+
+      samples.forEach(value => {
+        const key = value;
+        if (result.hasOwnProperty(key)) {
+          result[key]++;
+        }
+      });
+
+      const total = samples.length;
+
+      for (let key in result) {
+        result[key] = parseFloat(((result[key] / total) * 100).toFixed(2));
+      }
+
+      return result;
+    }
+
+    async function generateHistogram() {
+      const inputs = document.querySelectorAll("#inputContainer input");
+      const probabilitiesInput = Array.from(inputs).map(input => parseFloat(input.value) || 0);
+      const outcomeCount = probabilitiesInput.length
+      const sampleIntervals = parseInt(document.getElementById("sampleIntervals").value);
+      const size = parseInt(document.getElementById("size").value);
+
+      const meanArray = Array(size).fill(0);
+      const varianceArray = Array(size).fill(0);
+      const outcomeArray = Array.from({ length: outcomeCount }, (_, i) => i + 1);
+
+      for (let i = 0; i < sampleIntervals; i++) {
+        const sample = []
+        for (let k = 0; k < size; k++) {
+          const randomValue = Math.random()
+          let cumulativeProbability = 0;
+          for (let j = 0; j < outcomeCount; j++) {
+            cumulativeProbability += probabilitiesInput[j];
+            if (randomValue < cumulativeProbability) {
+              sample.push(outcomeArray[j - 1]);
+              break;
+            }
+          }
+        }
+
+        const sampleMeanAndVariance = computeMeanAndVariance(sample);
+        const sampleMean = sampleMeanAndVariance.mean ? sampleMeanAndVariance.mean.toFixed(2) : 0;
+        const sampleVariance = sampleMeanAndVariance.variance ? sampleMeanAndVariance.variance.toFixed(2) : 0;
+        meanArray[i] = sampleMean
+        varianceArray[i] = sampleVariance
+      }
+      const distribution = createDistribution(meanArray, 1, outcomeCount, 0.1);
+
+      const meanOfMeans = mean(meanArray).toFixed(3)
+      const varianceOfVariances = calculateVariance(varianceArray).toFixed(3)
+
+      await drawHistogram(distribution, probabilitiesInput, outcomeCount, meanOfMeans, varianceOfVariances);
+    }
+
+    function mean(numbers) {
+      let sum = 0;
+      let count = 0;
+
+      numbers.forEach(num => {
+        count++;
+        let delta = num - sum;
+        sum += delta / count;
+      });
+
+      return sum;
+    }
+
+
+    function calculateVariance(data, isSample = true) {
+      if (data.length === 0) return 0;
+
+      const localMean = mean(data)
+
+      const squaredDifferences = data.map(value => {
+        const difference = value - localMean;
+        return difference * difference;
+      });
+
+      const sumOfSquaredDifferences = squaredDifferences.reduce((sum, value) => sum + value, 0);
+      const divisor = isSample ? data.length - 1 : data.length;
+
+      return sumOfSquaredDifferences / divisor;
+    }
+</script>
+
+<script>
+    function modExp(base, exp, mod) {
+      let result = 1;
+      base = base % mod;
+      while (exp > 0) {
+        if (exp % 2 === 1) {
+          result = (result * base) % mod;
+        }
+        base = (base * base) % mod;
+        exp = Math.floor(exp / 2);
+      }
+      return result;
+    }
+
+
+    function generateDistribution(g, n, max_U) {
+      const freq = Array(n).fill(0);
+
+      for (let U = 1; U <= max_U; U++) {
+        const Y = modExp(g, U, n);
+        freq[Y]++;
+      }
+
+      return freq;
+    }
+
+
+    function computeEntropy(distribution, max_U) {
+      const probabilities = distribution.map(count => count / max_U);
+      let entropy = 0;
+
+      for (let i = 0; i < probabilities.length; i++) {
+        if (probabilities[i] > 0) {
+          entropy -= probabilities[i] * Math.log2(probabilities[i]);
+        }
+      }
+
+      return entropy;
+    }
+
+
+    function analyzeCase(n, gValues, max_U, caseName) {
+      const outputDiv = document.getElementById('output');
+      const caseDiv = document.createElement('div');
+      caseDiv.classList.add('result-container');
+      caseDiv.innerHTML = `<h4>Case ${caseName}: n = ${n}, max_U = ${max_U}</h4>`;
+
+      gValues.forEach(g => {
+        const gDiv = document.createElement('div');
+        gDiv.classList.add('g-value');
+        gDiv.innerHTML = `For g = ${g}:`;
+        caseDiv.appendChild(gDiv);
+
+        const distribution = generateDistribution(g, n, max_U);
+
+
+        const freqDiv = document.createElement('div');
+        freqDiv.classList.add('frequency');
+        freqDiv.innerHTML = `Frequency distribution: [${distribution.join(', ')}]`;
+        caseDiv.appendChild(freqDiv);
+
+
+        const entropy = computeEntropy(distribution, max_U);
+        const entropyDiv = document.createElement('div');
+        entropyDiv.classList.add('entropy');
+        entropyDiv.innerHTML = `Shannon entropy: ${entropy.toFixed(3)}`;
+        caseDiv.appendChild(entropyDiv);
+      });
+
+      outputDiv.appendChild(caseDiv);
+    }
+
+
+    const nA = 19;
+    const gValuesA = [2, 3, 10, 17];
+    const max_U_A = 19;
+
+
+    const nB = 15;
+    const gValuesB = [3, 6, 9, 12];
+    const max_U_B = 15;
+
+
+    analyzeCase(nA, gValuesA, max_U_A, 'A');
+    analyzeCase(nB, gValuesB, max_U_B, 'B');
+</script>
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script 
+    type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+</script>
+
+</body>
+
+</html>
