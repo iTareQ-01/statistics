@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework8</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+            <h1>Homework 8</h1>
+            <h2>Theorical</h2>
+            <h3>Shannon Entropy</h3>
+            <p>
+                Shannon entropy is a measure of uncertainty or randomness in a probability distribution. 
+                It quantifies the expected amount of information (or surprise) contained in a random variable. 
+                The formula for Shannon entropy is:
+            </p>
+            <p>
+                \[
+                H(X) = -Σ p(x) log_b(p(x))
+                \]
+            </p>
+            <ul>
+                <li style="list-style-image: none;">\(X\): A discrete random variable.</li>
+                <li style="list-style-image: none;">\(p(x)\): The probability of the outcome \(x\).</li>
+                <li style="list-style-image: none;">\(b\): The base of the logarithm, commonly 2 for bits.</li>
+            </ul>
+            <p>
+                Shannon entropy is widely used in information theory, machine learning, and cryptography to evaluate diversity or unpredictability in systems.
+            </p>
+
+            <h3>Other Diversity Measures</h3>
+            <p>Beyond Shannon entropy, there are additional measures to evaluate the diversity or spread of a distribution:</p>
+            <ul>
+                <li style="list-style-image: none;"><strong>Simpson's Index:</strong> Measures the probability that two randomly selected individuals belong to the same category.</li>
+                <li style="list-style-image: none;"><strong>Gini-Simpson Index:</strong> Complement of Simpson's Index, focusing on diversity instead of dominance.</li>
+                <li style="list-style-image: none;"><strong>Renyi Entropy:</strong> A generalized form of Shannon entropy, allowing for a tunable parameter to emphasize different aspects of the distribution.</li>
+            </ul>
+
+            <h3>Primitive Root</h3>
+            <p>
+                A primitive root modulo a prime number \(p\) is an integer \(g\) such that every integer 
+                \(a\) coprime to \(p\) can be expressed as \(g^k mod p\) for some integer \(k\).
+            </p>
+            <h4>Definition</h4>
+            <p>
+                Formally, \(g\) is a primitive root modulo \(p\) if the powers of \(g\) generate all the 
+                integers from \(1\) to \(p-1\) modulo \(p\). This means:
+            </p>
+            <ul>
+                <li style="list-style-image: none;">The smallest positive integer \(k\) such that \(g^k ≡ 1 (mod p)\) is \(k = p-1\).</li>
+                <li style="list-style-image: none;">\(g^i ≢ g^j (mod p)\) for \(0 ≤ i < j ≤ p-1\).</li>
+            </ul>
+
+            <!-- =============================== PRACTICAL +++++++++++++++++++++++++++++++ -->
+            <h2>Practical</h2>
+            <h3>Caesar Cipher and Frequency Analysis</h3>
+
+            <h4>Input Text</h4>
+            <textarea id="inputText" style="width: 100%;" rows="10"
+              placeholder="Enter your text here...">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee </textarea>
+            <br><br>
+            <h4>Encrypt the Text</h4>
+            <label for="shift">Enter shift value (1-25):</label>
+            <input value="16" type="number" id="shift" min="1" max="25">
+
+            <!-- Here we changed the button class -->
+            <!-- <div class="run-button-container"> -->
+              <button class="run-button" onclick="encryptText()">Encrypt Text</button>
+            <!-- </div> -->
+
+            <div class="output" id="encryptedOutput"></div>
+            <br>
+            <h4>Frequency Analysis Decryption</h4>
+            
+            <!-- Here we changed the button class -->
+            <!-- <div class="run-button-container"> -->
+              <button class="run-button" onclick="decryptWithFrequency()">Decrypt Using Frequency Analysis</button>
+            <!-- </div> -->
+            <div class="output" id="decryptedOutput"></div>
+      
+            
+            <!-- ================= OPTIONAL PRACTICAL HOMEWORK ==================== -->
+            <hr>
+            <h3>Modular Exponentiation Encryption</h3>
+            <h4>Input Text</h4>
+            <textarea id="modularText" style="width: 100%;" rows="10"
+              placeholder="Enter your text here...">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee </textarea>
+            <br><br>
+            <h4>Encrypt the Text</h4>
+            <label for="exponent">Enter Exponent (k):</label>
+            <input type="number" id="exponent" min="1" value="3">
+            <br>
+            <label for="modulus">Enter Prime Modulus (P):</label>
+            <input type="number" id="modulus" min="27" value="37">
+      
+            <!-- Here we changed the button class -->
+            <!-- <div class="run-button-container"> -->
+              <button class="run-button" onclick="encryptTextModular()">Encrypt (Modular)</button>
+            <!-- </div> -->
+      
+            <br><br>
+            <div class="output">
+              <div id="encryptedOutputModular" style="word-wrap: break-word;"></div>
+            </div>
+      
+            <!-- ======================= comments after result computation ===================== -->
+            <h2>Research</h2>
+            <h3>Cryptographic Analysis: Caesar Cipher vs RSA</h3>
+            <p>
+              Frequency analysis is a statistical technique used to break simple substitution ciphers like the Caesar cipher.
+              In this cipher, each letter in the plaintext is shifted by a constant value, making it relatively easy to
+              decrypt if the shift value is known or can be deduced.
+              The key to cracking the Caesar cipher lies in the fact that certain letters appear with a predictable frequency
+              in natural language.
+              For example, in English, the letter 'E' appears most often, followed by 'T', 'A', 'O', and others. A simple
+              analysis of letter frequencies can help identify the
+              shift key used for encryption.
+            </p>
+      
+            <p>
+              In contrast, breaking RSA encryption without knowledge of the private key or access to critical information is
+              computationally infeasible.
+              RSA relies on the mathematical difficulty of factoring large prime numbers. While the encryption process uses
+              the public key (composed of two prime numbers),
+              decrypting the message requires the private key, which is derived from those prime numbers. The security of RSA
+              comes from the fact that,
+              as the size of the prime numbers increases, factoring the product becomes extremely time-consuming and
+              practically impossible with current computational methods.
+            </p>
+      
+            <h3>Visualizing Distributions and Shannon Entropy</h3>
+            <p>
+              A key aspect of cryptographic analysis is understanding how the statistical properties of encrypted messages
+              relate to the strength of the encryption method.
+              In the Caesar cipher, we expect a noticeable pattern in the frequency distribution of letters, whereas in RSA
+              encryption, the distribution is much more random.
+            </p>
+      
+            <h4>Shannon Entropy of Caesar Cipher</h4>
+            <p>
+              The Shannon entropy for a distribution measures the amount of uncertainty or unpredictability.
+              In the case of the Caesar cipher, due to its simple shift mechanism, the entropy is relatively low because the
+              frequency of letters can still be predicted.
+              For example, if we were to perform frequency analysis on a Caesar cipher text, we would likely see patterns in
+              letter frequency, such as 'E' being the most common letter.
+              Thus, the entropy is lower because the distribution of characters is less random.
+            </p>
+      
+            <h4>Shannon Entropy of RSA</h4>
+            <p>
+              On the other hand, RSA encryption produces a much higher entropy in its encrypted output. The ciphertext is
+              highly randomized and exhibits no noticeable patterns.
+              Even if an attacker were to analyze the ciphertext, without the private key, there is no way to predict the
+              original message.
+              This results in a higher entropy value, signifying greater unpredictability and security.
+            </p>
+      
+            <h3>Summary and Findings</h3>
+            <p>
+              While the Caesar cipher is vulnerable to frequency analysis due to its simplistic approach, where the
+              patterns in letter frequency can be easily exploited, on the other hand RSA encryption provides much stronger
+              security due to its reliance on number-theoretic problems, such
+              as factoring large prime numbers, which is computationally infeasible for modern systems.
+              The Shannon entropy calculations reveal that the Caesar cipher has lower entropy and thus lower security, while
+              RSA encryption has higher entropy, making it more secure.
+            </p>
+      
+            <!-- ================ CODE EXPLANATION ===================-->
+            <h2>Code Explanation</h2>
+            <section>
+              <h3>Letter Frequency in English</h3>
+              <p>
+                The <code>englishFrequencies</code> variable represents the percentage distribution of letters in the English
+                language.
+                It is used as a reference to compare with the encrypted text and detect the probable shift key.
+              </p>
+              <img src="src/code1_englishFreq.png">
+            </section>
+      
+            <section>
+              <h3>Calculating Letter Frequencies</h3>
+              <p>
+                The <code>calculateFrequency</code> function computes the frequency of each letter in a given text.
+                It considers only alphabetic characters, ignoring special characters and numbers. The frequencies
+                are normalized to percentages.
+              </p>
+              <img src="src/code2_calculateFreq.png">
+            </section>
+      
+            <section>
+              <h3>Encrypting the Text</h3>
+              <p>
+                The <code>caesarCipherEncrypt</code> function applies the Caesar cipher to the given text.
+                Each letter is shifted by a value specified by the <code>shift</code> parameter.
+                The function properly handles both uppercase and lowercase letters.
+              </p>
+              <img src="src/code3_caesarEncrypt.png">
+            </section>
+      
+            <section>
+              <h3>Decrypting the Text</h3>
+              <p>
+                The <code>caesarCipherDecrypt</code> function decrypts the encrypted text by reversing the encryption process.
+                Decryption is equivalent to encrypting with a shift of <code>(26 - shift)</code>.
+              </p>
+            </section>
+      
+            <section>
+              <h3>Detecting the Shift Key</h3>
+              <p>
+                The <code>detectShiftKey</code> function uses frequency analysis to determine the shift key used in
+                encryption.
+                It compares the encrypted text's frequency distribution to the English letter frequency distribution
+                for all possible shifts. The function returns the shift key with the smallest difference.
+              </p>
+              <img src="src/code4_detectShift.png">
+            </section>
+      
+            <section>
+              <h3>User Interaction</h3>
+              <p>
+                The <code>encryptText</code> and <code>decryptWithFrequency</code> functions handle user interaction.
+                The first encrypts the input text with a specified shift value. The second decrypts the encrypted text using
+                frequency analysis to determine the most likely shift value.
+              </p>
+              <img src="src/code5_Interaction.png">
+            </section>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    const englishFrequencies = [
+      8.167, 1.492, 2.782, 4.253, 12.702, 2.228, 2.015, 6.094, 6.966, 0.153,
+      0.772, 4.025, 2.406, 6.749, 7.507, 1.929, 0.095, 5.987, 6.327, 9.056,
+      2.758, 0.978, 2.360, 0.150, 1.974, 0.074
+    ];
+
+    function calculateFrequency(text) {
+      const freq = Array(26).fill(0);
+      const letters = text.replace(/[^a-z]/gi, '').toLowerCase();
+      for (let char of letters) {
+        freq[char.charCodeAt(0) - 97]++;
+      }
+      const total = letters.length;
+      return freq.map(f => (f / total) * 100);
+    }
+
+
+    function caesarCipherEncrypt(text, shift) {
+      return text.replace(/[a-z]/gi, (char) => {
+        const base = char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90 ? 65 : 97;
+        return String.fromCharCode(((char.charCodeAt(0) - base + shift) % 26) + base);
+      });
+    }
+
+
+    function caesarCipherDecrypt(text, shift) {
+      return caesarCipherEncrypt(text, 26 - shift);
+    }
+
+
+    function detectShiftKey(encryptedText) {
+      const encryptedFreq = calculateFrequency(encryptedText);
+      const candidates = [];
+
+      for (let shift = 0; shift < 26; shift++) {
+        const rotatedFreq = encryptedFreq.map((_, i) => encryptedFreq[(i + shift) % 26]);
+        const difference = rotatedFreq.reduce((sum, f, i) => sum + Math.abs(f - englishFrequencies[i]), 0);
+        candidates.push({ shift, difference });
+      }
+      candidates.sort((a, b) => a.difference - b.difference);
+      return candidates[0];
+    }
+
+
+    function encryptText() {
+      const text = document.getElementById("inputText").value;
+      const shift = parseInt(document.getElementById("shift").value, 10);
+      if (!text || isNaN(shift) || shift < 1 || shift > 25) {
+        alert("Please provide valid text and a shift value between 1 and 25.");
+        return;
+      }
+      const encrypted = caesarCipherEncrypt(text, shift);
+      document.getElementById("encryptedOutput").innerHTML = `<br>${encrypted}`;
+    }
+
+    function decryptWithFrequency() {
+      const encryptedText = document.getElementById("encryptedOutput").innerText;
+      if (!encryptedText) {
+        alert("Please encrypt a text first.");
+        return;
+      }
+      const shiftCandidate = detectShiftKey(encryptedText);
+      const decrypted = caesarCipherDecrypt(encryptedText, shiftCandidate.shift);
+      document.getElementById("decryptedOutput").innerHTML = `
+        <br><strong>Stronger Decryption Proposal:</strong><br><br>${decrypted}
+        `;
+    }
+
+    function letterToNumber(char) {
+      return char.toUpperCase().charCodeAt(0) - 65;
+    }
+
+    function numberToLetter(num) {
+      return String.fromCharCode((num % 26) + 65);
+    }
+
+    function modExp(base, exp, mod) {
+      let result = 1;
+      base = base % mod;
+      while (exp > 0) {
+        if (exp % 2 === 1) {
+          result = (result * base) % mod;
+        }
+        exp = Math.floor(exp / 2);
+        base = (base * base) % mod;
+      }
+      return result;
+    }
+
+    function encryptModular(text, exponent, modulus) {
+      const cleanText = text.replace(/[^a-zA-Z]/g, '').toUpperCase();
+      return cleanText
+        .split('')
+        .map(char => {
+          const num = letterToNumber(char);
+          const encoded = modExp(num, exponent, modulus);
+          return numberToLetter(encoded);
+        })
+        .join('');
+    }
+
+    function encryptTextModular() {
+      const text = document.getElementById("modularText").value;
+      const exponent = parseInt(document.getElementById("exponent").value, 10);
+      const modulus = parseInt(document.getElementById("modulus").value, 10);
+
+      if (!text || isNaN(exponent) || isNaN(modulus)) {
+        alert("Please enter valid text, exponent, and modulus values.");
+        return;
+      }
+
+      const encrypted = encryptModular(text, exponent, modulus);
+      document.getElementById("encryptedOutputModular").innerText = encrypted;
+    }
+</script>
+
+
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script 
+    type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
