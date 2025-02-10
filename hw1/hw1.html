@@ -27,9 +27,14 @@
 				<h2>Theory</h2>
 				<h3>Basic Notions in Statistics:</h3>
 				<p>
-				1. <b><em>Population</em></b> refers to the entire set of individuals or items that we are interested in studying.<br><br> 
+				1. <b><em>Population</em></b> refers to the entire set of individuals or items that we are interested in studying.<br><br>
 				2. <b><em>Statistical unit</em></b> is a single member of this population.<br><br>
-				3. <b><em>Distribution</em></b> of a dataset describes how the values are spread or distributed.<br><br>
+				3. <b><em>Distribution</em></b> of a dataset describes how outcomes are distributed. The distribution of an event consists not only of 
+				the input values that can be observed, but is made up of all possible values. Each probability distribution is associated with a graph 
+				describing the likelihood of occurrence of every outcome, like: <em>Normal distribution</em>, <em>Uniform distribution</em>.<br>
+				<img width="400" height="300" src="src/pic1theory_uniformVSnormal.png">
+				<br><br>
+
 				4. <b><em>Frequency</em></b> refers to how often a particular value appears in a dataset. It can be expressed in different forms: <br>
 				- Absolute frequency is the count of occurrences.<br>
 				- Relative frequency is the proportion of occurrences relative to the total number of observations.<br>
@@ -41,7 +46,11 @@
 				The arithmetic average, or mean, is a measure of central tendency that is calculated
 				by summing all the values in a dataset and dividing by the number of values. However,
 				when dealing with floating-point numbers, computational problems such as <em>floating
-				-point representation errors</em> and <em>catastrophic cancellation</em> can occur. <br>
+				-point representation</em> and <em>catastrophic cancellation</em> can occur. As we are using
+				IEEE-754 standard, see this short video to better see the problem.<br>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/PZRI1IfStY0?si=hnTTfp6B3Q1kNQ47" title="YouTube video player" 
+				frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+				referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 				These issues arise due to the limited precision with which computers represent 
 				real numbers, leading to inaccuracies in calculations. 
 				</p>
@@ -51,7 +60,8 @@
 				To address these computational problems, Knuth's compensated summation algorithm can
 				be used. This algorithm improves the accuracy of the sum by keeping a running 
 				compensation for lost low-order bits, thereby minimizing the errors that occur 
-				during floating-point arithmetic operations. 
+				during floating-point arithmetic operations. You can discover more about the exact Solution
+				by reviewing Ch.4 from "Handbook of Floating-Point Arithmetic" to <em>Jean-Michel Muller</em>.
 				</p>
 
 				<h3>Servers-Hackers Model:</h3>
@@ -76,13 +86,13 @@
 				<form id="valuesForm">
 					<div class="input-group">
 						<label for="integer1" >Number of servers</label>
-						<input value=50 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
+						<input value=20 type="number" class="form-control" id="integer1" placeholder="Please insert an integer"
 							required>
 					</div>
 	
 					<div class="input-group">
 						<label for="integer2" >Number of attackers</label>
-						<input value=100 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
+						<input value=50 type="number" class="form-control" id="integer2" placeholder="Please insert an integer"
 							required>
 					</div>
 	
@@ -178,6 +188,7 @@
 		adjustMargin();
 		window.addEventListener('resize', adjustMargin);
 	</script>
+
 	<script>
 		let myChart = null;
 		let mySecondChart = null;
@@ -404,6 +415,8 @@
 		}
 
 
+		// <!-- Here we put listener to the ID of the form to wait for submit and perform the different function -->
+		// So this is accomplished before any function to prepare the function inputs
 		document.getElementById('valuesForm').addEventListener('submit', function (event) {
 			event.preventDefault();
 
@@ -411,6 +424,7 @@
 			const integer2 = parseInt(document.getElementById('integer2').value);
 			const p = parseFloat(document.getElementById('decimal').value);
 
+			// create the arrays for servers & attackers
 			const servers = [];
 			for (let i = 0; i <= integer1; i++) {
 				servers.push(i);
@@ -421,6 +435,7 @@
 				attackers.push(i);
 			}
 
+			// call generateDataset function
 			attackerDatatsets = generateDataset(attackers, servers, p)
 
 			const penetrationCounts = Array(servers.length).fill(0);
@@ -440,6 +455,9 @@
 			document.getElementById('chartContainer').style.display = 'flex';
 		});
 	</script>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   
 </body>
+</html>
