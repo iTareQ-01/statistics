@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework9</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+            <h1>Homework 9</h1>
+            <h2>Theorical</h2>
+            <h3>Main Properties of Sampling Mean and Variance</h3>
+
+            <h4>Sampling Mean (Sample Mean)</h4>
+            <p>
+                The sample mean is a fundamental concept in statistics, representing the average of a set of data points. To compute it, we sum all the data points in a sample and then divide that sum by the number of points. Mathematically, the sample mean is given by the formula:
+            </p>
+            <p>
+                \[
+                \bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i
+                \]
+            </p>
+            <p>
+                Here, \( X_i \) represents the individual data points in the sample, and \( n \) is the number of data points. The sample mean is essentially a central value of the data and serves as an estimate of the population mean. It plays a critical role in inferential statistics, where we use sample data to draw conclusions about larger populations.
+            </p>
+        
+            <h4>Sampling Variance</h4>
+            <p>
+                Variance is another key concept in statistics that measures how spread out the data points in a sample are. In other words, it tells us how much the individual data points deviate from the sample mean. The formula for the sample variance is given by:
+            </p>
+            <p>
+                \[
+                s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2
+                \]
+            </p>
+            <p>
+                In this equation, \( s^2 \) is the sample variance, \( X_i \) are the individual data points, and \( \bar{X} \) is the sample mean. The denominator is \( n-1 \) instead of \( n \) because using \( n-1 \) corrects for bias when estimating the population variance from a sample. The variance provides insight into the variability of the data. A larger variance means the data points are more spread out, while a smaller variance indicates that the data points are clustered around the mean.
+            </p>
+        
+            <h3>Law of Large Numbers (LLN)</h3>
+            <p>
+                The Law of Large Numbers (LLN) is a fundamental theorem in probability theory that states that as the sample size grows, the sample mean will converge to the true population mean. This concept is vital because it assures us that with enough data, our sample-based estimates will be close to the actual values we are trying to measure. The law comes in two main forms: the weak law and the strong law.
+            </p>
+            <p>
+                The <strong>Weak Law of Large Numbers (WLLN)</strong> states that the sample mean will converge in probability to the population mean as the sample size increases. In other words, as the sample size grows, the probability that the sample mean deviates significantly from the population mean becomes smaller. On the other hand, the <strong>Strong Law of Large Numbers (SLLN)</strong> is a more stringent form, stating that the sample mean will almost surely converge to the population mean as the sample size approaches infinity. In both cases, LLN gives us a powerful guarantee that large samples provide increasingly accurate estimates of population parameters.
+            </p>
+        
+            <h4>Illustration of the Law of Large Numbers</h4>
+            <p>
+                Consider a simple example of flipping a fair coin. The true probability of getting heads is 0.5. If you flip the coin only a few times, say 10 flips, the proportion of heads might be far from 0.5, with 7 heads out of 10 flips, for instance. However, as you increase the number of flips—say, to 1000 or even 10,000—the proportion of heads will approach 0.5. This illustrates the Law of Large Numbers: with a small sample, the mean (the proportion of heads) can vary greatly from the true mean, but as the sample size increases, the observed mean converges to the true mean.
+            </p>
+        
+            <h4>Applications of Law of Large Numbers in Cybersecurity</h4>
+            <p>
+                The Law of Large Numbers is not only a theoretical concept but also has practical applications, particularly in fields such as cybersecurity. 
+                In cybersecurity, decisions are often made based on observed data, and LLN can help ensure that those decisions become more reliable as more 
+                data is collected.
+            </p>
+            <p>
+                For example, in network traffic analysis, cybersecurity analysts may monitor a subset of network traffic patterns for anomalies, such as 
+                unusual login attempts. When the sample size is small, it might be difficult to distinguish between normal fluctuations and actual threats. 
+                However, as more traffic data is collected, the sample mean (i.e., the frequency of anomalies) becomes more accurate, making it easier to 
+                detect true security threats.
+            </p>
+            <p>
+                Similarly, intrusion detection systems (IDS) can benefit from LLN. IDS models often rely on historical data to detect potential intrusions 
+                or malicious activity. With larger datasets, the model’s predictions become more accurate, as it can better identify patterns of behavior 
+                that are indicative of attacks. Over time, as data grows, the system’s ability to distinguish between benign and malicious activity improves.
+            </p>
+            <p>
+                In risk assessment and vulnerability prediction, cybersecurity teams can use LLN to analyze large datasets of past attacks or vulnerabilities.
+                As the dataset grows, predictions about which vulnerabilities are most likely to be exploited become more reliable. For instance, a team 
+                might look at the frequency of attacks on different system configurations. With a small sample, they might see an attack rate of 1% on a 
+                particular system, but with a larger sample, they might see that the true rate is closer to 5%, allowing them to prioritize that 
+                vulnerability more effectively.
+            </p>
+            <p>
+                Finally, penetration testers, who simulate attacks on a system to identify weaknesses, also make use of LLN. By testing a representative 
+                sample of systems or configurations, they can estimate the overall security posture of an organization. As the sample size increases, their 
+                estimates become more accurate, providing a more reliable assessment of the organization’s security.
+            </p>
+
+            <!-- =========== Practical ==================== -->
+            <h2>Practical</h2>
+            <h3>Distribution of the sampling average</h3>
+
+            <!---------- Button and values to be input ---------->
+            <!-- ------------- Change class(input-section)) into NONE/not even input-group as we did the past homeworks ------------- -->
+            <div>
+                <label for="numFields">Enter number of fields (2-10): </label>
+                <input type="number" value="5" id="numFields" min="2" max="10" step="1">
+                <!-- Here we changed the button class -->
+                <button type="submit" class="run-button" onclick="createFields()"
+                  style="margin-top: 10px;">Create Fields</button>
+        
+                <div id="inputContainer"></div>
+                <br />
+                <!-- Here we changed the button class -->
+                <button id="randomizeButton" class="run-button" onclick="randomizeFields()"
+                  style="display: none;">Randomize Fields</button>
+                <br /><br />
+  
+                <p id="sumStatus">Sum: 0.00</p>
+                <label>Samples:</label>
+                <input type="number" style="width: 10%;" id="sampleIntervals" min="1" max="100000" value="5000">
+                <br><br>
+                <label>Sample size:</label>
+                <input type="number" style="width: 10%;" id="size" min="2" max="1000" value="100">
+                <!-- Here we changed the button class -->
+                <div class="run-button-container">
+                  <button id="generateGraphButton" type="submit" class="run-button" onclick="generateHistogram()"
+                    style="margin-top: 10px;">Generate</button>
+                </div>
+            </div>
+
+
+            <canvas id="histogramCanvas" style="display: none;" height="400"></canvas>
+
+
+            <b>
+                <p id="resultMean" style="text-align: center; font-size: 20px;"></p>
+            </b>
+            <b>
+                <p id="resultVariance" style="text-align: center; font-size: 20px;"></p>
+            </b>
+
+            <!-- ==========   Comment after Simulation =============== -->
+            <h3>Mean and Variance Analysis</h3>
+            <p>The average of the distribution of the averages of the samples is very close to the theoretical mean because
+                the samples are generated respecting the parent distribution. Even if the sample size n or the number of samples
+                m changes, this relationship remains valid.
+                For the variance, the relationship is similar but the variance of the sample mean distribution is lower than the
+                variance of the parent distribution. This reduction is due to the fact that the variance of the sample mean
+                decreases with increasing sample size n.
+            </p>
+
+            <!-- ==========   CODE EXPLANATION =============== -->
+            <h2>Code Explanation</h2>
+            <p>The only major change in the code compared to the previous homework concerns the generation of the variance distribution. In fact,
+                this time we generate the distribution using the varianceArray array.</p>
+            <img src="src/code1_computeMain&Variance.png">
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function computeWeightedMeanAndVariance(values, probabilities, index = 0, currentMean = 0, M2 = 0) {
+      if (index >= values.length) {
+        const variance = M2;
+        return { mean: currentMean, variance: variance };
+      }
+      const value = values[index];
+      const prob = probabilities[index];
+
+      const delta = value - currentMean;
+      const newMean = currentMean + prob * delta;
+      const delta2 = value - newMean;
+      const newM2 = M2 + prob * delta * delta2;
+
+      return computeWeightedMeanAndVariance(values, probabilities, index + 1, newMean, newM2);
+    }
+
+    function computeMeanAndVariance(penCount, index = 0, currentMean = 0, M2 = 0) {
+      if (index >= penCount.length) {
+        const variance = index > 1 ? M2 / (index - 1) : 0;
+        return { mean: currentMean, variance: variance };
+      }
+
+      const value = penCount[index];
+
+      if (!isNaN(value)) {
+        const newIndex = index + 1;
+        const delta = value - currentMean;
+        const newMean = currentMean + delta / newIndex;
+
+        const delta2 = value - newMean;
+        const newM2 = M2 + delta * delta2;
+
+        return computeMeanAndVariance(penCount, newIndex, newMean, newM2);
+      }
+
+      return computeMeanAndVariance(penCount, index + 1, currentMean, M2);
+    }
+
+    function createFields() {
+      const numFields = document.getElementById('numFields').value;
+
+      if (numFields < 2 || numFields > 10) {
+        alert("Please enter a number between 2 and 10.");
+        return;
+      }
+
+      const container = document.getElementById('inputContainer');
+      container.innerHTML = "";
+      document.getElementById('sumStatus').innerText = "Sum: 0.00";
+      document.getElementById('generateGraphButton').disabled = true;
+      document.getElementById('randomizeButton').style.display = 'inline';
+
+      for (let i = 0; i < numFields; i++) {
+        const input = document.createElement("input");
+        input.type = "number";
+        input.step = "0.01";
+        input.min = "0";
+        input.max = "100";
+        input.style.width = "20%"
+        input.placeholder = `Probability ${i + 1}`;
+        input.oninput = validateSum;
+
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+      }
+    }
+
+    function randomizeFields() {
+      const inputs = document.querySelectorAll("#inputContainer input");
+      const numFields = inputs.length;
+      const randomValues = generateRandomProbabilities(numFields);
+
+      inputs.forEach((input, index) => {
+        input.value = randomValues[index].toFixed(2);
+      });
+
+      validateSum();
+    }
+
+    function generateRandomProbabilities(numFields) {
+
+      let values = Array(numFields).fill(0).map(() => Math.random());
+      const sum = values.reduce((acc, val) => acc + val, 0);
+      values = values.map(val => val / sum);
+
+      values = values.map(val => parseFloat(val.toFixed(2)));
+
+      const roundedSum = values.reduce((acc, val) => acc + val, 0);
+      const difference = 1 - roundedSum;
+      values[values.length - 1] += parseFloat(difference.toFixed(4));
+
+      return values;
+    }
+
+    function validateSum() {
+      const inputs = document.querySelectorAll("#inputContainer input");
+      let sum = 0;
+
+      inputs.forEach(input => {
+        const value = parseFloat(input.value) || 0;
+        sum += value;
+      });
+
+      document.getElementById('sumStatus').innerText = "Sum: " + sum.toFixed(2) + " should be 1";
+      document.getElementById('generateGraphButton').disabled = (sum.toFixed(2) !== "1.00");
+    }
+
+    async function drawHistogram(distribution, probabilitiesInput, outcomeCount, meanOfMeans, varianceOfVariances) {
+      const canvas = document.getElementById("histogramCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.canvas.width = window.innerWidth;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const outcomeArray = Array.from({ length: outcomeCount }, (_, i) => i + 1);
+
+      const theoreticalFrequencies = probabilitiesInput;
+
+      const barWidth = (canvas.width - 300) / (outcomeCount * 2 - 1);
+      ctx.font = "15px Arial";
+      ctx.textAlign = "center";
+
+      for (let i = 0; i < outcomeCount; i++) {
+        const x = i * 2 * barWidth;
+
+        ctx.fillStyle = "purple";
+
+        ctx.fillStyle = "green";
+        const theoreticalHeight = theoreticalFrequencies[i] * (canvas.height - 55);
+        ctx.fillRect(x + 100, canvas.height - theoreticalHeight - 30, barWidth, theoreticalHeight);
+
+        ctx.fillStyle = "white";
+        ctx.fillText(`${(theoreticalFrequencies[i] * 100).toFixed(2)}%`, x + barWidth / 2 + 100, canvas.height - theoreticalHeight - 40);
+
+        ctx.fillText(`Outcome ${i + 1}`, x + barWidth / 2 + 100, canvas.height - 10);
+      }
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'purple';
+      ctx.lineWidth = 3;
+      ctx.moveTo(100, canvas.height - 30);
+
+      const lineWidth = (canvas.width - 300) / (Object.keys(distribution).length) + 1;
+      const keys = Object.keys(distribution);
+
+      keys.forEach((key, index) => {
+        ctx.lineCap = 'round';
+        const canvasX = index * lineWidth + 100;
+        const canvasY = canvas.height - distribution[key] / 10 * (canvas.height - 55) - 30;
+        ctx.lineTo(canvasX, canvasY);
+      });
+
+      ctx.stroke();
+      ctx.closePath();
+
+
+      ctx.fillStyle = "green";
+      ctx.fillText("Theoretical", canvas.width - 80, 20);
+      ctx.fillStyle = "purple";
+      ctx.fillText("Sample distribution", canvas.width - 80, 50);
+      const theoreticalMeanAndVariance = computeWeightedMeanAndVariance(outcomeArray, theoreticalFrequencies);
+      const theMean = theoreticalMeanAndVariance.mean ? theoreticalMeanAndVariance.mean.toFixed(3) : 0;
+      const theVariance = theoreticalMeanAndVariance.variance ? theoreticalMeanAndVariance.variance.toFixed(3) : 0;
+      document.getElementById('histogramCanvas').style.display = 'block';
+      document.getElementById('resultMean').innerHTML = `Theorical mean: ${theMean} vs Mean of Means ${meanOfMeans}`;
+      document.getElementById('resultVariance').innerHTML = `Theorical variance: ${theVariance} vs Variance of Variances ${varianceOfVariances}`;
+      await new Promise(r => setTimeout(r, 1));
+    }
+
+    function createDistribution(samples, min, max, step) {
+
+      const result = {};
+
+      for (let i = min; i <= max; i = parseFloat((i + step).toFixed(2))) {
+        result[i.toFixed(2)] = 0;
+      }
+
+      samples.forEach(value => {
+        const key = value;
+        if (result.hasOwnProperty(key)) {
+          result[key]++;
+        }
+      });
+
+      const total = samples.length;
+
+      for (let key in result) {
+        result[key] = parseFloat(((result[key] / total) * 100).toFixed(2));
+      }
+
+      return result;
+    }
+
+    async function generateHistogram() {
+      const inputs = document.querySelectorAll("#inputContainer input");
+      const probabilitiesInput = Array.from(inputs).map(input => parseFloat(input.value) || 0);
+      const outcomeCount = probabilitiesInput.length
+      const sampleIntervals = parseInt(document.getElementById("sampleIntervals").value);
+      const size = parseInt(document.getElementById("size").value);
+
+      const meanArray = Array(size).fill(0);
+      const varianceArray = Array(size).fill(0);
+      const outcomeArray = Array.from({ length: outcomeCount }, (_, i) => i + 1);
+
+      for (let i = 0; i < sampleIntervals; i++) {
+        const sample = []
+        for (let k = 0; k < size; k++) {
+          const randomValue = Math.random()
+          let cumulativeProbability = 0;
+          for (let j = 0; j < outcomeCount; j++) {
+            cumulativeProbability += probabilitiesInput[j];
+            if (randomValue < cumulativeProbability) {
+              sample.push(outcomeArray[j - 1]);
+              break;
+            }
+          }
+        }
+
+        const sampleMeanAndVariance = computeMeanAndVariance(sample);
+        const sampleMean = sampleMeanAndVariance.mean ? sampleMeanAndVariance.mean.toFixed(2) : 0;
+        const sampleVariance = sampleMeanAndVariance.variance ? sampleMeanAndVariance.variance.toFixed(2) : 0;
+        meanArray[i] = sampleMean
+        varianceArray[i] = sampleVariance
+      }
+      const distribution = createDistribution(varianceArray, 0, 1, 0.01);
+
+      const meanOfMeans = mean(meanArray).toFixed(3)
+      const varianceOfVariances = calculateVariance(varianceArray).toFixed(3)
+
+      await drawHistogram(distribution, probabilitiesInput, outcomeCount, meanOfMeans, varianceOfVariances);
+    }
+
+    function mean(numbers) {
+      let sum = 0;
+      let count = 0;
+
+      numbers.forEach(num => {
+        count++;
+        let delta = num - sum;
+        sum += delta / count;
+      });
+
+      return sum;
+    }
+
+
+    function calculateVariance(data, isSample = true) {
+      if (data.length === 0) return 0;
+
+      const localMean = mean(data)
+
+      const squaredDifferences = data.map(value => {
+        const difference = value - localMean;
+        return difference * difference;
+      });
+
+      const sumOfSquaredDifferences = squaredDifferences.reduce((sum, value) => sum + value, 0);
+      const divisor = isSample ? data.length - 1 : data.length;
+
+      return sumOfSquaredDifferences / divisor;
+    }
+
+</script>
+
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script 
+    type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
