@@ -142,9 +142,9 @@
                     <canvas id="myChart"></canvas>
                 </div>
 
-                <div id="singleChartFour">
+                <!-- <div id="singleChartFour">
                     <canvas id="myFourthChart"></canvas>
-                </div>
+                </div> -->
             </div>
 
             
@@ -176,7 +176,7 @@
     let myChart = null;
     // let mySecondChart = null;
     // let myThirdChart = null;
-    let myFourthChart = null;
+    // let myFourthChart = null;
 
     function createChart(servers, attackerDatasets) {
 
@@ -249,89 +249,89 @@
 
 // function createThirdChart(servers, penetrationCounts) +++++++===== DELETED +++++++=====
 
-    function createFourthChart(servers, successfulJumps, relativeSuccessfulJumps) {
+    // function createFourthChart(servers, successfulJumps, relativeSuccessfulJumps) {
 
-      if (myFourthChart !== null) {
-        myFourthChart.destroy();
-      }
+    //   if (myFourthChart !== null) {
+    //     myFourthChart.destroy();
+    //   }
 
-      const fourthCtx = document.getElementById('myFourthChart').getContext('2d');
-      myFourthChart = new Chart(fourthCtx, {
-        type: 'line',
-        data: {
-          labels: servers,
-          datasets: [{
-            label: `Absolute frequency`,
-            data: successfulJumps,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 3,
-            pointRadius: 2,
-            pointHoverRadius: 1,
-            tension: 0.4,
-          },
-          {
-            label: `Relative frequency`,
-            data: relativeSuccessfulJumps,
-            borderColor: 'rgba(255, 150, 100, 1)',
-            borderWidth: 3,
-            pointRadius: 2,
-            pointHoverRadius: 1,
-            tension: 0.4,
-          }]
-        },
-        options: {
-          maintainAspectRatio: false,
-          responsive: true,
-          plugins: {
-            legend: {
-              display: true,
-              labels: {
-                color: 'black'
-              }
-            }
-          },
-          scales: {
-            x: {
-              display: true,
-              position: 'bottom',
-              title: {
-                display: true,
-                text: 'servers',
-                color: "black",
-                font: {
-                  size: 18,
-                },
-              },
-              grid: {
-                color: 'grey'
-              },
-              ticks: {
-                color: 'grey'
-              }
-            },
-            y: {
-              display: true,
-              position: 'right',
-              grid: {
-                color: 'grey'
-              },
-              title: {
-                display: true,
-                text: 'successful jumps',
-                color: "black",
-                font: {
-                  size: 18,
-                },
-              },
-              ticks: {
-                stepSize: 1,
-                color: 'grey'
-              }
-            },
-          }
-        }
-      });
-    }
+    //   const fourthCtx = document.getElementById('myFourthChart').getContext('2d');
+    //   myFourthChart = new Chart(fourthCtx, {
+    //     type: 'line',
+    //     data: {
+    //       labels: servers,
+    //       datasets: [{
+    //         label: `Absolute frequency`,
+    //         data: successfulJumps,
+    //         borderColor: 'rgba(75, 192, 192, 1)',
+    //         borderWidth: 3,
+    //         pointRadius: 2,
+    //         pointHoverRadius: 1,
+    //         tension: 0.4,
+    //       },
+    //       {
+    //         label: `Relative frequency`,
+    //         data: relativeSuccessfulJumps,
+    //         borderColor: 'rgba(255, 150, 100, 1)',
+    //         borderWidth: 3,
+    //         pointRadius: 2,
+    //         pointHoverRadius: 1,
+    //         tension: 0.4,
+    //       }]
+    //     },
+    //     options: {
+    //       maintainAspectRatio: false,
+    //       responsive: true,
+    //       plugins: {
+    //         legend: {
+    //           display: true,
+    //           labels: {
+    //             color: 'black'
+    //           }
+    //         }
+    //       },
+    //       scales: {
+    //         x: {
+    //           display: true,
+    //           position: 'bottom',
+    //           title: {
+    //             display: true,
+    //             text: 'servers',
+    //             color: "black",
+    //             font: {
+    //               size: 18,
+    //             },
+    //           },
+    //           grid: {
+    //             color: 'grey'
+    //           },
+    //           ticks: {
+    //             color: 'grey'
+    //           }
+    //         },
+    //         y: {
+    //           display: true,
+    //           position: 'right',
+    //           grid: {
+    //             color: 'grey'
+    //           },
+    //           title: {
+    //             display: true,
+    //             text: 'successful jumps',
+    //             color: "black",
+    //             font: {
+    //               size: 18,
+    //             },
+    //           },
+    //           ticks: {
+    //             stepSize: 1,
+    //             color: 'grey'
+    //           }
+    //         },
+    //       }
+    //     }
+    //   });
+    // }
 
 
     function computeMeanAndVariance(penCount, index = 0, currentMean = 0, M2 = 0) {
@@ -453,7 +453,10 @@
 
         createChart(steps, attackerDatasets, Math.sqrt(dt));
         // createSecondChart(steps, finalDistribution, attackDistribution);
-        createFourthChart(steps, successfulJumps, relativeSuccessfulJumps);
+
+        // createFourthChart(steps, successfulJumps, relativeSuccessfulJumps);
+
+
         // document.getElementById('resultMean').innerHTML = `Mean: ${finalAvarage}`;
         // document.getElementById('resultVariance').innerHTML = `Variance: ${finalVariance}`;
         document.getElementById('chartContainer').style.display = 'block';
