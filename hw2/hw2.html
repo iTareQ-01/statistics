@@ -38,8 +38,7 @@
             <h2>Theory</h2>
             <h3>The Welford recursion</h3>
             <p>
-                The Welford algorithm is a numerically stable method to compute the mean (and variance) in a single pass
-                over a dataset.
+                The Welford algorithm is a numerically stable method to compute the mean and consequently the variance in a single pass over a dataset.
             </p>
             <p>
                 <h3>Mean Calculation Recursion</h3>
@@ -50,7 +49,7 @@
                 <li style="list-style-image: none;">\( \mu_{n-1} \) be the mean after \(n - 1\) data points.</li>
                 </ul>
 
-                The mean is computed as:
+                where the mean is computed as:
 
                 \[ \mu_n = \frac{1}{n} \sum_{i=1}^n x_i \]
 
@@ -59,14 +58,14 @@
 
                 \[ \mu_n = \mu_{n-1} + \frac{x_n - \mu_{n-1}}{n} \]
 
-                This is the Welford update for the mean. Intuitively, it updates the old mean \( \mu_{n-1} \) by adding the scaled
-                difference
-                between the new data point \( x_n \) and the old mean.
+                This is the Welford update for the mean. Intuitively, it updates the old mean \( \mu_{n-1} \) by adding the *scaled
+                difference* between the new data point \( x_n \) and the old mean.
             </p>
+
             <p>
                 <h3>Variance Calculation Recursion</h3>
 
-                Next, it is necessary to compute the variance. Let:<br /><br />
+                Next, it is necessary to compute the variance. Let:<br />
 
                 <ul>
                 <li style="list-style-image: none;">\( s_n^2 \) be the variance after \(n\) data points.</li>
@@ -83,7 +82,7 @@
                 Let \( M_n \) be the sum of squares of differences from the mean up to the \(n\)-th data point:
                 \[ M_n = M_{n-1} + (x_n - \mu_n)(x_n - \mu_{n-1}) \]
 
-                Using this, the variance can be updated with:
+                Using this, For 2 ≤ k ≤ n, the \(n^{th} \) estimate of the variance can be updated with:
                 \[ s_n^2 = \frac{M_n}{n} \]
 
                 This is the recursive update for the variance using the difference between the new data point and the mean values.
@@ -161,9 +160,9 @@
                     <p id="result2Mean" style="text-align: left; font-size: 20px;margin-top:30px; margin-left: 30px;"></p>
                     <p id="result2Variance" style="text-align: left; font-size: 20px; margin-left: 30px;"></p>
                 </div>
-                <div id="singleChartFour">
+                <!-- <div id="singleChartFour">
                     <canvas id="myFourthChart"></canvas>
-                </div>
+                </div> -->
             </div>
 
             <!------------------ Comments after the chart ------------------>
@@ -209,10 +208,10 @@
                 createSecondChart() function creates the second chart.<br />
                 In this homework createThirdChart() is introduced to show how many attackers have succeeded in
                 penetrating a certain number of servers for an intermediate step.<br /><br />
-                A new function introduced is also createFourthChart(), which is used to rapresent the Absolute and
+                <!-- A new function introduced is also createFourthChart(), which is used to rapresent the Absolute and
                 Realative Frequency, where the x-axis represents the number of servers and the y-axis represents the
                 number of successful penetrations in each step for the absolute frequency, and the number of successful
-                penetrations divided by all the step for the relative frequency.<br />
+                penetrations divided by all the step for the relative frequency.<br /> -->
                 <img src="src/code1_createChars.png">
                 <br /><br />
             </p>  
@@ -273,7 +272,7 @@
         let myChart = null;
         let mySecondChart = null;
         let myThirdChart = null;
-        let myFourthChart = null;
+        // let myFourthChart = null;
 
         function createChart(servers, attackerDatasets) {
 
@@ -529,89 +528,89 @@
             });
         }
 
-        function createFourthChart(servers, successfulJumps, relativeSuccessfulJumps) {
+        // function createFourthChart(servers, successfulJumps, relativeSuccessfulJumps) {
 
-            if (myFourthChart !== null) {
-                myFourthChart.destroy();
-            }
+        //     if (myFourthChart !== null) {
+        //         myFourthChart.destroy();
+        //     }
 
-            const fourthCtx = document.getElementById('myFourthChart').getContext('2d');
-            myFourthChart = new Chart(fourthCtx, {
-                type: 'line',
-                data: {
-                    labels: servers,
-                    datasets: [{
-                        label: `Absolute frequency`,
-                        data: successfulJumps,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 3,
-                        pointRadius: 2,
-                        pointHoverRadius: 1,
-                        tension: 0.4,
-                    },
-                    {
-                        label: `Relative frequency`,
-                        data: relativeSuccessfulJumps,
-                        borderColor: 'rgba(255, 150, 100, 1)',
-                        borderWidth: 3,
-                        pointRadius: 2,
-                        pointHoverRadius: 1,
-                        tension: 0.4,
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: true,
-                            labels: {
-                                color: 'black'
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            display: true,
-                            position: 'bottom',
-                            title: {
-                                display: true,
-                                text: 'servers',
-                                color: 'black',
-                                font: {
-                                    size: 18,
-                                },
-                            },
-                            grid: {
-                                color: 'grey'
-                            },
-                            ticks: {
-                                color: 'grey'
-                            }
-                        },
-                        y: {
-                            display: true,
-                            position: 'right',
-                            grid: {
-                                color: 'grey'
-                            },
-                            title: {
-                                display: true,
-                                text: 'successful jumps',
-                                color: 'black',
-                                font: {
-                                    size: 18,
-                                },
-                            },
-                            ticks: {
-                                stepSize: 1,
-                                color: 'grey'
-                            }
-                        },
-                    }
-                }
-            });
-        }
+        //     const fourthCtx = document.getElementById('myFourthChart').getContext('2d');
+        //     myFourthChart = new Chart(fourthCtx, {
+        //         type: 'line',
+        //         data: {
+        //             labels: servers,
+        //             datasets: [{
+        //                 label: `Absolute frequency`,
+        //                 data: successfulJumps,
+        //                 borderColor: 'rgba(75, 192, 192, 1)',
+        //                 borderWidth: 3,
+        //                 pointRadius: 2,
+        //                 pointHoverRadius: 1,
+        //                 tension: 0.4,
+        //             },
+        //             {
+        //                 label: `Relative frequency`,
+        //                 data: relativeSuccessfulJumps,
+        //                 borderColor: 'rgba(255, 150, 100, 1)',
+        //                 borderWidth: 3,
+        //                 pointRadius: 2,
+        //                 pointHoverRadius: 1,
+        //                 tension: 0.4,
+        //             }]
+        //         },
+        //         options: {
+        //             maintainAspectRatio: false,
+        //             responsive: true,
+        //             plugins: {
+        //                 legend: {
+        //                     display: true,
+        //                     labels: {
+        //                         color: 'black'
+        //                     }
+        //                 }
+        //             },
+        //             scales: {
+        //                 x: {
+        //                     display: true,
+        //                     position: 'bottom',
+        //                     title: {
+        //                         display: true,
+        //                         text: 'servers',
+        //                         color: 'black',
+        //                         font: {
+        //                             size: 18,
+        //                         },
+        //                     },
+        //                     grid: {
+        //                         color: 'grey'
+        //                     },
+        //                     ticks: {
+        //                         color: 'grey'
+        //                     }
+        //                 },
+        //                 y: {
+        //                     display: true,
+        //                     position: 'right',
+        //                     grid: {
+        //                         color: 'grey'
+        //                     },
+        //                     title: {
+        //                         display: true,
+        //                         text: 'successful jumps',
+        //                         color: 'black',
+        //                         font: {
+        //                             size: 18,
+        //                         },
+        //                     },
+        //                     ticks: {
+        //                         stepSize: 1,
+        //                         color: 'grey'
+        //                     }
+        //                 },
+        //             }
+        //         }
+        //     });
+        // }
 
 
         function computeMeanAndVariance(penCount, index = 0, currentMean = 0, M2 = 0) {
@@ -732,7 +731,7 @@
                 createChart(servers, attackerDatasets);
                 createSecondChart(servers, finalDistribution);
                 createThirdChart(servers, intermediateDistribution);
-                createFourthChart(servers, successfulJumps, relativeSuccessfulJumps);
+                // createFourthChart(servers, successfulJumps, relativeSuccessfulJumps);
                 document.getElementById('resultMean').innerHTML = `Mean: ${finalAvarage}`;
                 document.getElementById('result2Mean').innerHTML = `Mean: ${intermediateAvarage}`;
                 document.getElementById('resultVariance').innerHTML = `Variance: ${finalVariance}`;
@@ -757,8 +756,6 @@
 
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</script>
 
 
 <script>
@@ -782,6 +779,7 @@
 </script>
 
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
