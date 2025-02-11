@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>miniThesis</title>
+	<link href="src/Style.css" rel="stylesheet">
+
+	<!-- FlavioCanofari Header -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Setup Google Analytics -->
+
+    <!-- start theme color meta headers -->
+    <!-- <meta name="theme-color" content="#151515">
+    <meta name="msapplication-navbutton-color" content="#151515">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+
+<body style="background-color: #159957; background-image: linear-gradient(95deg, #155799, #159957);">
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+
+          <!--
+          Find the simplest and most elegant way to show the Welford recursion.
+          Make your personal notes about the behavior of mean and variance wrt to time.
+          What did you observe in all the 4 different cases (relative/abs freq & Bernoulli/random walk) ?
+          -->
+            <h1>Mini_Thesis</h1>
+            <center><h3>TAREK ELGENDY - 1888679</h3></center>
+            <h1>Dive into Stochastic Process & SDE</h1>
+                <p class="answer">  
+                    Stochastic processes serve as crucial mathematical models for understanding the evolution of systems over time, incorporating 
+                    inherent random variations. This mini_Thesis explores the fundamental concepts, properties, examples, and applications of stochastic 
+                    processes, with a specific focus on stochastic differential equations (SDEs).<br><br>
+                </p>
+
+            <!-- FIRST PART OF THESIS .. INTRO to STOCHASTIC -->
+            <h2>Stochastic processes</h2>
+                <p> 
+                    A <strong>stochastic process</strong> is a mathematical model that represents the evolution of a system over time in a way that is subject
+                    to random variations. In simpler terms, it's a collection of random variables indexed by time. A stochastic process can be; 
+                    <em>discrete-time</em> or <em>continuous-time</em>. <br>
+                    In <em><b>discrete-time</b></em>, the random variables evolve at distinct, separate points in time, while in <em><b>continuous-time</b></em>, 
+                    they evolve continuously.<br><br>
+
+                    Continuous distributions are associated with random variables that can take any value within a specified range. For example, 
+                    length x = 2.567 mm and temperature t = 12.57 K. Continuous distributions are typically described by the probability density function (PDF) 
+                    which is a function that is used to calculate the probability that a continuous random variable will be less than or equal to the value 
+                    it is being calculated at: Pr(a≤X≤b) or Pr(X≤b).<br><br>
+                    Discrete distributions deal with random variables that can only take distinct values. It is a variable that has a value with finite
+                    (integer) interval. For example, the number of people in a family = 4 people. These distributions are defined by probability mass 
+                    functions. The probability mass function (PMF) calculates the probability that the random variable will assume the one specific value 
+                    that it is being calculated at: Pr(X=a).
+                </p>
+                <center><img width="850px" src="./img1_PDFvsPMF_sizeBig.jpeg"></center>
+                <br><br>
+
+                <h3>Stochastic processes have several properties:</h3>
+                <p>
+                    <ol>
+                        <li> A stochastic process is <strong>stationary</strong> if its statistical properties remain constant over time. In other words, the mean, variance, and correlation structure of the process do not change. For example, a white noise process is stationary, while a random walk is not. The white noise process models a random signal with constant mean and variance, and its value at any time has the same distribution as its value at any other time. The random walk models the path of an individual who moves randomly in a space, and its value at any time depends on the previous steps, and thus has a different distribution as time goes by.<br><br></li>
+                        <li> A stochastic process is <strong>continuous</strong> if its sample paths are continuous functions of the index set. This means that there are no jumps or breaks in the values of the process. For example, the Brownian motion is a continuous stochastic process, while the Poisson process is not. The Brownian motion models the random movement of a particle in a fluid, and its position at any time is a continuous function of time. The Poisson process models the number of events that occur in a time interval, and its value at any time is a discrete function of time, which can change abruptly by one unit.<br><br></li>
+                        <li> A stochastic process has the <strong>Markov property</strong> if the future behavior of the process only depends on its current state, and not on its past history. For example, a Markov process is Markovian, while a Gaussian process is not. The Markov process models a system that transitions between a finite number of states, and its value at any time depends only on its value at the previous time, and not on the entire history. The Gaussian process models a system that has a continuous state space, and its value at any time is a Gaussian random variable, whose mean and variance depend on the entire history of the process.<br><br></li>
+                        <li> A stochastic process is <strong>independent</strong> if its increments are independent random variables. This means that the future values of the process do not depend on the past values. For example, a Poisson process is independent, while a Markov process is not. The Poisson process models the number of events that occur in a time interval, and its increment in any time interval is independent of its value before that interval. The Markov process models a system that transitions between a finite number of states, and its value at any time depends only on its value at the previous time, and not on the entire history.<br><br></li>
+                        <li> A stochastic process is a <strong>martingale</strong> if its expected value at any future time, given its current value, is equal to its current value.  A martingale is a fair game, where the player cannot gain or lose any advantage by knowing the past outcomes. For example, a coin toss is a martingale, where the outcome of each toss is independent and has a 50% chance of being heads or tails. If we let Xn be the random variable that represents the outcome of the nth toss, where Xn = 1 if heads and Xn = -1 if tails, then the sequence X1, X2, X3, … is a stochastic process. If we let Sn be the sum of the first n tosses, then the sequence S1, S2, S3, … is also a stochastic process, and it is a martingale. This is because the expected value of Sn+1, given the previous values, is equal to Sn, regardless of the value of Sn. For example, if we have tossed the coin four times and obtained S4 = 2, then the expected value of S5 is E(S5 | S4 = 2) = 2, regardless of whether the fifth toss is heads or tails.<br><br></li>
+                        <li> A stochastic process is said to be <strong>ergodic</strong> if the time average of a random variable, computed along a single sample path, converges to the expected value as the time horizon goes to infinity. In other words, the ergodic property means that the long-term behavior of the system is independent of the initial conditions, and that the system explores all the possible states with equal probability. One example of an ergodic system is a fair dice, where the outcome of each roll is independent and has a 1/6 chance of being any of the six faces. If we let Xn be the random variable that represents the outcome of the nth roll, then the sequence X1, X2, X3, … is a stochastic process. If we let Sn be the sum of the first n rolls, then the sequence S1, S2, S3, … is also a stochastic process, and it is ergodic. This is because the expected value of Sn/n, which is the time average of Xn, is equal to 3.5, which is the ensemble average of Xn over the state space {1, 2, 3, 4, 5, 6}.<br></li>
+                    </ol>
+                </p>
+
+                <p>
+                    Poisson processes and Markov processes are exemplars of stochastic processes, with Poisson processes modeling the occurrence of events in fixed intervals and Markov processes representing systems where future states depend solely on the present state.
+                    <br>
+                </p>
+
+                <h3>Application</h3>
+                <p>
+                    They are used to study complex and uncertain situations in many fields, such as biology, chemistry, ecology, neuroscience, physics, image processing, signal processing, control theory, information theory, computer science, cryptography and telecommunications.
+                    <ol>
+                        <li>
+                            Machine learning: Stochastic processes are used to model and reason about physical and engineering systems. 
+                        </li>
+                        <li>
+                            Queuing theory: Queuing theory is the mathematical study of waiting lines. It is used to analyze and model systems of customers arriving at a service facility, waiting in line (queue), and being served.
+                        </li>
+                        <li>
+                            Cryptography: Stochastic processes are used in cryptography to generate random numbers and to model the behavior of cryptographic systems.
+                        </li>
+                    </ol>
+                    <hr class="separator">
+                </p>
+                <br>
+
+                <!-- SECOND PART OF THESIS ......................... INTRO to SDE -->
+                <h2>Stochastic Differential Equations</h2>
+                <p> 
+                    <strong>Stochastic Differential Equations</strong> are differential equations that involve both deterministic and random components. 
+                    They provide a way to describe how systems evolve over time when influenced by both deterministic forces and random fluctuations.
+                    So, SDEs are used to model the evolution of systems where randomness plays a significant role.<br>
+                    The general form of a one-dimensional SDE is given by:
+                        \[ dX_t = a(t, X_t) \, dt + b(t, X_t) \, dW_t \]
+                        where \(X_t\) is the process, \(a(t, X_t)\) and \(b(t, X_t)\) are deterministic functions, \(dt\) represents the deterministic part, and \(dW_t\) represents the random part (Brownian motion). <br>
+                    
+                    <br>The Brownian motion, also known as Wiener process, is a continuous-time stochastic process that has independent and normally distributed increments. Brownian motion can be also considered as the generalization of a Randomwalk with jump according to the normal distribution. So, it is a scaling limit of the Randomwalk for n goes to infinity.
+                    <br>
+                    <br>The solution to an SDE is a stochastic process. To find it we will use Itô calculus but it is difficult to solve, for this reason we simulate it.
+                    Itô calculus, named by Kiyosi Itô, is an extension of calculus to stochastic processes such as Brownian motion, with applications in mathematical finance and stochastic differential equations.
+                    <br>
+                    <br>
+                </p>
+
+                <h3>Types of SDE:</h3>
+                <p>
+                    <ol>
+                        <li><strong>Linear vs. Non-linear:</strong><br>
+                            - Linear: Linear SDEs are those in which the drift and diffusion functions are linear functions of the stochastic variable and time. An example of a linear SDE is:
+                                \[ dX_t = a(t)X_t \, dt + b(t)X_t \, dW_t \]
+                                Where \(a(t)\) and \(b(t)\) are functions of time.<br>
+                            - Nonlinear: Non-linear SDEs are those in which the drift and diffusion functions contain nonlinear terms with respect to the stochastic variable. For example:
+                                \[ dX_t = \sin(X_t) \, dt + X_t^2 \, dW_t \]
+                        </li>
+                        <li>
+                            <strong>Autonomous vs. Time-Dependent:</strong><br>
+                            - Autonomous: Autonomous SDEs are those in which the drift and diffusion functions do not explicitly depend on time. For example:
+                                \[ dX_t = a(X_t) \, dt + b(X_t) \, dW_t \]
+                            - Time-Dependent: Time-dependent SDEs include drift and diffusion functions that change over time. For example:
+                                \[ dX_t = a(X_t, t) \, dt + b(X_t, t) \, dW_t \]
+                        </li>  
+                    </ol>
+                </p>
+
+                <h3>Examples</h3>
+                <p>Some of the most important SDEs are:<br>
+                    <em>(we will see pics & simulation of the first 3 only)</em>
+                </p>
+                <p>
+                    <ol>
+                        <!-------------------------- FIRST and TWO -------------------------->
+                        <li>
+                            <strong>Arithmetic Brownian Motion:</strong><br>
+                            The equation for arithmetic Brownian motion is given by:<br>
+                                \[ dX_t = \mu \, dt + \sigma \, dW_t \]
+                            - \(X_t\) represents the value of the process at time \(t\).<br>
+                            - \(\mu\) is the drift term, representing the average rate of return per unit time.<br>
+                            - \(\sigma\) is the volatility, representing the standard deviation of the random fluctuations.<br>
+                            - \(dW_t\) is a Wiener process or Brownian motion, representing random, continuous, and unpredictable movements.<br>
+                            <figure>
+                                <img width="500" src="./SDE1_Arithmatic_Brownian.png" alt="Descrizione dell'immagine">
+                                <figcaption>N=70, M=200, P=0.5</figcaption>
+                            </figure>
+                        </li><br>
+                        <li>
+                            <strong>Geometric Brownian Motion</strong> (Black–Scholes Model):<br>
+                            The equation for geometric Brownian motion is:<br>
+                                \[ dS_t = \mu S_t \, dt + \sigma S_t \, dW_t \]
+                            - \(S_t\) is the stock price at time \(t\).<br>
+                            - \(\mu\) is the average rate of return.<br>
+                            - \(\sigma\) is the volatility.<br>
+                            - \(dW_t\) is a Wiener process.<br>
+                            <figure>
+                                <img width="500" src="./SDE2_Geometric_Brownian.png" alt="Descrizione dell'immagine">
+                                <figcaption>N=70, M=200, P=0.5, sigma=0.5, mu=0.5</figcaption>
+                            </figure>
+                        </li><br>
+
+                        <!-------------------------- THREE and FOUR -------------------------->
+                        <li>
+                            <strong>Ornstein–Uhlenbeck Process</strong> (Mean-Reverting Process):<br>
+                            The equation is:<br>
+                                \[ dX_t = \theta (\mu - X_t) \, dt + \sigma \, dW_t \]
+                            - \(X_t\) is the value of the process at time \(t\).<br>
+                            - \(\theta\) is the speed of mean reversion.<br>
+                            - \(\mu\) is the mean to which the process reverts.<br>
+                            - \(\sigma\) is the volatility.<br>
+                            - \(dW_t\) is a Wiener process.<br>
+                            <figure>
+                                <img width="500" src="./SDE3_Ornstein.png" alt="Descrizione dell'immagine">
+                                <figcaption>N=70, M=200, P=0.5, sigma=0.3, mu=10, theta=0,3</figcaption>
+                            </figure>
+                        </li><br>
+                        <li>
+                            <strong>Vasicek Model</strong>.<br>
+                            <!-- The equation is:<br>
+                                \[ dX_t = \kappa (\theta - X_t) \, dt + \sigma \, dW_t \]
+                            - \(X_t\) is the value of the process at time \(t\).<br>
+                            - \(\kappa\) is the speed of mean reversion.<br>
+                            - \(\theta\) is the mean.<br>
+                            - \(\sigma\) is the volatility.<br>
+                            - \(dW_t\) is a Wiener process.<br>
+                            <figure>
+                                <img width="500" src="img3.png" alt="Descrizione dell'immagine">
+                                <figcaption>N=70, M=200, P=0.5, sigma=0.3, theta=3, k=0.1</figcaption>
+                            </figure> -->
+                        </li><br>
+
+                        <!-------------------------- From FIVE to NINE -------------------------->
+                        <li>
+                            <strong>Hull–White Model</strong>: <br>
+                            It extends the Vasicek model by making the mean reversion and volatility parameters time-dependent.
+                        </li><br>
+                        <li>
+                            <strong>Cox–Ingersoll–Ross (CIR) Model</strong>:<br>
+                            <!-- The equation is:<br>
+                                \[ dX_t = \kappa (\theta - X_t) \, dt + \sigma \sqrt{X_t} \, dW_t \] -->
+                            It is similar to the Vasicek model but includes a term proportional to the square root of the process.
+                        </li><br>
+                        <li>
+                            <strong>Black–Karasinski Model</strong>:<br>
+                            The Black–Karasinski model is an extension of the Cox–Ingersoll–Ross (CIR) model. It introduces stochastic volatility, 
+                            which means allowing the volatility parameter to vary over time. 
+                            <!-- The equation is given by:
+                            <br>
+                            \[ dX_t = (\theta(t) - a X_t) \, dt + \sigma(t) \sqrt{X_t} \, dW_t \]
+                            
+                            - \(X_t\) is the short rate at time \(t\).<br>
+                            - \(\theta(t)\) is the mean reversion function.<br>
+                            - \(a\) is the speed of mean reversion.<br>
+                            - \(\sigma(t)\) is the volatility function.<br>
+                            - \(dW_t\) is a Wiener process.<br> -->
+                        </li><br>
+                        <li>
+                            <strong>Heston Model</strong>:<br>
+                            The Heston model is used to describe the volatility of an asset and is defined by two stochastic differential equations, one for the asset price and one for its volatility.
+                            <!-- \[ dS_t = \mu S_t \, dt + \sqrt{V_t} S_t \, dW_t^1 \]
+                            \[ dV_t = \kappa (\theta - V_t) \, dt + \sigma \sqrt{V_t} \, dW_t^2 \]
+                            
+                            - \(S_t\) is the asset price at time \(t\).<br>
+                            - \(V_t\) is the instantaneous variance (volatility squared) at time \(t\).<br>
+                            - \(\mu\) is the average rate of return.<br>
+                            - \(\theta\) is the long-term average volatility.<br>
+                            - \(\kappa\) is the speed of mean reversion of volatility.<br>
+                            - \(\sigma\) is the volatility of volatility.<br>
+                            - \(dW_t^1\) and \(dW_t^2\) are two correlated Wiener processes.<br> -->
+                        </li><br>
+                        <li>
+                            <strong>Chen Model</strong>:<br>
+                            The Chen model is a more complex stochastic volatility model that considers both jumps and continuous-time processes in the volatility equation.
+                            <!-- \[ dX_t = (\mu - \lambda X_t) \, dt + \sigma \sqrt{X_t} \, dW_t + dJ_t \]
+                    
+                            - \(X_t\) is the volatility of the asset at time \(t\).<br>
+                            - \(\mu\) is the average growth rate.<br>
+                            - \(\lambda\) is the mean-reverting speed.<br>
+                            - \(\sigma\) is the volatility of the process.<br>
+                            - \(dW_t\) is a Wiener process.<br>
+                            - \(dJ_t\) is a jump process.<br> -->
+                        </li>
+                    </ol>
+                    <br>
+                </p>
+
+                <h3>Application</h3>
+                <p>
+                    Stochastic differential equations (SDEs) appear today as a modeling tool in several sciences as telecommunications, economics, finance, biology, and quantum field theory.
+                    <ol>
+                        <li> In finance, SDEs are often used to model the movement of asset prices. </li>
+
+                        <li> In physics, SDEs are used to model the Brownian motion of particles in a fluid.</li>
+
+                        <li> In biology, SDEs can be used to model population dynamics, where the growth of a population is influenced by both deterministic factors (e.g., birth rate) and random factors (e.g., environmental fluctuations). </li>
+                    </ol>
+                    <br>
+                </p>
+
+                <!-- ===============================================PRACTICAL====================================================================== -->
+                <!-- ===============================================PRACTICAL======================================================================= -->
+                <!-- ===============================================PRACTICAL====================================================================== -->
+                <h2>Simulation</h2>
+                <p>
+                    For the practical aspect of understanding stochastic processes, Simulation provides a hands-on approach to visualize and 
+                    comprehend the behavior of these processes, improving the learning experience.<br>
+                    We already did a simulation for SDE using <b>"Euler–Maruyama Method"</b> in our Homeworks 2 to 5.
+                </p>
+                <h3>Stochastic Process Simulator</h3>
+
+                <!-- <label for="customSDE">Enter SDE Expression:</label> -->
+                <textarea id="customSDE" rows="4" cols="50" placeholder="Math.sin(t)*dt"></textarea> <hr>
+            
+                <label for="processType">Select Stochastic Process:</label>
+                <select id="processType" onchange="showParameters()">
+                    <option value="selectProcess" selected="selected">Select Stochastic Process...</option>
+                    <option value="arithmeticBrownian">Arithmetic Brownian</option>
+                    <option value="geometricBrownian">Geometric Brownian (Black–Scholes)</option>
+                    <option value="meanReverting">Ornstein–Uhlenbeck (mean-reverting)</option>
+                </select> <hr>
+            
+                <div id="arithmeticBrownianParameters" class="parameter-group">
+                    <label for="initialValueArit">Enter Initial Value:</label>
+                    <input type="text" id="initialValueArit" placeholder="Enter Initial Value" value="100"> <hr>
+                    
+                    <label for="driftArit">Enter Drift:</label>
+                    <input type="text" id="driftArit" placeholder="Enter Drift" value="0.02"> <hr>
+            
+                    <label for="volatilityArit">Enter Volatility:</label>
+                    <input type="text" id="volatilityArit" placeholder="Enter Volatility" value="0.05"> <hr>
+                </div>
+            
+                <div id="geometricBrownianParameters" class="parameter-group">
+                    <label for="initialValueGeo">Enter Initial Value:</label>
+                    <input type="text" id="initialValueGeo" placeholder="Enter Initial Value" value="100"> <hr>
+                    
+                    <label for="driftGeo">Enter Drift:</label>
+                    <input type="text" id="driftGeo" placeholder="Enter Drift" value="0.02"> <hr>
+            
+                    <label for="volatilityGeo">Enter Volatility:</label>
+                    <input type="text" id="volatilityGeo" placeholder="Enter Volatility" value="0.05"> <hr>
+                </div>
+            
+                <div id="meanRevertingParameters" class="parameter-group">
+                    <label for="meanReversionRateMean">Enter Mean Reversion Rate:</label>
+                    <input type="text" id="meanReversionRateMean" placeholder="Enter Mean Reversion Rate" value="0.4"> <hr>
+            
+                    <label for="longTermMeanMean">Enter Long Term Mean:</label>
+                    <input type="text" id="longTermMeanMean" placeholder="Enter Long Term Mean" value="0.2"> <hr>
+                    
+                    <label for="volatilityMean">Enter Volatility:</label>
+                    <input type="text" id="volatilityMean" placeholder="Enter Volatility" value="0.05"> <hr>
+                </div>
+
+                <!-------------- Inputs from the user ------------------>
+                <div id="parameters">
+                    <label for="numSteps">Number of Attacks:</label>
+                    <input type="number" id="numSteps" value="1000"> <hr>
+            
+                    <label for="timeDelta">Time Delta:</label>
+                    <input type="number" id="timeDelta" value="1"> <hr>
+            
+                    <label for="systems">Number of Systems:</label>
+                    <input type="number" id="systems" value="100"> <hr>
+                </div>
+            
+                <button onclick="runSimulation()">Run Simulation</button> <hr>
+                <button onclick="clearSimulation()">Clear Simulation</button> <hr>
+            
+                <div id="simulationResults"></div>
+                <canvas id="simulationChart" width="800" height="600"></canvas>
+
+
+
+                <h3>Reference:</h3>
+                <div>
+                    <ol>
+                        <li><a href="https://en.wikipedia.org/wiki/Stochastic_differential_equation"> wikipedia - Stochastic_differential_equation</a></li>
+                        <li><a href="https://www.sciencedirect.com/topics/mathematics/stochastic-differential-equation"> sciencedirect - Stochastic_differential_equation</a></li>              
+                        <li><a href="https://www.linkedin.com/pulse/properties-stochastics-s002-davence-hackwell"> linkedin - Stochastic_properties</a></li>
+                        <li><a href="https://www.britannica.com/science/stochastic-process"> Britannica - Stochastic_processes </a></li>
+                        <li><a href="https://ee.stanford.edu/~gray/arp.pdf"> Stanford University - Prof. Choongbum Lee</a></li>
+                        <li><a href="https://academiccommons.columbia.edu/doi/10.7916/d8-ngq8-9s10"> Columbia University </a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Vasicek_model">Wikipedia: Vasicek</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Black%E2%80%93Karasinski_model">Wikipedia: Karasinski</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Heston_model">Wikipedia: Heston</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">Wikipedia: Geometric Brownian</a></li>
+                        <li><a href="https://quantpie.co.uk/SDEs/Arithemtic_Brownian_summary.php">Quantpie - Arithemtic Brownian</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Hull%E2%80%93White_model"> Wikipedia: Whit_model </a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Cox%E2%80%93Ingersoll%E2%80%93Ross_model"> Wikipedia: Ross_model</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process"> Wikipedia: Ornstein</a> </li>
+                    </ol>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+<script>
+    function showParameters() {
+        // Hide all parameter groups
+        const parameterGroups = document.getElementsByClassName("parameter-group");
+        for (const group of parameterGroups) {
+            group.style.display = "none";
+        }
+
+        const initialGroup = document.getElementsByClassName("initial-group");
+        for (const group of initialGroup) {
+            group.style.display = "none";
+        }
+
+        // Show the selected parameter group
+        const params = document.getElementById("parameters");
+        const selectedProcess = document.getElementById("processType").value;
+        const selectedParameterGroup = document.getElementById(`${selectedProcess}Parameters`);
+        if (selectedParameterGroup) {
+            selectedParameterGroup.style.display = "block";
+        }
+        if(selectedProcess == "poisson") {
+            params.style.display = "none";
+        }
+        else {
+            params.style.display = "block";
+        }
+    }
+</script>
+
+
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
