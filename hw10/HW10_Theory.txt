@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/statistics/assets/css/style.css?v=2338855d07a80ee1e002e9f9dc12344203d0c366">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+  <!-- Setup theme-color -->
+  <!-- start theme color meta headers -->
+  <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- end theme color meta headers -->
+
+
+  <!-- Setup Google Analytics -->
+
+
+
+  <!-- You can set your favicon here -->
+  <!-- link rel="shortcut icon" type="image/x-icon" href="/statistics/favicon.ico" -->
+
+  <!-- end custom head snippets -->
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+  <title>Statistics 2024/2025</title>
+  <meta name="generator" content="Jekyll v3.10.0" />
+  <meta property="og:title" content="Student Info:" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description"
+    content="This website contains all the Statistics homework done by me for the year 2024/2025." />
+  <meta property="og:description"
+    content="This website contains all the Statistics homework done by me for the year 2024/2025." />
+  <link rel="canonical" href="https://flaviocanofari.github.io/statistics/" />
+  <meta property="og:url" content="https://flaviocanofari.github.io/statistics/" />
+  <meta property="og:site_name" content="Statistics 2024/2025" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="twitter:title" content="Student Info:" />
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"This website contains all the Statistics homework done by me for the year 2024/2025.","headline":"Student Info:","name":"Statistics 2024/2025","url":"https://flaviocanofari.github.io/statistics/"}</script>
+  <!-- End Jekyll SEO tag -->
+  <style>
+    .highlight {
+      color: #d0d0d0
+    }
+
+    .highlight table td {
+      padding: 5px
+    }
+
+    .highlight table pre {
+      margin: 0
+    }
+
+    .highlight .w {
+      color: #d0d0d0
+    }
+
+    .highlight .err {
+      color: #151515;
+      background-color: #ac4142
+    }
+
+    .highlight .c,
+    .highlight .cd,
+    .highlight .cm,
+    .highlight .c1,
+    .highlight .cs {
+      color: #888
+    }
+
+    .highlight .cp {
+      color: #f4bf75
+    }
+
+    .highlight .o,
+    .highlight .ow {
+      color: #f4bf75
+    }
+
+    .highlight .p,
+    .highlight .pi {
+      color: #d0d0d0
+    }
+
+    .highlight .gi {
+      color: #90a959
+    }
+
+    .highlight .gd {
+      color: #ac4142
+    }
+
+    .highlight .gh {
+      color: #6a9fb5;
+      font-weight: bold
+    }
+
+    .highlight .k,
+    .highlight .kn,
+    .highlight .kp,
+    .highlight .kr,
+    .highlight .kv {
+      color: #aa759f
+    }
+
+    .highlight .kc,
+    .highlight .kt,
+    .highlight .kd {
+      color: #d28445
+    }
+
+    .highlight .s,
+    .highlight .sb,
+    .highlight .sc,
+    .highlight .sd,
+    .highlight .s2,
+    .highlight .sh,
+    .highlight .sx,
+    .highlight .s1 {
+      color: #90a959
+    }
+
+    .highlight .sr {
+      color: #75b5aa
+    }
+
+    .highlight .si,
+    .highlight .se {
+      color: #8f5536
+    }
+
+    .highlight .nt,
+    .highlight .nn,
+    .highlight .nc,
+    .highlight .no {
+      color: #f4bf75
+    }
+
+    .highlight .na {
+      color: #6a9fb5
+    }
+
+    .highlight .m,
+    .highlight .mf,
+    .highlight .mh,
+    .highlight .mi,
+    .highlight .il,
+    .highlight .mo,
+    .highlight .mb,
+    .highlight .mx {
+      color: #90a959
+    }
+
+    .highlight .ss {
+      color: #90a959
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #151515 url("../assets/images/bkg.png") 0 0;
+      color: #eaeaea;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0
+    }
+
+    section {
+      display: block;
+      margin: 0 0 20px 0
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0 0 20px
+    }
+
+    li {
+      line-height: 1.4
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.1);
+      width: 100%;
+      border-bottom: 1px dashed #b5e853;
+      padding: 20px 0;
+      margin: 0 0 40px 0
+    }
+
+    header h1 {
+      font-size: 30px;
+      line-height: 1.5;
+      margin: -8px 0 0 -40px;
+      font-weight: bold;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+      color: #b5e853;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1), 0 0 10px rgba(181, 232, 83, 0.1);
+      letter-spacing: -1px;
+      -webkit-font-smoothing: antialiased
+    }
+
+    @media (max-width: 1000px) {
+      header h1 {
+        margin-left: 0
+      }
+    }
+
+    header h1:before {
+      content: "./ ";
+      font-size: 24px
+    }
+
+    header h2 {
+      font-size: 18px;
+      font-weight: 300;
+      color: #666
+    }
+
+    #downloads .btn {
+      display: inline-block;
+      text-align: center;
+      margin: 0
+    }
+
+    #main_content {
+      width: 100%;
+      -webkit-font-smoothing: antialiased
+    }
+
+    section img {
+      max-width: 100%
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+      color: #b5e853;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1), 0 0 10px rgba(181, 232, 83, 0.1)
+    }
+
+    #main_content h1 {
+      font-size: 30px
+    }
+
+    #main_content h2 {
+      font-size: 24px
+    }
+
+    #main_content h3 {
+      font-size: 18px
+    }
+
+    #main_content h4 {
+      font-size: 14px
+    }
+
+    #main_content h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      margin: 0 0 5px 0
+    }
+
+    #main_content h6 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #999;
+      margin: 0 0 5px 0
+    }
+
+    dt {
+      font-style: italic;
+      font-weight: bold
+    }
+
+    ul li {
+      list-style-image: url("../assets/images/bullet.png")
+    }
+
+    blockquote {
+      color: #aaa;
+      padding-left: 10px;
+      border-left: 1px dotted #666
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      font-size: 16px;
+      color: #b5e853;
+      border-radius: 2px;
+      word-wrap: normal;
+      overflow: auto;
+      overflow-y: hidden
+    }
+
+    code.highlighter-rouge {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0px 3px;
+      margin: 0px -3px;
+      color: #aa759f;
+      border-radius: 2px
+    }
+
+    table {
+      width: 100%;
+      margin: 0 0 20px 0
+    }
+
+    th {
+      text-align: left;
+      border-bottom: 1px dashed #b5e853;
+      padding: 5px 10px
+    }
+
+    td {
+      padding: 5px 10px
+    }
+
+    hr {
+      height: 0;
+      border: 0;
+      border-bottom: 1px dashed #b5e853;
+      color: #b5e853
+    }
+
+    .btn {
+      display: inline-block;
+      background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+      border-top: 2px solid #000;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05)
+    }
+
+    .btn:hover {
+      background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8))
+    }
+
+    .btn .icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin: 1px 8px 0 0;
+      float: left
+    }
+
+    .btn-github .icon {
+      opacity: 0.6;
+      background: url("../assets/images/blacktocat.png") 0 0 no-repeat
+    }
+
+    a {
+      color: #63c0f5;
+      text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+      text-decoration: none;
+    }
+
+    .cf:before,
+    .cf:after {
+      content: "";
+      display: table
+    }
+
+    .cf:after {
+      clear: both
+    }
+
+    .cf {
+      zoom: 1
+    }
+
+    #a-title {
+      text-decoration: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <ul class="home">
+        <li><a href="https://flaviocanofari.github.io/statistics/">HOME</a></li>
+      </ul>
+      <h1>Homework 10 - Theory</h1>
+      <ul>
+        <li>In order to see the practice <a
+            href="https://flaviocanofari.github.io/statistics/hw10/hw10_practice.html">click here</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <body>
+  <div class="container">
+    <section id="main_content">
+      <h1>General Concepts</h1>
+
+    <h2>Sampling Mean and Variance</h2>
+    <p>The sampling mean and variance are key concepts in statistics, used to summarize and infer information about a population based on a sample. The sampling mean, denoted \( \bar{X} \), is calculated as:</p>
+    <p>\[ \bar{X} = \frac{1}{n} \sum_{i=1}^n X_i \]</p>
+    <p>Here, \( X_i \) represents the individual observations in the sample, and \( n \) is the sample size. The sampling mean provides an estimate of the population mean, \( \mu \), and serves as a central measure of location for the data.</p>
+    
+    <p>Similarly, the sampling variance, denoted \( S^2 \), measures the dispersion of the sample data around the sampling mean. It is calculated as:</p>
+    <p>\[ S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2 \]</p>
+    <p>This formula ensures that \( S^2 \) is an unbiased estimator of the population variance \( \sigma^2 \). As the sample size increases, the sampling variance provides an increasingly accurate representation of the population variance.</p>
+
+    <h3>Main Features of Their Distributions</h3>
+    <p>One of the key properties of the sampling mean is that its expected value is equal to the population mean, \( E[\bar{X}] = \mu \). Furthermore, the variance of the sampling mean decreases as the sample size increases, according to the relationship:</p>
+    <p>\[ \text{Var}(\bar{X}) = \frac{\sigma^2}{n} \]</p>
+    <p>This reduction in variance reflects the fact that larger samples provide more precise estimates of the population mean. Additionally, the Central Limit Theorem states that, for sufficiently large sample sizes, the sampling mean follows a normal distribution, regardless of the distribution of the population. This property underpins many statistical inference methods.</p>
+
+    <p>The sampling variance, \( S^2 \), is also a random variable and approaches the true population variance as the sample size increases. It provides crucial information about the spread and variability of the sample data, complementing the insights gained from the sampling mean.</p>
+
+    <h2>Lebesgue–Stieltjes Integration</h2>
+    <p>Lebesgue–Stieltjes integration generalizes the concept of Riemann integration, extending it to integrate functions with respect to another function, rather than a simple variable. This approach is particularly valuable in probability and measure theory, as it allows for the integration of discontinuous functions and the combination of discrete and continuous measures.</p>
+
+    <p>Formally, the Lebesgue–Stieltjes integral of a function \( f \) with respect to a function \( g \) over an interval \([a, b]\) is written as:</p>
+    <p>\[ \int_a^b f(x) \, dg(x) \]</p>
+    <p>Here, \( g \) is a monotonic function that induces a measure, enabling the integration to accommodate various types of distributions.</p>
+
+    <h3>Applications in Probability Theory</h3>
+    <p>In probability theory, Lebesgue–Stieltjes integration is used to define expectations and probabilities in a unified framework. For instance, the expected value of a random variable \( X \) with a cumulative distribution function (CDF) \( F(x) \) is expressed as:</p>
+    <p>\[ E[X] = \int_{-\infty}^\infty x \, dF(x) \]</p>
+    <p>This representation seamlessly handles both continuous and discrete random variables. Furthermore, probabilities of events can be computed using the Lebesgue–Stieltjes integral, making it a versatile tool in stochastic modeling and analysis.</p>
+
+    <h3>Applications in Measure Theory</h3>
+    <p>In measure theory, Lebesgue–Stieltjes integration connects measures and integration, providing a rigorous foundation for modern analysis. It extends integration to functions that are not easily handled by Riemann integration, such as those with discontinuities or defined over irregular domains. This framework is essential for defining and analyzing measures, enabling precise mathematical descriptions of complex phenomena.</p>
+
+    <p>Overall, Lebesgue–Stieltjes integration is a cornerstone of advanced probability and measure theory, offering a powerful and flexible tool for mathematical modeling and analysis.</p>
+    </section>
+  </div>
+  <script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+  </script>
+</body>
+
+</html>

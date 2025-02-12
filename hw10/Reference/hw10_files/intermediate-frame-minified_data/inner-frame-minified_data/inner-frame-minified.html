@@ -1,0 +1,67 @@
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- base href="https://1807482734-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.5oZHy0SiJxw.O%2Fd%3D1%2Frs%3DAHpOoo-Hry6DG-RE4t9kNz_t6hiwmwXOmA%2Fm%3D__features__" -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebesgue–Stieltjes Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lebesgue–Stieltjes Integration</h1>
+    
+    <h2>General Idea</h2>
+    <p>
+        Lebesgue–Stieltjes integration is a generalization of the Riemann and Lebesgue integrals. 
+        It is used to integrate a function <em>f(x)</em> with respect to another function <em>g(x)</em>, called the <strong>integrator</strong>.
+    </p>
+    <p>
+        In simpler terms, it allows us to sum up values of <em>f(x)</em> while considering how <em>g(x)</em> changes. 
+        This is particularly useful when <em>g(x)</em> is not smooth or has jumps (e.g., a step function).
+    </p>
+    <p>
+        Key features:
+    </p>
+    <ul>
+        <li>If <em>g(x)</em> is continuous and increasing, this integral behaves like the Riemann integral.</li>
+        <li>If <em>g(x)</em> is a step function, the integral reduces to a sum over the steps, which is common in probability theory.</li>
+        <li>The integral works even if <em>g(x)</em> has discontinuities or grows in a non-linear way.</li>
+    </ul>
+    
+    <h2>Applications in Probability Theory</h2>
+    <h3>Cumulative Distribution Functions (CDFs)</h3>
+    <p>
+        In probability, the CDF <em>F(x)</em> describes how probabilities accumulate. 
+        The Lebesgue–Stieltjes integral allows us to compute expected values (or means) by integrating a random variable <em>X</em> with respect to its CDF:
+    </p>
+    <p>
+        <strong>Expected value:</strong> <em>𝔼[X] = ∫ x dF(x)</em>.
+    </p>
+
+    <h3>Discrete and Continuous Random Variables</h3>
+    <p>
+        <strong>Discrete Random Variables:</strong> For these, <em>F(x)</em> is a step function, and the integral simplifies to a sum.
+    </p>
+    <p>
+        <strong>Continuous Random Variables:</strong> For these, <em>F(x)</em> is smooth, and the integral behaves like the usual Lebesgue integral.
+    </p>
+
+    <h3>Mixed Distributions</h3>
+    <p>
+        Lebesgue–Stieltjes integration is especially useful for random 
+variables with both discrete and continuous components. It handles the 
+jumps and continuous parts of <em>F(x)</em> seamlessly.
+    </p>
+
+
+</body></html>

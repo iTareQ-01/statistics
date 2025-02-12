@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework10</title>
+  <link href="src/Style.css" rel="stylesheet">
+
+  <!-- FlavioCanofari Header -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Setup Google Analytics -->
+
+  <!-- start theme color meta headers -->
+  <!-- <meta name="theme-color" content="#151515">
+  <meta name="msapplication-navbutton-color" content="#151515">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
+</head>
+
+<body>
+
+<div id="app" data-v-app="">
+    <div data-v-7b2a1075="" class="container">
+        <div id="main_content" class="hw">
+            <h1>Homework 10</h1>
+            <h2>Theorical</h2>
+            <h3>General Concepts</h3>
+
+            <h4>Sampling Mean and Variance</h4>
+            <p>The sampling mean and variance are key concepts in statistics, used to summarize and infer information about a population based on a sample. 
+                The sampling mean, denoted \( \bar{X} \), is calculated as:</p>
+            <p>\[ \bar{X} = \frac{1}{n} \sum_{i=1}^n X_i \]</p>
+            <p>Here, \( X_i \) represents the individual observations in the sample, and \( n \) is the sample size. The sampling mean provides an estimate 
+                of the population mean, \( \mu \), and serves as a central measure of location for the data.</p>
+            
+            <p>Similarly, the sampling variance, denoted \( S^2 \), measures the dispersion of the sample data around the sampling mean. It is calculated 
+                as:</p>
+            <p>\[ S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2 \]</p>
+            <p>This formula ensures that \( S^2 \) is an unbiased estimator of the population variance \( \sigma^2 \). As the sample size increases, 
+                the sampling variance provides an increasingly accurate representation of the population variance.</p>
+        
+            <h4>Main Features of Their Distributions</h4>
+            <p>One of the key properties of the sampling mean is that its expected value is equal to the population mean, \( E[\bar{X}] = \mu \). 
+                Furthermore, the variance of the sampling mean decreases as the sample size increases, according to the relationship:</p>
+            <p>\[ \text{Var}(\bar{X}) = \frac{\sigma^2}{n} \]</p>
+            <p>This reduction in variance reflects the fact that larger samples provide more precise estimates of the population mean. Additionally, the 
+                Central Limit Theorem states that, for sufficiently large sample sizes, the sampling mean follows a normal distribution, regardless of the 
+                distribution of the population. This property underpins many statistical inference methods.</p>
+        
+            <p>The sampling variance, \( S^2 \), is also a random variable and approaches the true population variance as the sample size increases. It 
+                provides crucial information about the spread and variability of the sample data, complementing the insights gained from the sampling mean.</p>
+        
+            <h3>Lebesgue–Stieltjes Integration</h3>
+            <p>Lebesgue–Stieltjes integration generalizes the concept of Riemann integration, extending it to integrate functions with respect to another 
+                function, rather than a simple variable. This approach is particularly valuable in probability and measure theory, as it allows for the 
+                integration of discontinuous functions and the combination of discrete and continuous measures.</p>
+        
+            <p>Formally, the Lebesgue–Stieltjes integral of a function \( f \) with respect to a function \( g \) over an interval \([a, b]\) is written 
+                as:</p>
+            <p>\[ \int_a^b f(x) \, dg(x) \]</p>
+            <p>Here, \( g \) is a monotonic function that induces a measure, enabling the integration to accommodate various types of distributions.</p>
+        
+            <h4>Applications in Probability Theory</h4>
+            <p>In probability theory, Lebesgue–Stieltjes integration is used to define expectations and probabilities in a unified framework. For instance, 
+                the expected value of a random variable \( X \) with a cumulative distribution function (CDF) \( F(x) \) is expressed as:</p>
+            <p>\[ E[X] = \int_{-\infty}^\infty x \, dF(x) \]</p>
+            <p>This representation seamlessly handles both continuous and discrete random variables. Furthermore, probabilities of events can be computed 
+                using the Lebesgue–Stieltjes integral, making it a versatile tool in stochastic modeling and analysis.</p>
+        
+            <h4>Applications in Measure Theory</h4>
+            <p>In measure theory, Lebesgue–Stieltjes integration connects measures and integration, providing a rigorous foundation for modern analysis. 
+                It extends integration to functions that are not easily handled by Riemann integration, such as those with discontinuities or defined over 
+                irregular domains. This framework is essential for defining and analyzing measures, enabling precise mathematical descriptions of complex 
+                phenomena.</p>
+        
+            <p>Overall, Lebesgue–Stieltjes integration is a cornerstone of advanced probability and measure theory, offering a powerful and flexible tool 
+                for mathematical modeling and analysis.</p>
+
+            <!-- =========== Practical ================= -->
+            <h2>Practical</h2>
+            <h3>Numerical Integration: Riemann vs. Lebesgue</h3>
+            <form id="integrationForm">
+                <label for="functionInput">Function \(f(x)\):</label>
+                <input type="text" id="functionInput" placeholder="e.g., x*x or Math.sin(x)" required>
+                <br>
+                <label for="lowerBound">Lower Bound:</label>
+                <input type="number" id="lowerBound" placeholder="e.g., 0" required>
+                <br>
+                <label for="upperBound">Upper Bound:</label>
+                <input type="number" id="upperBound" placeholder="e.g., 1" required>
+                <br>
+                <label for="steps">Number of Steps:</label>
+                <input type="number" id="steps" placeholder="e.g., 100" required>
+                <br>
+                <!-- Here we changed the button class -->
+                <div class="run-button-container">
+                    <button type="button" class="run-button" onclick="computeIntegrals()">Compute</button>
+                </div>
+            </form>
+            <h3>Results</h3>
+            <div id="results">
+              <p><strong>Riemann Integral:</strong> <span id="riemannResult">N/A</span></p>
+              <p><strong>Lebesgue Integral:</strong> <span id="lebesgueResult">N/A</span></p>
+            </div>
+            
+                <!-- Here we changed the button class
+                <div class="run-button-container">
+                    <button id="generateGraphButton" type="submit" class="run-button" onclick="generateHistogram()"
+                      style="margin-top: 10px;">Generate</button>
+                  </div> -->
+        
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function adjustMargin() {
+      var element = document.querySelector('.home');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+      } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+      } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+      } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+      }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+  </script>
+  <script>
+    function evaluateFunction(func, x) {
+      return new Function('x', `return ${func};`)(x);
+    }
+
+    function computeRiemann(func, lower, upper, steps) {
+      const dx = (upper - lower) / steps;
+      let sum = 0;
+      for (let i = 0; i < steps; i++) {
+        const x = lower + i * dx;
+        sum += evaluateFunction(func, x) * dx;
+      }
+      return sum;
+    }
+
+    function computeLebesgue(func, lower, upper, steps) {
+      const dx = (upper - lower) / steps;
+      let values = [];
+      for (let i = 0; i < steps; i++) {
+        const x = lower + i * dx;
+        const y = evaluateFunction(func, x);
+        values.push({ x, y });
+      }
+
+      values.sort((a, b) => a.y - b.y);
+
+      let lebIntegral = 0;
+      let dy = values[0].y;
+      let currentMeasure = 0;
+
+      for (let i = 0; i < values.length; i++) {
+        const y = values[i].y;
+        if (Math.abs(y - dy) > 1e-10) {
+          lebIntegral += dy * currentMeasure;
+          dy = y;
+          currentMeasure = dx;
+        } else {
+          currentMeasure += dx;
+        }
+      }
+
+      lebIntegral += dy * currentMeasure;
+
+      return lebIntegral;
+    }
+
+    function computeIntegrals() {
+      const func = document.getElementById("functionInput").value;
+      const lower = parseFloat(document.getElementById("lowerBound").value);
+      const upper = parseFloat(document.getElementById("upperBound").value);
+      const steps = parseInt(document.getElementById("steps").value, 10);
+
+      const riemann = computeRiemann(func, lower, upper, steps);
+      const lebesgue = computeLebesgue(func, lower, upper, steps);
+
+      document.getElementById("riemannResult").textContent = riemann.toFixed(5);
+      document.getElementById("lebesgueResult").textContent = lebesgue.toFixed(5);
+    }
+</script>
+
+<script>
+    function adjustMargin() {
+        var element = document.querySelector('.home');
+        var screenWidth = window.innerWidth;
+
+        if (screenWidth > 1400) {
+        element.style.marginLeft = "-20%";
+        } else if (screenWidth < 1000) {
+        element.style.marginLeft = "0px";
+        } else if (screenWidth > 1000 & screenWidth < 1080) {
+        element.style.marginLeft = "-40px";
+        } else {
+        newMargin = -((screenWidth - 1000) / 2);
+        element.style.marginLeft = newMargin + "px";
+        }
+    }
+    adjustMargin();
+    window.addEventListener('resize', adjustMargin);
+</script>
+
+<script 
+    type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

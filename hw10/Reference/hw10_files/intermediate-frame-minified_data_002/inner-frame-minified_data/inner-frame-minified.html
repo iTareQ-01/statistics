@@ -1,0 +1,205 @@
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- base href="https://1807482734-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.5oZHy0SiJxw.O%2Fd%3D1%2Frs%3DAHpOoo-Hry6DG-RE4t9kNz_t6hiwmwXOmA%2Fm%3D__features__" -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebesgue vs Riemann Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+        }
+        h1 {
+            font-size: 16px;
+        }
+        input, button {
+            margin: 5px 0;
+        }
+        canvas {
+            margin-top: 20px;
+        }
+        .results-table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 50%; 
+            max-width: 600px;
+            background-color: #868585
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #989393;
+            text-align: left;
+            padding: 8px;
+        }
+        .results-table th {
+            background-color: #959292; 
+            color: rgb(10, 0, 0);
+        }
+        .results-table td {
+            background-color: #ffffff; 
+        }
+    </style>
+    <script src="inner-frame-minified_data/chart.js"></script>
+</head>
+<body>
+    <h1>Compare Lebesgue and Riemann Integration</h1>
+
+    <!-- Input Section -->
+    <label for="distribution">Enter distribution function (f(x)):</label><br>
+    <input type="text" id="distribution" value="Math.exp(-x)" placeholder="e.g., Math.exp(-x)"><br>
+    <p>Possible functions you can enter:</p>
+    <ul>
+    <li><code>Math.exp(-x)</code></li>
+    <li><code>Math.exp(-x*x)</code></li>
+    <li><code>Math.sin(x)</code></li>
+    <li><code>Math.cos(x)</code></li>
+    <li><code>x*x</code></li>
+    <li><code>x &gt;= 5 ? 1 : 0</code></li>
+    <li><code>Math.log(x + 1)</code></li>
+    <li><code>1 / (x + 1)</code></li>
+    </ul>
+    <label for="range">Integration range [a, b]:</label><br>
+    <input type="number" id="a" value="0" placeholder="Start (a)"> to 
+    <input type="number" id="b" value="10" placeholder="End (b)"><br>
+    <label for="intervals">Number of intervals:</label><br>
+    <input type="number" id="intervals" value="100" min="1"><br>
+    <button onclick="computeIntegrals()">Compute</button>
+    
+    <!-- Results Section -->
+    <h2>Results</h2>
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Integral Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lebesgue Integral</td>
+                <td id="lebesgueResult"></td>
+            </tr>
+            <tr>
+                <td>Riemann Integral</td>
+                <td id="riemannResult"></td>
+            </tr>
+            <tr>
+                <td>Difference</td>
+                <td id="difference"></td>
+            </tr>
+            <tr>
+                <td>Mean (E[X])</td>
+                <td id="meanResult"></td>
+            </tr>
+            <tr>
+                <td>Variance (Var[X])</td>
+                <td id="varianceResult"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Graph Section -->
+    <h2>Visualization</h2>
+    <canvas id="chartCanvas" width="400" height="200"></canvas>
+
+    <script>
+        let chartInstance; // Variabile globale per mantenere il riferimento al grafico
+
+        // Funzione per calcolare numericamente l'integrale di Lebesgue e Riemann
+        function computeIntegrals() {
+            // Ottieni input dall'utente
+            const f = new Function('x', 'return ' + document.getElementById('distribution').value); // Funzione distribuzione
+            const a = parseFloat(document.getElementById('a').value); // Inizio intervallo
+            const b = parseFloat(document.getElementById('b').value); // Fine intervallo
+            const n = parseInt(document.getElementById('intervals').value); // Numero di intervalli
+            
+            const dx = (b - a) / n; // Larghezza dell'intervallo
+            let riemannSum = 0; // Somma per l'integrale di Riemann
+            let lebesgueSum = 0; // Somma per l'integrale di Lebesgue
+            let mean = 0; // Media
+            let meanSquare = 0; // Media dei quadrati (per calcolare la varianza)
+            
+            // Array per memorizzare valori di f(x)
+            const values = [];
+            for (let i = 0; i < n; i++) {
+                const x = a + i * dx; // Punto nell'intervallo
+                const fx = f(x); // Calcola f(x)
+                values.push({ x, fx });
+                
+                // Calcolo media e media dei quadrati
+                mean += x * fx;
+                meanSquare += x * x * fx;
+                
+                // Calcolo per l'integrale di Riemann
+                riemannSum += f(x) * dx;
+            }
+            
+            // Ordinare i valori per f(x) (necessario per Lebesgue)
+            values.sort((a, b) => a.fx - b.fx);
+            
+            // Calcolo integrale di Lebesgue
+            for (let i = 1; i < values.length; i++) {
+                const dfx = values[i].fx - values[i - 1].fx; // Differenza in f(x)
+                lebesgueSum += values[i - 1].fx * dfx; // Somma prodotto
+            }
+            
+            // Calcolo media e varianza
+            mean /= (b - a); // Media
+            meanSquare /= (b - a); // Media dei quadrati
+            const variance = meanSquare - mean * mean; // Varianza
+            
+            // Visualizza risultati
+            document.getElementById('lebesgueResult').textContent = lebesgueSum.toFixed(6);
+            document.getElementById('riemannResult').textContent = riemannSum.toFixed(6);
+            document.getElementById('difference').textContent = Math.abs(lebesgueSum - riemannSum).toFixed(6);
+            document.getElementById('meanResult').textContent = mean.toFixed(6);
+            document.getElementById('varianceResult').textContent = variance.toFixed(6);
+
+            // Visualizza grafico
+            renderChart(values.map(v => v.x), values.map(v => v.fx));
+        }
+
+        // Funzione per visualizzare il grafico
+        function renderChart(xValues, yValues) {
+            const ctx = document.getElementById('chartCanvas').getContext('2d');
+            
+            // Se esiste un grafico precedente, distruggilo per evitarne la sovrapposizione
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            // Creazione di un nuovo grafico
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: xValues,
+                    datasets: [
+                        {
+                            label: 'f(x)',
+                            data: yValues,
+                            borderColor: 'yellow',
+                            fill: false,
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: { title: { display: true, text: 'x' } },
+                        y: { title: { display: true, text: 'f(x)' } }
+                    }
+                }
+            });
+        }
+    </script>
+
+
+
+</body></html>
